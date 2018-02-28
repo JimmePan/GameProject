@@ -87,9 +87,10 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_CRT_SECURE_NO_DEPRECATE;_SCL_SECURE_NO_DEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>I:\DxLib_VC\プロジェクトに追加すべきファイル_VC用;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -148,16 +149,85 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AbstractBackground.cpp" />
+    <ClCompile Include="AbstractEnemy.cpp" />
+    <ClCompile Include="AbstractScene.cpp" />
+    <ClCompile Include="Background01.cpp" />
+    <ClCompile Include="Background01spell.cpp" />
+    <ClCompile Include="BigEnemy.cpp" />
+    <ClCompile Include="Board.cpp" />
+    <ClCompile Include="CalcUtils.cpp" />
     <ClCompile Include="Define.cpp" />
+    <ClCompile Include="DelEnemyEffect.cpp" />
+    <ClCompile Include="DelEnemyEffect2.cpp" />
+    <ClCompile Include="Effect.cpp" />
+    <ClCompile Include="EffectManager.cpp" />
+    <ClCompile Include="EnemyManager.cpp" />
+    <ClCompile Include="EnemyMover.cpp" />
+    <ClCompile Include="Error.cpp" />
+    <ClCompile Include="Fps.cpp" />
     <ClCompile Include="game.cpp" />
+    <ClCompile Include="GameScene.cpp" />
+    <ClCompile Include="Image.cpp" />
+    <ClCompile Include="ImageBullet.cpp" />
+    <ClCompile Include="Judgement.cpp" />
+    <ClCompile Include="Keyboard.cpp" />
     <ClCompile Include="Looper.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="NormalEnemy.cpp" />
+    <ClCompile Include="Pad.cpp" />
+    <ClCompile Include="Parameter.cpp" />
+    <ClCompile Include="Player.cpp" />
+    <ClCompile Include="PlayerShot.cpp" />
+    <ClCompile Include="PlayerShotJudgeEnemy.cpp" />
+    <ClCompile Include="PlayerShotManager.cpp" />
+    <ClCompile Include="Surface.cpp" />
     <ClCompile Include="SystemMain.cpp" />
+    <ClCompile Include="TitleScene.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AbstractBackground.h" />
+    <ClInclude Include="AbstractEnemy.h" />
+    <ClInclude Include="AbstractJudge.h" />
+    <ClInclude Include="AbstractScene.h" />
+    <ClInclude Include="Background01.h" />
+    <ClInclude Include="Background01spell.h" />
+    <ClInclude Include="BigEnemy.h" />
+    <ClInclude Include="Board.h" />
+    <ClInclude Include="CalcUtils.h" />
     <ClInclude Include="Define.h" />
+    <ClInclude Include="DelEnemyEffect.h" />
+    <ClInclude Include="DelEnemyEffect2.h" />
+    <ClInclude Include="Effect.h" />
+    <ClInclude Include="EffectManager.h" />
+    <ClInclude Include="EnemyManager.h" />
+    <ClInclude Include="EnemyMover.h" />
+    <ClInclude Include="Error.h" />
+    <ClInclude Include="eScene.h" />
+    <ClInclude Include="Fps.h" />
+    <ClInclude Include="GameScene.h" />
+    <ClInclude Include="Image.h" />
+    <ClInclude Include="ImageBullet.h" />
+    <ClInclude Include="IOnSceneChangedListener.h" />
+    <ClInclude Include="Judgement.h" />
+    <ClInclude Include="Keyboard.h" />
     <ClInclude Include="Looper.h" />
+    <ClInclude Include="Macro.h" />
+    <ClInclude Include="NormalEnemy.h" />
+    <ClInclude Include="Pad.h" />
+    <ClInclude Include="Parameter.h" />
+    <ClInclude Include="Player.h" />
+    <ClInclude Include="PlayerShot.h" />
+    <ClInclude Include="PlayerShotJudgeEnemy.h" />
+    <ClInclude Include="PlayerShotManager.h" />
+    <ClInclude Include="Singleton.h" />
+    <ClInclude Include="Surface.h" />
     <ClInclude Include="SystemMain.h" />
+    <ClInclude Include="Task.h" />
+    <ClInclude Include="TitleScene.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="C:\Users\Administrator\Desktop\test.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

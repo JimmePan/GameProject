@@ -16,6 +16,60 @@
     <Filter Include="源文件\src">
       <UniqueIdentifier>{5dc74c30-d76d-4a4a-8ff9-dbd1cece5c5d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="资源文件\image">
+      <UniqueIdentifier>{a74c25bf-61f5-46ba-81f5-bbe4034d7f94}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="资源文件\image\player">
+      <UniqueIdentifier>{69cae78d-550c-4c63-a572-c23208487222}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="资源文件\image\player\body">
+      <UniqueIdentifier>{9e002cd1-cd43-4235-9ad6-602f63299446}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Common">
+      <UniqueIdentifier>{b014948e-489b-4f3c-8268-2ad58c244d33}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game">
+      <UniqueIdentifier>{69aaac85-aa6c-4ed7-a811-c22f83d32272}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Input">
+      <UniqueIdentifier>{d50d8781-b81d-410d-bd28-a496b19662ab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Player">
+      <UniqueIdentifier>{9ba82982-a430-4c5f-a413-56e02d6ec6f9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource">
+      <UniqueIdentifier>{e0ef8f4f-7e70-4db5-a3f7-78906055b4c9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene">
+      <UniqueIdentifier>{d7c0148b-3f3e-4e59-9f0d-8fb865074947}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Title">
+      <UniqueIdentifier>{7fe4c8e3-6c38-4867-9d29-15e4bf21a432}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utils">
+      <UniqueIdentifier>{8bf9eb87-4496-48a6-8c92-5c1675f7b952}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Frame">
+      <UniqueIdentifier>{b67be818-309e-4e34-8e6d-aecf6024662e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Background">
+      <UniqueIdentifier>{22db430e-bedf-446a-b11f-c72d07517b89}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="3D">
+      <UniqueIdentifier>{6108bc6d-a272-4f5b-9d9e-ebf6ca1019bd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Enemy">
+      <UniqueIdentifier>{90d1fe51-fb5e-4fe2-858f-a1d8e2d9590f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Bullet">
+      <UniqueIdentifier>{0b5f3054-b557-44d6-9690-f30207fb7380}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Judgement">
+      <UniqueIdentifier>{03b19d9f-566b-4525-b543-7f8d6df8515d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Effect">
+      <UniqueIdentifier>{c5e4d2f5-582c-45ce-859c-eccd2e772fb4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="game.cpp">
@@ -30,19 +84,222 @@
     <ClCompile Include="Looper.cpp">
       <Filter>源文件\src</Filter>
     </ClCompile>
+    <ClCompile Include="Fps.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
     <ClCompile Include="Define.cpp">
-      <Filter>源文件\src</Filter>
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="Error.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="GameScene.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Keyboard.cpp">
+      <Filter>Input</Filter>
+    </ClCompile>
+    <ClCompile Include="Pad.cpp">
+      <Filter>Input</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Image.cpp">
+      <Filter>Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="AbstractScene.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Parameter.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="TitleScene.cpp">
+      <Filter>Title</Filter>
+    </ClCompile>
+    <ClCompile Include="CalcUtils.cpp">
+      <Filter>Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="Board.cpp">
+      <Filter>Frame</Filter>
+    </ClCompile>
+    <ClCompile Include="AbstractBackground.cpp">
+      <Filter>Background</Filter>
+    </ClCompile>
+    <ClCompile Include="Background01spell.cpp">
+      <Filter>Background</Filter>
+    </ClCompile>
+    <ClCompile Include="Surface.cpp">
+      <Filter>3D</Filter>
+    </ClCompile>
+    <ClCompile Include="Background01.cpp">
+      <Filter>Background</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyManager.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="AbstractEnemy.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="NormalEnemy.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="BigEnemy.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyMover.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="ImageBullet.cpp">
+      <Filter>Bullet</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerShot.cpp">
+      <Filter>Player</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerShotManager.cpp">
+      <Filter>Player</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerShotJudgeEnemy.cpp">
+      <Filter>Judgement</Filter>
+    </ClCompile>
+    <ClCompile Include="Judgement.cpp">
+      <Filter>Judgement</Filter>
+    </ClCompile>
+    <ClCompile Include="Effect.cpp">
+      <Filter>Effect</Filter>
+    </ClCompile>
+    <ClCompile Include="DelEnemyEffect.cpp">
+      <Filter>Effect</Filter>
+    </ClCompile>
+    <ClCompile Include="EffectManager.cpp">
+      <Filter>Effect</Filter>
+    </ClCompile>
+    <ClCompile Include="DelEnemyEffect2.cpp">
+      <Filter>Effect</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Define.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="Looper.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="SystemMain.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="Define.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Error.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Fps.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Macro.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Singleton.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Task.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="GameScene.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Keyboard.h">
+      <Filter>Input</Filter>
+    </ClInclude>
+    <ClInclude Include="Pad.h">
+      <Filter>Input</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Image.h">
+      <Filter>Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="AbstractScene.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="eScene.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Parameter.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="TitleScene.h">
+      <Filter>Title</Filter>
+    </ClInclude>
+    <ClInclude Include="CalcUtils.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="IOnSceneChangedListener.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Board.h">
+      <Filter>Frame</Filter>
+    </ClInclude>
+    <ClInclude Include="AbstractBackground.h">
+      <Filter>Background</Filter>
+    </ClInclude>
+    <ClInclude Include="Background01spell.h">
+      <Filter>Background</Filter>
+    </ClInclude>
+    <ClInclude Include="Surface.h">
+      <Filter>3D</Filter>
+    </ClInclude>
+    <ClInclude Include="Background01.h">
+      <Filter>Background</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyManager.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="AbstractEnemy.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="NormalEnemy.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="BigEnemy.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyMover.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="ImageBullet.h">
+      <Filter>Bullet</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerShot.h">
+      <Filter>Player</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerShotManager.h">
+      <Filter>Player</Filter>
+    </ClInclude>
+    <ClInclude Include="AbstractJudge.h">
+      <Filter>Judgement</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerShotJudgeEnemy.h">
+      <Filter>Judgement</Filter>
+    </ClInclude>
+    <ClInclude Include="Judgement.h">
+      <Filter>Judgement</Filter>
+    </ClInclude>
+    <ClInclude Include="DelEnemyEffect.h">
+      <Filter>Effect</Filter>
+    </ClInclude>
+    <ClInclude Include="Effect.h">
+      <Filter>Effect</Filter>
+    </ClInclude>
+    <ClInclude Include="EffectManager.h">
+      <Filter>Effect</Filter>
+    </ClInclude>
+    <ClInclude Include="DelEnemyEffect2.h">
+      <Filter>Effect</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="C:\Users\Administrator\Desktop\test.png">
+      <Filter>资源文件\image\player\body</Filter>
+    </Image>
   </ItemGroup>
 </Project>
