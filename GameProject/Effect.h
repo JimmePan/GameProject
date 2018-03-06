@@ -29,12 +29,12 @@ protected:
 	int _color; //颜色
 	int _kind;//效果分歧
 	int _img;
-	int _eff;	//特效形势
+	int _eff;	//特效形势		//1：带亮度变化特效 
 	int _brightness;//亮度
 
 	float _x;
 	float _y;
-	float _r;
+	float _r;	//大小比例
 	float _angle;
 };
 

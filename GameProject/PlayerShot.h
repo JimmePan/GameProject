@@ -15,6 +15,8 @@ public:
 	void setPower(int power) { _power = power; }
 	int getCount() const { return _count; }
 	//void setCount(int count) { _count = count; }
+	int getKind() const { return _kind; }
+	//void setKind(int kind) { _kind = kind; }
 
 	float getX() const { return _x; }
 	//void  setX(float x) { _x = x; }

@@ -14,6 +14,16 @@ void PlayerShotJudgeEnemy::Judge(std::shared_ptr<PlayerShotManager> &playShots, 
 			for (auto s = enemys->getList()->begin(); s != enemys->getList()->end();) {
 				if ((*s)->getFlag() > 0) {
 					if (out_judge_shot(i, s)) {		//如果击中
+						
+						switch ((*i)->getKind())		//根据子弹类型确定击中类型
+						{
+						case 0:
+							EffectManager::addShotEnemyEffect01((*i)->getX(), (*s)->getY()+(*s)->getRange());
+							break;
+						default:
+							break;
+						}
+
 						(*i)->setFlag(0);			//消除子弹
 						(*s)->setHp((*i)->getPower());		//敌方减血
 						enemy_death_judge(s);		//判定敌方是否死亡

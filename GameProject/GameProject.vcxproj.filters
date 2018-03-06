@@ -177,6 +177,9 @@
     <ClCompile Include="DelEnemyEffect2.cpp">
       <Filter>Effect</Filter>
     </ClCompile>
+    <ClCompile Include="ShotEnemyEffect01.cpp">
+      <Filter>Effect</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Looper.h">
@@ -294,6 +297,9 @@
       <Filter>Effect</Filter>
     </ClInclude>
     <ClInclude Include="DelEnemyEffect2.h">
+      <Filter>Effect</Filter>
+    </ClInclude>
+    <ClInclude Include="ShotEnemyEffect01.h">
       <Filter>Effect</Filter>
     </ClInclude>
   </ItemGroup>

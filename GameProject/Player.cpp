@@ -9,7 +9,7 @@ using namespace std;
 const static float SPEED = 9;
 
 Player::Player() :_x((float)Define::CENTER_X), _y((float)Define::OUT_H*0.8f), _counter(0), //_change(0),
-_direction(0), _changeCount(0), _slow(false), _power(4.00f)
+_direction(0), _changeCount(0), _slow(false), _power(0.00f)
 //_playerShotManager(make_shared<PlayerShotManager>())
 {
 }

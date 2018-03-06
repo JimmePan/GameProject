@@ -10,7 +10,7 @@ DelEnemyEffect::DelEnemyEffect(float x, float y, int color)
 	_y = y;
 	_r = 0.0f;
 	_color = color;
-	_brightness = 150;
+	_brightness = 180;
 	_count = 0;
 	_angle = rand() / float(RAND_MAX)*Define::PI;
 	_eff = 1;
@@ -49,15 +49,8 @@ bool DelEnemyEffect::update()
 
 void DelEnemyEffect::draw() const
 {
-	if (_eff == 1) {
-		SetDrawBlendMode(DX_BLENDMODE_ADD, _brightness);
-		DrawRotaGraphF(_x, _y, _r, _angle, _img, TRUE);
-	}
-	else {
-
-	}
-	if (_eff == 1)
-		SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
+	DrawRotaGraphF(_x, _y, _r, _angle, _img, TRUE);
+	
 }
 
 
