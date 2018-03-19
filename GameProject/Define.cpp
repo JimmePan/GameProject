@@ -15,4 +15,4 @@ const int Define::IN_X = (OUT_W-IN_W) / 2;
 const int Define::IN_Y = (OUT_H - IN_H) / 2;
 
 const int Define::PL_POWER[] = {23,20};
-const int Define::PL_RANGE[] = { 9,6 };
+const int Define::PL_RANGE[] = { 7,2 };

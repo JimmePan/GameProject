@@ -7,15 +7,40 @@
 
 using namespace std;
 const static float SPEED = 9;
+float Player::pl_x;
+float Player::pl_y;
 
 Player::Player() :_x((float)Define::CENTER_X), _y((float)Define::OUT_H*0.8f), _counter(0), //_change(0),
-_direction(0), _changeCount(0), _slow(false), _power(0.00f)
+_direction(0), _changeCount(0), _slow(false), _power(4.00f), _flag(0), _mutekicnt(0),
+_range(4.0f)//应该根据不同机体变化判定点大小
 //_playerShotManager(make_shared<PlayerShotManager>())
 {
 }
 
 bool Player::update()
 {
+	if (_counter == 0 && _flag == 2) {		//如果当前瞬间死掉的话
+		_x = Define::CENTER_X;				//重设坐标
+		_y = Define::OUT_H + 30;
+		_power = 0.0f;				//火力归零
+		_mutekicnt++;
+	}
+	if (_flag == 2) {			//如果已经死掉正在上浮的话
+		_y -= 4;
+		if (_counter > 55) {
+			_counter = 0;
+			_flag = 3;
+		}
+		_counter++;
+		return true;
+	}
+	if (_mutekicnt > 0) {//如果无敌状态不为0的话
+		_mutekicnt++;
+		if (_mutekicnt > 240) {//如果已经2秒以上的话
+			_flag = 0;
+			_mutekicnt = 0;//还原
+		}
+	}
 	_counter++;
 	move();
 	shot();
@@ -31,18 +56,33 @@ void Player::draw() const
 	/*if (_change == _direction) {*/
 
 
-
-	if (_direction == 0) {
-		DrawRotaGraphF(_x, _y, 1.5, 0.0, Image::getIns()->getPlayer()[imgID[(_counter / 8) % 14]], TRUE);
-		_changeCount = 0;
+	if (_mutekicnt == 0) {
+		if (_direction == 0) {
+			DrawRotaGraphF(_x, _y, 1.5, 0.0, Image::getIns()->getPlayer()[imgID[(_counter / 8) % 14]], TRUE);
+			_changeCount = 0;
+		}
+		if (_direction == 1) {
+			DrawRotaGraphF(_x, _y, 1.5, 0.0, Image::getIns()->getPlayer()[12 + DimgID[(_counter / 8) % 6]], TRUE);
+			_changeCount = 0;
+		}
+		if (_direction == 2) {
+			DrawRotaGraphF(_x, _y, 1.5, 0.0, Image::getIns()->getPlayer()[20 + DimgID[(_counter / 8) % 6]], TRUE);
+			_changeCount = 0;
+		}
 	}
-	if (_direction == 1) {
-		DrawRotaGraphF(_x, _y, 1.5, 0.0, Image::getIns()->getPlayer()[12 + DimgID[(_counter / 8) % 6]], TRUE);
-		_changeCount = 0;
-	}
-	if (_direction == 2) {
-		DrawRotaGraphF(_x, _y, 1.5, 0.0, Image::getIns()->getPlayer()[20 + DimgID[(_counter / 8) % 6]], TRUE);
-		_changeCount = 0;
+	else {
+		if (_direction == 0) {
+			DrawRotaGraphF(_x, _y, 1.5, 0.0, Image::getIns()->getPlayerMuteki()[imgID[(_counter / 8) % 14]], TRUE);
+			_changeCount = 0;
+		}
+		if (_direction == 1) {
+			DrawRotaGraphF(_x, _y, 1.5, 0.0, Image::getIns()->getPlayerMuteki()[12 + DimgID[(_counter / 8) % 6]], TRUE);
+			_changeCount = 0;
+		}
+		if (_direction == 2) {
+			DrawRotaGraphF(_x, _y, 1.5, 0.0, Image::getIns()->getPlayerMuteki()[20 + DimgID[(_counter / 8) % 6]], TRUE);
+			_changeCount = 0;
+		}
 	}
 	if (_slow) {
 		DrawRotaGraphF(_x, _y, 1.5, Define::PI * 2 / 120 * _counter + Define::PI / 8, Image::getIns()->getSlowPlayer()[0], TRUE);
@@ -151,12 +191,15 @@ void Player::move()
 	{
 		_y += moveY;
 	}
+
+	pl_x = _x;		//权宜之计
+	pl_y = _y;
 }
 
 void Player::shot()
 {
 	if (Pad::getIns()->get(ePad::shot) > 0) {
-	//if (true) {
+		//if (true) {
 		_shotCount++;
 		if (_shotCount % 6 == 0) {
 			PlayerShotManager::add(_x - 16.0f, _y, 0);

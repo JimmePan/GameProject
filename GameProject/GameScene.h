@@ -9,6 +9,7 @@
 #include "PlayerShotManager.h"
 #include "Judgement.h"
 #include "EffectManager.h"
+#include "BulletManager.h"
 
 class GameScene : public AbstractScene
 {
@@ -30,6 +31,7 @@ private:
 	std::shared_ptr<AbstractBackground> _background;
 	std::shared_ptr<AbstractBackground> _backgroundSpell;
 	std::shared_ptr<EnemyManager> _enemyManager;
+	std::shared_ptr<BulletManager> _bulletManager;
 	std::shared_ptr<EffectManager> _effectManager;
 	std::shared_ptr<Judgement> _judgement;
 };

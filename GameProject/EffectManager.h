@@ -13,6 +13,7 @@ public:
 	static void addEnemyDelEffect(float x, float y, int color);
 	static void addEnemyDelEffect2(float x, float y, int color);
 	static void addShotEnemyEffect01(float x, float y);
+	static void addShotEnemyEffect02(float x, float y);
 private:
 	static std::list<std::shared_ptr<Effect>> _list;
 };

@@ -3,6 +3,7 @@
 #include "Singleton.h"
 #include<vector>
 
+
 class Image final :public Singleton<Image>
 {
 public:
@@ -12,6 +13,7 @@ public:
 	void release();
 
 	const int* getPlayer() const { return _player; }
+	const int* getPlayerMuteki() const { return _playerMuteki; }
 	const int* getSlowPlayer() const { return _slowPlayer; }
 	int getplayerShot1() const { return _playerShot1; }			//今后可能会做成自己子弹类数组
 	int getplayerShot2() const { return _playerShot2; }			//今后可能会做成自己子弹类数组
@@ -33,11 +35,13 @@ private:
 	int myLoadDivGraph(const char * filename, int n, int xn, int yn, int w, int h, int *buf);
 
 	std::vector<int> _images;
-	int _player[24]; //子机移动
-	int _slowPlayer[2];	//子机慢速背景
-	int _playerShot1;	//子机主子弹
-	int _playerShot2;	//子机主子弹
-	int _onmyou[3];		//子机子子弹背景1（阴阳玉）
+
+	int _player[24]; //自机移动
+	int _playerMuteki[24];//自机无敌移动
+	int _slowPlayer[2];	//自机慢速背景
+	int _playerShot1;	//自机主子弹
+	int _playerShot2;	//自机子子弹
+	int _onmyou[3];		//自机子子弹背景1（阴阳玉）
 	int _enemyDelEffect[5];//敌机死亡效果
 	int _enemyDelEffect2[4];//敌机死亡效果
 	int _shotEnemyEffect1[8];	//击中敌方特效

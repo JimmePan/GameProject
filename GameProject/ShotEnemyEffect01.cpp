@@ -26,9 +26,9 @@ bool ShotEnemyEffect01::update()
 		return false;
 	}
 	else {
-		_img = Image::getIns()->getShotEnemyEffect1()[_imgCount+ _count/8];
+		_img = Image::getIns()->getShotEnemyEffect1()[_imgCount + _count / 8];
 		_angle += Define::PI / 16;
-		_brightness -= _count%8;
+		_brightness -= _count % 8;
 		_y -= 1.f;
 	}
 	return true;

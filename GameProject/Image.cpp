@@ -4,7 +4,9 @@
 
 Image::Image()
 {
-	myLoadDivGraph("E://dat/image/player/body/pl00.png", 24, 8, 3, 32, 48, _player);
+
+	myLoadDivGraph("E://dat/image/player/body/pl00a.png", 24, 8, 3, 32, 48, _player);
+	myLoadDivGraph("E://dat/image/player/body/pl00b.png", 24, 8, 3, 32, 48, _playerMuteki);
 	myLoadDivGraph("E://dat/image/player/slowplayer.png", 2, 2, 1, 64, 64, _slowPlayer);
 	_playerShot1 = myLoadGraph("E://dat/image/player/player_shot1.png");
 	_playerShot2 = myLoadGraph("E://dat/image/player/player_shot2.png");

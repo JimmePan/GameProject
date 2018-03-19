@@ -2,13 +2,14 @@
 #include "Task.h"
 #include "EnemyManager.h"
 #include "PlayerShotManager.h"
+#include "BulletManager.h"
 
 class Judgement 
 {
 public:
 	Judgement();
 	virtual ~Judgement() = default;
-	bool update(std::shared_ptr<PlayerShotManager> &psm, std::shared_ptr<EnemyManager> &em);
+	bool update(std::shared_ptr<PlayerShotManager> &psm, std::shared_ptr<EnemyManager> &em, std::shared_ptr<BulletManager> &bm, std::shared_ptr<Player>& p);
 	//void draw() const override;
 };
 

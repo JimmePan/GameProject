@@ -25,3 +25,5 @@ float CalcUtils::roundSize(float max, float min, int count)
 	}
 
 }
+
+

@@ -30,10 +30,17 @@ bool PlayerShot::update()
 
 void PlayerShot::draw() const
 {
-	if (_kind == 0)
+	switch (_kind)
+	{
+	case 0:
 		DrawRotaGraphF(_x, _y, 1.5, 0.0, Image::getIns()->getplayerShot1(), TRUE);
-	if (_kind == 1)
+		break;
+	case 1:
 		DrawRotaGraphF(_x, _y, 1.5, 0.0, Image::getIns()->getplayerShot2(), TRUE);
+		break;
+	default:
+		break;
+	}
 }
 
 

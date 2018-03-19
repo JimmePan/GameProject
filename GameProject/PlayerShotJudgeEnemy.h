@@ -15,7 +15,7 @@ public:
 	static void Judge(std::shared_ptr<PlayerShotManager> &playShots, std::shared_ptr<EnemyManager> &enemys);
 	
 private:
-	static bool out_judge_shot(std::list<std::shared_ptr<PlayerShot>>::iterator &i, std::list<std::shared_ptr<AbstractEnemy>>::iterator &s);
+	//static bool out_judge_shot(std::list<std::shared_ptr<PlayerShot>>::iterator &i, std::list<std::shared_ptr<AbstractEnemy>>::iterator &s);
 	static void enemy_death_judge(std::list<std::shared_ptr<AbstractEnemy>>::iterator &s);
 };
 

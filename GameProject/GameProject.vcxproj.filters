@@ -180,6 +180,21 @@
     <ClCompile Include="ShotEnemyEffect01.cpp">
       <Filter>Effect</Filter>
     </ClCompile>
+    <ClCompile Include="Bullet.cpp">
+      <Filter>Bullet</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyShoter.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="BulletManager.cpp">
+      <Filter>Bullet</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyShotJudgePlayer.cpp">
+      <Filter>Judgement</Filter>
+    </ClCompile>
+    <ClCompile Include="ShotEnemyEffect02.cpp">
+      <Filter>Effect</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Looper.h">
@@ -300,6 +315,21 @@
       <Filter>Effect</Filter>
     </ClInclude>
     <ClInclude Include="ShotEnemyEffect01.h">
+      <Filter>Effect</Filter>
+    </ClInclude>
+    <ClInclude Include="Bullet.h">
+      <Filter>Bullet</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyShoter.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="BulletManager.h">
+      <Filter>Bullet</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyShotJudgePlayer.h">
+      <Filter>Judgement</Filter>
+    </ClInclude>
+    <ClInclude Include="ShotEnemyEffect02.h">
       <Filter>Effect</Filter>
     </ClInclude>
   </ItemGroup>

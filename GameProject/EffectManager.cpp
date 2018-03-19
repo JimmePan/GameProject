@@ -3,6 +3,7 @@
 #include "DelEnemyEffect.h"
 #include "DelEnemyEffect2.h"
 #include "ShotEnemyEffect01.h"
+#include "ShotEnemyEffect02.h"
 
 using namespace std;
 
@@ -54,4 +55,9 @@ void EffectManager::addEnemyDelEffect2(float x, float y, int color)
 void EffectManager::addShotEnemyEffect01(float x, float y)
 {
 	_list.emplace_back(make_shared<ShotEnemyEffect01>(x, y));
+}
+
+void EffectManager::addShotEnemyEffect02(float x, float y)
+{
+	_list.emplace_back(make_shared<ShotEnemyEffect02>(x, y));
 }

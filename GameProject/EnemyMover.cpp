@@ -43,9 +43,9 @@ void EnemyMover::movePattern00(AbstractEnemy * enemy)
 	if (60 < cnt && cnt <= 90) {
 		enemy->setSpeed(enemy->getSpeed() - 0.1f);
 	}
-	if (90 + wait < cnt && cnt <= 90 + wait + 30) {
+	/*if (90 + wait < cnt && cnt <= 90 + wait + 30) {
 		enemy->setSpeed(enemy->getSpeed() + 0.1f);
-	}
+	}*/
 }
 //×óÏÂÒÆ¶¯
 void EnemyMover::movePattern01(AbstractEnemy * enemy)

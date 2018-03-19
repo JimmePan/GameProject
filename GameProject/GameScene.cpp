@@ -9,7 +9,7 @@ using namespace std;
 const char* GameScene::ParameterTagStage = "ParameterTagStage";	//参数stage
 const char* GameScene::ParameterTagLevel = "ParameterTagLevel";	//参数level
 
-GameScene::GameScene(IOnSceneChangedListener* impl, const Parameter& parameter):AbstractScene(impl, parameter)
+GameScene::GameScene(IOnSceneChangedListener* impl, const Parameter& parameter) :AbstractScene(impl, parameter)
 {
 	//_level = parameter.get(ParameterTagLevel);	//获得难度
 	_background = make_shared<Background01>();
@@ -17,6 +17,7 @@ GameScene::GameScene(IOnSceneChangedListener* impl, const Parameter& parameter):
 	_player = make_shared<Player>();
 	_board = make_shared<Board>();
 	_enemyManager = make_shared<EnemyManager>();
+	_bulletManager = make_shared<BulletManager>();
 	_playerShotManager = make_shared<PlayerShotManager>();
 	_judgement = make_shared<Judgement>();
 	_effectManager = make_shared<EffectManager>();
@@ -28,8 +29,9 @@ void GameScene::update() {
 	_player->update();
 	_board->update();
 	_enemyManager->update();
+	_bulletManager->update();
 	_playerShotManager->update();
-	_judgement->update(_playerShotManager, _enemyManager);
+	_judgement->update(_playerShotManager, _enemyManager, _bulletManager,_player);
 	_effectManager->update();
 }
 
@@ -40,6 +42,7 @@ void GameScene::draw() const {
 	_player->draw();
 	_board->draw();
 	_enemyManager->draw();
+	_bulletManager->draw();
 	_playerShotManager->draw();	//射击
 	_effectManager->draw();
 

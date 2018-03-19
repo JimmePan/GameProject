@@ -34,6 +34,8 @@ bool AbstractEnemy::update()
 		return false;
 	}
 	_mover.move(this);
+	_shoter.shot(this);
+
 	_counter++;
 	return isInside();
 }

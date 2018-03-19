@@ -23,32 +23,32 @@
     <ProjectGuid>{F5FD4310-6BB5-4832-A5CD-46BB9F6D5FB0}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>GameProject</RootNamespace>
-    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.14393.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
@@ -106,13 +106,13 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_WINDOWS;%(PreprocessorDefinitions);_CRT_SECURE_NO_DEPRECATE;_SCL_SECURE_NO_DEPRECATE</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>G:\DxLib_VC\プロジェクトに追加すべきファイル_VC用;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>I:\DxLib_VC\プロジェクトに追加すべきファイル_VC用;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
-      <AdditionalLibraryDirectories>G:\DxLib_VC\プロジェクトに追加すべきファイル_VC用;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>I:\DxLib_VC\プロジェクトに追加すべきファイル_VC用;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -144,7 +144,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_WINDOWS;%(PreprocessorDefinitions);_CRT_SECURE_NO_DEPRECATE;_SCL_SECURE_NO_DEPRECATE</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>G:\DxLib_VC\プロジェクトに追加すべきファイル_VC用;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>I:\DxLib_VC\プロジェクトに追加すべきファイル_VC用;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
     </ClCompile>
     <Link>
@@ -152,7 +152,7 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
-      <AdditionalLibraryDirectories>G:\DxLib_VC\プロジェクトに追加すべきファイル_VC用;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>I:\DxLib_VC\プロジェクトに追加すべきファイル_VC用;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -163,6 +163,8 @@
     <ClCompile Include="Background01spell.cpp" />
     <ClCompile Include="BigEnemy.cpp" />
     <ClCompile Include="Board.cpp" />
+    <ClCompile Include="Bullet.cpp" />
+    <ClCompile Include="BulletManager.cpp" />
     <ClCompile Include="CalcUtils.cpp" />
     <ClCompile Include="Define.cpp" />
     <ClCompile Include="DelEnemyEffect.cpp" />
@@ -171,6 +173,8 @@
     <ClCompile Include="EffectManager.cpp" />
     <ClCompile Include="EnemyManager.cpp" />
     <ClCompile Include="EnemyMover.cpp" />
+    <ClCompile Include="EnemyShoter.cpp" />
+    <ClCompile Include="EnemyShotJudgePlayer.cpp" />
     <ClCompile Include="Error.cpp" />
     <ClCompile Include="Fps.cpp" />
     <ClCompile Include="game.cpp" />
@@ -189,6 +193,7 @@
     <ClCompile Include="PlayerShotJudgeEnemy.cpp" />
     <ClCompile Include="PlayerShotManager.cpp" />
     <ClCompile Include="ShotEnemyEffect01.cpp" />
+    <ClCompile Include="ShotEnemyEffect02.cpp" />
     <ClCompile Include="Surface.cpp" />
     <ClCompile Include="SystemMain.cpp" />
     <ClCompile Include="TitleScene.cpp" />
@@ -202,6 +207,8 @@
     <ClInclude Include="Background01spell.h" />
     <ClInclude Include="BigEnemy.h" />
     <ClInclude Include="Board.h" />
+    <ClInclude Include="Bullet.h" />
+    <ClInclude Include="BulletManager.h" />
     <ClInclude Include="CalcUtils.h" />
     <ClInclude Include="Define.h" />
     <ClInclude Include="DelEnemyEffect.h" />
@@ -210,6 +217,8 @@
     <ClInclude Include="EffectManager.h" />
     <ClInclude Include="EnemyManager.h" />
     <ClInclude Include="EnemyMover.h" />
+    <ClInclude Include="EnemyShoter.h" />
+    <ClInclude Include="EnemyShotJudgePlayer.h" />
     <ClInclude Include="Error.h" />
     <ClInclude Include="eScene.h" />
     <ClInclude Include="Fps.h" />
@@ -229,6 +238,7 @@
     <ClInclude Include="PlayerShotJudgeEnemy.h" />
     <ClInclude Include="PlayerShotManager.h" />
     <ClInclude Include="ShotEnemyEffect01.h" />
+    <ClInclude Include="ShotEnemyEffect02.h" />
     <ClInclude Include="Singleton.h" />
     <ClInclude Include="Surface.h" />
     <ClInclude Include="SystemMain.h" />

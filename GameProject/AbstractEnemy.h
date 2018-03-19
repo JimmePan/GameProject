@@ -2,6 +2,9 @@
 
 #include "Task.h"
 #include "EnemyMover.h"
+#include "EnemyShoter.h"
+#include "Player.h"
+
 class AbstractEnemy : public Task
 {
 public:
@@ -21,7 +24,7 @@ public:
 	int   getCounter() const { return _counter; }
 	void  setSpeed(float speed) { _speed = speed; }
 	float getSpeed() const { return _speed; }
-	void  setAngle(float angle) { _angle = angle; _change = cos(angle) > 0.1 ? 1 : (cos(angle) < -0.1 ? -1 : 0);}
+	void  setAngle(float angle) { _angle = angle; _change = cos(angle) > 0.1 ? 1 : (cos(angle) < -0.1 ? -1 : 0); }
 	float getAngle() const { return _angle; }
 	float getRange() const { return _RANGE; }
 	//void  setRange(float range) { _RANGE = range; }
@@ -31,6 +34,10 @@ public:
 	void setType(int type) { _type = type; }
 
 	int getMovePatternID() const { return _movePatternID; }
+	int getShotPatternID() const { return _shotPatternID; }
+
+
+	float shotatan2() { return atan2(Player::getY() - _y, Player::getX() - _x); }		//自机狙方向控制(权宜之计)
 
 
 protected:
@@ -38,6 +45,7 @@ protected:
 	bool isInside() const;
 
 	EnemyMover _mover;
+	EnemyShoter _shoter;
 
 	mutable int _flag;
 	float _x, _y;//坐标
@@ -52,6 +60,7 @@ protected:
 	int _height;//高
 
 	int _movePatternID;	//移动方式
+	int _shotPatternID;	//射击方式
 
 	int _type;
 
