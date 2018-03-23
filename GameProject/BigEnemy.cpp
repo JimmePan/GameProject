@@ -6,7 +6,7 @@
 BigEnemy::BigEnemy(float x, float y, int type, int hp) :AbstractEnemy(x, y, type, hp)
 {
 	_movePatternID = 0;
-	_shotPatternID = 0;
+	_shotPatternID = 1;
 	_RANGE = 35;
 }
 

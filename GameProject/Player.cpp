@@ -4,6 +4,7 @@
 #include "Image.h"
 #include "Define.h"
 #include "PlayerShotManager.h"
+#include "EffectManager.h"
 
 using namespace std;
 const static float SPEED = 9;
@@ -15,13 +16,14 @@ _direction(0), _changeCount(0), _slow(false), _power(4.00f), _flag(0), _mutekicn
 _range(4.0f)//应该根据不同机体变化判定点大小
 //_playerShotManager(make_shared<PlayerShotManager>())
 {
+	EffectManager::addBoomEffect01();
 }
 
 bool Player::update()
 {
 	if (_counter == 0 && _flag == 2) {		//如果当前瞬间死掉的话
-		_x = Define::CENTER_X;				//重设坐标
-		_y = Define::OUT_H + 30;
+		_x = (float)Define::CENTER_X;				//重设坐标
+		_y = (float)Define::OUT_H + 30;
 		_power = 0.0f;				//火力归零
 		_mutekicnt++;
 	}

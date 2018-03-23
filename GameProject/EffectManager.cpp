@@ -4,6 +4,7 @@
 #include "DelEnemyEffect2.h"
 #include "ShotEnemyEffect01.h"
 #include "ShotEnemyEffect02.h"
+#include "BoomEffect01.h"
 
 using namespace std;
 
@@ -32,10 +33,10 @@ void EffectManager::draw() const
 	for (auto effect : _list) {
 		if (effect->getEff() == 1) {
 			SetDrawBlendMode(DX_BLENDMODE_ADD, effect->getBrt());
-			effect->draw();
+			
 		}
 		else {						//其他特效种类
-
+			effect->draw();
 		}
 		if (effect->getEff() == 1)
 			SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
@@ -60,4 +61,8 @@ void EffectManager::addShotEnemyEffect01(float x, float y)
 void EffectManager::addShotEnemyEffect02(float x, float y)
 {
 	_list.emplace_back(make_shared<ShotEnemyEffect02>(x, y));
+}
+void EffectManager::addBoomEffect01()
+{
+	_list.emplace_back(make_shared<BoomEffect01>());
 }

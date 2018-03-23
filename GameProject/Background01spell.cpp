@@ -36,8 +36,8 @@ void Background01spell::draw() const
 {
 	SetDrawArea(0, 0, Define::OUT_W, Define::OUT_H);
 	for (int i = 0; i < NUM; i++) {
-		DrawExtendGraphF(_list[i]->x, _list[i]->y + IMG_HEIGHT,Define::OUT_W/2, _list[i]->y,_list[i]->img,FALSE);
-		DrawExtendGraphF(Define::OUT_W, _list[i]->y + IMG_HEIGHT, Define::OUT_W/2, _list[i]->y, _list[i]->img, FALSE);
+		DrawExtendGraphF(_list[i]->x, _list[i]->y + IMG_HEIGHT, (float)Define::OUT_W/2, _list[i]->y,_list[i]->img,FALSE);
+		DrawExtendGraphF(Define::OUT_W, _list[i]->y + IMG_HEIGHT, (float)Define::OUT_W/2, _list[i]->y, _list[i]->img, FALSE);
 
 	}
 	SetDrawArea(0,0,Define::WIN_W,Define::WIN_H);

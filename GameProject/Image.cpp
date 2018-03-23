@@ -21,6 +21,8 @@ Image::Image()
 	_backSpell01 = myLoadGraph("E://dat/image/background/stage01a.png");
 	myLoadDivGraph("E://dat/image/enemy/enemy.png", 224, 16, 14, 32, 32, _enemyNormal);
 	myLoadDivGraph("E://dat/image/enemy/enemy.png", 56, 8, 7, 64, 64, _enemyBig);
+	_pl00BoomA = myLoadGraph("E://dat/image/player/pl00BoomA.png");
+	//_pl00BoomA = myLoadGraph("E://dat/image/player/body/test.png");
 }
 
 void Image::release()
