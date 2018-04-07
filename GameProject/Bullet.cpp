@@ -1,10 +1,9 @@
 #include "Bullet.h"
 #include <cmath>
 #include "DxLib.h"
-#include "ImageBullet.h"
 #include "Define.h"
 
-Bullet::Bullet(float x, float y,unsigned int type, unsigned int color,int eff,float angle,float base_angle,float speed,float rate)
+Bullet::Bullet(float x, float y,unsigned int type, unsigned int color,int state,float angle,float base_angle,float speed,float rate)
 {
 	_flag = 1;
 	_x = x;
@@ -12,7 +11,7 @@ Bullet::Bullet(float x, float y,unsigned int type, unsigned int color,int eff,fl
 	_type = type;
 	_color = color;
 	_count = 0;
-	_eff = eff;
+	_state = state;
 	_angle = angle;
 	_speed = speed;
 	_rate = rate;
@@ -38,7 +37,7 @@ bool Bullet::update()
 
 void Bullet::draw() const
 {
-	DrawRotaGraphF(_x,_y,1.0, _base_angle[0], ImageBullet::getIns()->get(_type,_color),TRUE);
+	DrawRotaGraphF(_x,_y, _rate, _base_angle[0], ImageBullet::getIns()->get(_type,_color),TRUE);
 }
 
 bool Bullet::isInside() const

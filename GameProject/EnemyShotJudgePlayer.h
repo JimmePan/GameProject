@@ -3,7 +3,6 @@
 #include "AbstractJudge.h"
 #include "BulletManager.h"
 #include "Player.h"
-#include "EnemyManager.h"
 #include "EffectManager.h"
 
 
@@ -19,4 +18,5 @@ public:
 
 private:
 	static void JudgeBullet(std::list<std::shared_ptr<Bullet>>::iterator & i, std::shared_ptr<Player>& p);
+	static void ClearBullet(std::shared_ptr<BulletManager> &bullets);
 };

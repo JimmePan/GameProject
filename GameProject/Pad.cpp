@@ -12,8 +12,8 @@ Pad::Pad()
 	_idArray[ePad::left] = 1;
 	_idArray[ePad::right] = 2;
 	_idArray[ePad::up] = 3;
-	_idArray[ePad::bom] = 4;
-	_idArray[ePad::shot] = 5;
+	_idArray[ePad::bom] = 5;
+	_idArray[ePad::shot] = 4;
 	_idArray[ePad::slow] = 11;
 	_idArray[ePad::start] = 12;
 	//_idArray[ePad::change] = 8;

@@ -29,7 +29,7 @@ bool ShotEnemyEffect01::update()
 		_img = Image::getIns()->getShotEnemyEffect1()[_imgCount + _count / 8];
 		_angle += Define::PI / 16;
 		_brightness -= _count % 8;
-		_y -= 1.f;
+		_y -= 1.5f;
 	}
 	return true;
 }

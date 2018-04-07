@@ -58,9 +58,6 @@
     <Filter Include="3D">
       <UniqueIdentifier>{6108bc6d-a272-4f5b-9d9e-ebf6ca1019bd}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Enemy">
-      <UniqueIdentifier>{90d1fe51-fb5e-4fe2-858f-a1d8e2d9590f}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Bullet">
       <UniqueIdentifier>{0b5f3054-b557-44d6-9690-f30207fb7380}</UniqueIdentifier>
     </Filter>
@@ -69,6 +66,15 @@
     </Filter>
     <Filter Include="Effect">
       <UniqueIdentifier>{c5e4d2f5-582c-45ce-859c-eccd2e772fb4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Item">
+      <UniqueIdentifier>{58572a50-1c47-40d4-8d9a-5987d4e322d8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Enemy">
+      <UniqueIdentifier>{e6ae3126-9258-4dfb-b9c2-5829c73b8213}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Boss">
+      <UniqueIdentifier>{4cd62fbb-a4a4-481b-9a87-4be1d474ccc1}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -135,21 +141,6 @@
     <ClCompile Include="Background01.cpp">
       <Filter>Background</Filter>
     </ClCompile>
-    <ClCompile Include="EnemyManager.cpp">
-      <Filter>Enemy</Filter>
-    </ClCompile>
-    <ClCompile Include="AbstractEnemy.cpp">
-      <Filter>Enemy</Filter>
-    </ClCompile>
-    <ClCompile Include="NormalEnemy.cpp">
-      <Filter>Enemy</Filter>
-    </ClCompile>
-    <ClCompile Include="BigEnemy.cpp">
-      <Filter>Enemy</Filter>
-    </ClCompile>
-    <ClCompile Include="EnemyMover.cpp">
-      <Filter>Enemy</Filter>
-    </ClCompile>
     <ClCompile Include="ImageBullet.cpp">
       <Filter>Bullet</Filter>
     </ClCompile>
@@ -183,9 +174,6 @@
     <ClCompile Include="Bullet.cpp">
       <Filter>Bullet</Filter>
     </ClCompile>
-    <ClCompile Include="EnemyShoter.cpp">
-      <Filter>Enemy</Filter>
-    </ClCompile>
     <ClCompile Include="BulletManager.cpp">
       <Filter>Bullet</Filter>
     </ClCompile>
@@ -197,6 +185,51 @@
     </ClCompile>
     <ClCompile Include="BoomEffect01.cpp">
       <Filter>Effect</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyJudgePlayer.cpp">
+      <Filter>Judgement</Filter>
+    </ClCompile>
+    <ClCompile Include="Item.cpp">
+      <Filter>Item</Filter>
+    </ClCompile>
+    <ClCompile Include="ItemManger.cpp">
+      <Filter>Item</Filter>
+    </ClCompile>
+    <ClCompile Include="AbstractEnemy.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="BigEnemy.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyItem.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyManager.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyMover.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyShoter.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="NormalEnemy.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="ItemJudgePlayer.cpp">
+      <Filter>Judgement</Filter>
+    </ClCompile>
+    <ClCompile Include="Boss.cpp">
+      <Filter>Boss</Filter>
+    </ClCompile>
+    <ClCompile Include="BossMoveControl.cpp">
+      <Filter>Boss</Filter>
+    </ClCompile>
+    <ClCompile Include="Cirno.cpp">
+      <Filter>Boss</Filter>
+    </ClCompile>
+    <ClCompile Include="BossHp.cpp">
+      <Filter>Boss</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -272,21 +305,6 @@
     <ClInclude Include="Background01.h">
       <Filter>Background</Filter>
     </ClInclude>
-    <ClInclude Include="EnemyManager.h">
-      <Filter>Enemy</Filter>
-    </ClInclude>
-    <ClInclude Include="AbstractEnemy.h">
-      <Filter>Enemy</Filter>
-    </ClInclude>
-    <ClInclude Include="NormalEnemy.h">
-      <Filter>Enemy</Filter>
-    </ClInclude>
-    <ClInclude Include="BigEnemy.h">
-      <Filter>Enemy</Filter>
-    </ClInclude>
-    <ClInclude Include="EnemyMover.h">
-      <Filter>Enemy</Filter>
-    </ClInclude>
     <ClInclude Include="ImageBullet.h">
       <Filter>Bullet</Filter>
     </ClInclude>
@@ -323,9 +341,6 @@
     <ClInclude Include="Bullet.h">
       <Filter>Bullet</Filter>
     </ClInclude>
-    <ClInclude Include="EnemyShoter.h">
-      <Filter>Enemy</Filter>
-    </ClInclude>
     <ClInclude Include="BulletManager.h">
       <Filter>Bullet</Filter>
     </ClInclude>
@@ -337,6 +352,51 @@
     </ClInclude>
     <ClInclude Include="BoomEffect01.h">
       <Filter>Effect</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyJudgePlayer.h">
+      <Filter>Judgement</Filter>
+    </ClInclude>
+    <ClInclude Include="Item.h">
+      <Filter>Item</Filter>
+    </ClInclude>
+    <ClInclude Include="ItemManger.h">
+      <Filter>Item</Filter>
+    </ClInclude>
+    <ClInclude Include="AbstractEnemy.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="BigEnemy.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyItem.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyManager.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyMover.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyShoter.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="NormalEnemy.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="ItemJudgePlayer.h">
+      <Filter>Judgement</Filter>
+    </ClInclude>
+    <ClInclude Include="Boss.h">
+      <Filter>Boss</Filter>
+    </ClInclude>
+    <ClInclude Include="BossMoveControl.h">
+      <Filter>Boss</Filter>
+    </ClInclude>
+    <ClInclude Include="Cirno.h">
+      <Filter>Boss</Filter>
+    </ClInclude>
+    <ClInclude Include="BossHp.h">
+      <Filter>Boss</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

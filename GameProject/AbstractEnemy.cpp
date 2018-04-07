@@ -18,6 +18,7 @@ AbstractEnemy::AbstractEnemy(float x, float y, int type,int hp) :
 	_direction(0),
 	_RANGE(0),
 	_type(type),
+	_moveFlag(true),
 	_change(0),
 	_changeCount(0)
 {
@@ -31,6 +32,7 @@ void AbstractEnemy::initialize()
 bool AbstractEnemy::update()
 {
 	if (_flag < 1) {
+		_item.fall(this);
 		return false;
 	}
 	_mover.move(this);

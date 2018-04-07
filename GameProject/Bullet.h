@@ -1,10 +1,11 @@
 #pragma once
 #include "Task.h"
+#include "ImageBullet.h"
 
 class Bullet : public Task
 {
 public:
-	Bullet(float x, float y, unsigned int type, unsigned int color, int eff, float angle, float base_angle, float speed, float rate);
+	Bullet(float x, float y, unsigned int type, unsigned int color, int state, float angle, float base_angle, float speed, float rate);
 	//弹幕类构造方法可能会根据eff的情况而出现多个
 	virtual ~Bullet() = default;
 	bool update() override;
@@ -23,13 +24,17 @@ public:
 	int getSort() { return _sort; }
 	void setSort(int sort) { _sort = sort; }
 	int getType() { return _type; }
-	void setType(int type) { _type = type; }	//子弹效果：更改子弹类型
+	void setType(int type) { _type = type; _range = ImageBullet::getIns()->RANGE[type] * _rate;}	//子弹效果：更改子弹类型
+	int getColor() { return _color; }
+	void setColor(int color) { _color = color; }	//更改颜色
 	float getSpeed() { return _speed; }
 	void setSpeed(float speed) { _speed = speed; }
 	int getCount() { return _count; }
 	void setCount(int count) { _count = count; }
 	float getAngle() { return _angle; }
 	void setAngle(float angle) { _angle = angle; }
+	int getState() { return _state; }
+	void setState(int state) { _state = state; }
 	float getRange() { return _range; }
 	void setRange(float range) { _range = range; }
 
@@ -38,7 +43,7 @@ private:
 	unsigned int _type;		//子弹类型
 	unsigned int _color;	//子弹颜色
 	int _count;
-	int _eff;	//效果种类	0.匀速直线运动 1.经过一定时间停滞后朝某角度继续移动
+	int _state;	//弹幕标示号
 	int _w;
 	int _h;
 	//int _till;	//保证不消失最短时间，如下雨弹幕会先抛射出屏幕上方再落下，因此需要最短不消失时间
@@ -51,7 +56,7 @@ private:
 	float _rate;
 	float _range;
 
-	float _base_angle[1];	//基本角度
+	float _base_angle[1];	//自转角度
 	float _rem_spd[1];		//瞬间记忆速度
 };
 

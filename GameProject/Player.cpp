@@ -7,26 +7,39 @@
 #include "EffectManager.h"
 
 using namespace std;
-const static float SPEED = 9;
+const static float SPEED = 9.f;
+
+
 float Player::pl_x;
 float Player::pl_y;
+bool Player::_powerMax = false;
 
 Player::Player() :_x((float)Define::CENTER_X), _y((float)Define::OUT_H*0.8f), _counter(0), //_change(0),
-_direction(0), _changeCount(0), _slow(false), _power(4.00f), _flag(0), _mutekicnt(0),
-_range(4.0f)//应该根据不同机体变化判定点大小
-//_playerShotManager(make_shared<PlayerShotManager>())
+_direction(0), _changeCount(0), _slow(false),_bomFlag(false), _flag(0), _mutekicnt(0),
+_range(3.8f)//应该根据不同机体变化判定点大小
+//,_power(Define::POWER_MIN)
+, _power(3.95f)
 {
-	EffectManager::addBoomEffect01();
 }
 
 bool Player::update()
 {
+	bool flag = _powerMax;
+	if (_flag == 1) {		//决死处理，时间为1/6秒
+		if (_counter > 10) {
+			_flag = 2;
+			_counter = 0;
+		}
+	}
+
 	if (_counter == 0 && _flag == 2) {		//如果当前瞬间死掉的话
 		_x = (float)Define::CENTER_X;				//重设坐标
 		_y = (float)Define::OUT_H + 30;
-		_power = 0.0f;				//火力归零
+		_power = Define::POWER_MIN;				//火力归零
+		_powerMax = false;
 		_mutekicnt++;
 	}
+
 	if (_flag == 2) {			//如果已经死掉正在上浮的话
 		_y -= 4;
 		if (_counter > 55) {
@@ -36,16 +49,19 @@ bool Player::update()
 		_counter++;
 		return true;
 	}
+
 	if (_mutekicnt > 0) {//如果无敌状态不为0的话
 		_mutekicnt++;
-		if (_mutekicnt > 240) {//如果已经2秒以上的话
+		if (_mutekicnt > 240) {//如果已经4秒以上的话
 			_flag = 0;
 			_mutekicnt = 0;//还原
+			_bomFlag = false;
 		}
 	}
 	_counter++;
 	move();
 	shot();
+	boom();
 	/*if (_power < 4.01f)
 		_power += 0.01f;*/
 	return true;
@@ -57,6 +73,7 @@ void Player::draw() const
 	const static int DimgID[6] = { 0,1,2,3,2,1 };
 	/*if (_change == _direction) {*/
 
+	DrawFormatString(0, 35, GetColor(255, 255, 255), "power：%f", +_power);
 
 	if (_mutekicnt == 0) {
 		if (_direction == 0) {
@@ -96,8 +113,8 @@ void Player::draw() const
 	*/
 	for (int i = 0; i < _power; i++) {
 		if (_slow) {
-			DrawRotaGraphF(_x + 50.f*cos(2 * Define::PI / 60.0f * (_counter % 120) + Define::PI * 2 / (int)_power*i),
-				_y + 50.f*sin(2 * Define::PI / 60.0f * (_counter % 120) + Define::PI * 2 / (int)_power*i),
+			DrawRotaGraphF(_x + 30.f*cos(2 * Define::PI / 60.0f * (_counter % 120) + Define::PI * 2 / (int)_power*i),
+				_y + 30.f*sin(2 * Define::PI / 60.0f * (_counter % 120) + Define::PI * 2 / (int)_power*i),
 				1.5, -Define::PI * 2 / 120 * _counter, Image::getIns()->getOnmyou()[0], TRUE);
 		}
 		else {
@@ -230,6 +247,17 @@ void Player::shot()
 	}
 	else {
 		_shotCount = 5;
+	}
+}
+
+void Player::boom()
+{
+	if (Pad::getIns()->get(ePad::bom) > 0 && !_bomFlag) {
+		EffectManager::addBoomEffect01();	//根据自机类型，加入boom特效编号,暂时没有
+		_bomFlag = true;
+		_bomRange = 240.f;
+		_flag = 3;
+		_mutekicnt++;
 	}
 }
 

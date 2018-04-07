@@ -31,14 +31,20 @@ void EffectManager::draw() const
 {
 	DrawFormatString(0, 70, GetColor(255, 255, 255), "剩余效果个数：%d", +_list.size());
 	for (auto effect : _list) {
-		if (effect->getEff() == 1) {
+		switch (effect->getEff())
+		{
+		case 1:
 			SetDrawBlendMode(DX_BLENDMODE_ADD, effect->getBrt());
-			
-		}
-		else {						//其他特效种类
 			effect->draw();
+			break;
+		case 2:
+			SetDrawBlendMode(DX_BLENDMODE_ALPHA, effect->getBrt());
+			effect->draw();
+			break;
+		default:
+			break;
 		}
-		if (effect->getEff() == 1)
+		if (effect->getEff() == 1 || effect->getEff() == 2)
 			SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
 	}
 }
@@ -64,5 +70,7 @@ void EffectManager::addShotEnemyEffect02(float x, float y)
 }
 void EffectManager::addBoomEffect01()
 {
-	_list.emplace_back(make_shared<BoomEffect01>());
+	for (int i = 7; i >= 0; i--) {
+		_list.emplace_back(make_shared<BoomEffect01>(i));
+	}
 }

@@ -74,7 +74,10 @@ void PlayerShotJudgeEnemy::Judge(std::shared_ptr<PlayerShotManager> &playShots, 
 
 void PlayerShotJudgeEnemy::enemy_death_judge(std::list<std::shared_ptr<AbstractEnemy>>::iterator & s)
 {
-	int i;
+	//int i;
+	if ((*s)->getBoss()) {
+		return;
+	}
 	if ((*s)->getHp() < 0) {
 		EffectManager::addEnemyDelEffect((*s)->getX(), (*s)->getY(), (*s)->getType());
 		EffectManager::addEnemyDelEffect2((*s)->getX(), (*s)->getY(), (*s)->getType());

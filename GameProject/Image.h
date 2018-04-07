@@ -29,6 +29,10 @@ public:
 	const int* getEnemyNormal() const { return _enemyNormal; }
 	const int* getEnemyBig() const { return _enemyBig; }
 	int getPl00BoomA() const { return _pl00BoomA; }
+	const int* getItem() const { return _item; }
+	const int* getBoss01()const { return _boss01; }
+	int getBossHpR() const { return _bossHpR; }
+	int getBossHpW() const { return _bossHpW; }
 
 
 private:
@@ -53,4 +57,8 @@ private:
 	int _enemyNormal[224];	//中等大小妖精
 	int _enemyBig[56];	//大型妖精
 	int _pl00BoomA;
+	int _item[8];
+	int _boss01[11];
+	int _bossHpR;
+	int _bossHpW;
 };

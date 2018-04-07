@@ -19,6 +19,7 @@ GameScene::GameScene(IOnSceneChangedListener* impl, const Parameter& parameter) 
 	_enemyManager = make_shared<EnemyManager>();
 	_bulletManager = make_shared<BulletManager>();
 	_playerShotManager = make_shared<PlayerShotManager>();
+	_itemManger = make_shared<ItemManger>();
 	_judgement = make_shared<Judgement>();
 	_effectManager = make_shared<EffectManager>();
 }
@@ -31,7 +32,8 @@ void GameScene::update() {
 	_enemyManager->update();
 	_bulletManager->update();
 	_playerShotManager->update();
-	_judgement->update(_playerShotManager, _enemyManager, _bulletManager,_player);
+	_itemManger->update();
+	_judgement->update(_playerShotManager, _enemyManager, _bulletManager,_player, _itemManger);
 	_effectManager->update();
 }
 
@@ -45,5 +47,6 @@ void GameScene::draw() const {
 	_bulletManager->draw();
 	_playerShotManager->draw();	//Éä»÷
 	_effectManager->draw();
+	_itemManger->draw();
 
 }

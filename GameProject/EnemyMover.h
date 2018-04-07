@@ -2,6 +2,7 @@
 
 #include <vector>
 #include <memory>
+#include "BossMoveControl.h"
 
 class AbstractEnemy;
 
@@ -11,7 +12,10 @@ public:
 	EnemyMover();
 	virtual ~EnemyMover() = default;
 	void move(AbstractEnemy* enemy);
+	void moveWithConstantAcceleration(AbstractEnemy* enemy, float x, float y, int t);
 private:
+	BossMoveControl phy;
+
 	typedef void(EnemyMover::*FUNC)(AbstractEnemy* enemy);
 	std::vector<FUNC> _movePattern;
 	void setFunction();

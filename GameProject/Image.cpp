@@ -23,6 +23,10 @@ Image::Image()
 	myLoadDivGraph("E://dat/image/enemy/enemy.png", 56, 8, 7, 64, 64, _enemyBig);
 	_pl00BoomA = myLoadGraph("E://dat/image/player/pl00BoomA.png");
 	//_pl00BoomA = myLoadGraph("E://dat/image/player/body/test.png");
+	myLoadDivGraph("E://dat/image/bullet/item.png", 8, 8, 1, 16, 16, _item);
+	myLoadDivGraph("E://dat/image/stgenm/stage01/enm1m.png", 11, 4, 3, 64, 80, _boss01);
+	_bossHpR = myLoadGraph("E://dat/image/enemy/hp_boss.png");
+	_bossHpW = myLoadGraph("E://dat/image/enemy/hp.png");
 }
 
 void Image::release()
