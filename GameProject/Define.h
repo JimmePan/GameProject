@@ -27,7 +27,7 @@ public:
 
 	const static float ITEM_POWER[];
 	const static int ITEM_SCORE[];
-	
+
 
 
 	enum eStage {

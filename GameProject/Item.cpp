@@ -23,6 +23,9 @@ bool Item::update()
 		_angle = shotatan2();
 		_speed = 3.0f * _flag;
 	}
+	if (_kind == 7 && _count == 30) {
+		_flag = 10;
+	}
 	this->_x += cos(this->_angle)*this->_speed;
 	this->_y += sin(this->_angle)*this->_speed;
 	if (_count == 30) {

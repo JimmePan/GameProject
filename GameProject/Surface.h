@@ -13,7 +13,7 @@ public:
 		LOOF,
 		DATANUM,
 	};
-	Surface(int z,int sHdl,unsigned uType);
+	Surface(int z, int sHdl, unsigned uType);
 	bool update();
 	void draw(VECTOR offset);
 

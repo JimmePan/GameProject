@@ -15,7 +15,7 @@ void ItemJudgePlayer::Judge(std::shared_ptr<ItemManger>& im, std::shared_ptr<Pla
 	for (auto i = im->getList()->begin(); i != im->getList()->end();) {
 		if ((*i)->getFlag() > 0) {
 			if ((*i)->getFlag() == 1) {
-				int rate = p->getSlow() ? 24 : 14;
+				int rate = p->getSlow() ? 22 : 10;
 				float x = (*i)->getX() - p->getX();
 				float y = (*i)->getY() - p->getY();
 				float r = (*i)->getRange() + p->getRange()*rate;
@@ -46,14 +46,19 @@ void ItemJudgePlayer::Judge(std::shared_ptr<ItemManger>& im, std::shared_ptr<Pla
 					(*i)->setFlag(0);
 					break;
 				case 2:
+					(*i)->setFlag(0);
 					break;
 				case 4:
+					(*i)->setFlag(0);
 					break;
 				case 5:
+					(*i)->setFlag(0);
 					break;
 				case 6:
+					(*i)->setFlag(0);
 					break;
 				case 7:
+					(*i)->setFlag(0);
 					break;
 				default:
 					break;

@@ -8,7 +8,7 @@ class BulletManager :public Task
 public:
 	BulletManager();
 	virtual ~BulletManager() = default;
-	static void add(float x, float y, unsigned int type, unsigned int color, int eff, float angle, float base_angle, float speed, float rate);
+	static void add(float x, float y, unsigned int type, unsigned int color, int state, float angle, float base_angle, float speed, float rate);
 
 	bool update() override;
 	void draw() const override;

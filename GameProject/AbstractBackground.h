@@ -1,10 +1,10 @@
 #pragma once
 #include "Task.h"
 
-class AbstractBackground:public Task
+class AbstractBackground :public Task
 {
 public:
-	AbstractBackground()=default;
+	AbstractBackground() = default;
 	virtual ~AbstractBackground() = default;
 };
 

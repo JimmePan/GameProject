@@ -9,7 +9,7 @@ ItemManger::ItemManger()
 
 void ItemManger::add(float x, float y, float angle, int kind)
 {
-	_list.emplace_back(make_shared<Item>(x, y, angle,kind));
+	_list.emplace_back(make_shared<Item>(x, y, angle, kind));
 }
 
 bool ItemManger::update()

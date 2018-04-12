@@ -1,4 +1,11 @@
 #pragma once
+#include "BulletManager.h"
+#include <DxLib.h>
+#include "ItemManger.h"
+#include "Define.h"
+#include "ItemManger.h"
+
+using namespace std;
 class CalcUtils
 {
 public:
@@ -6,6 +13,9 @@ public:
 
 	static float roundPoint(float val, int point);
 	static float roundSize(float max, float min, int count);
+	static void ClearBullet();
+	static void ClearBulletEn();
+	static void PlayFall();
 
 	template<typename T1, typename T2>
 	static bool out_judge_shot(T1 i, T2 s);

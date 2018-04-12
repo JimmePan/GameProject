@@ -12,7 +12,7 @@ bool Keyboard::update() {
 			}
 			_pressingCount[i]++;			//增加计数
 		}
-		else{								//如果i键被释放
+		else {								//如果i键被释放
 			if (_pressingCount[i] > 0) {	//如果按键计数器大于零
 				_pressingCount[i] = 0;		//归零
 			}

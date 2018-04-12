@@ -46,6 +46,7 @@ private:
 	static bool _powerMax;		//满火力标示
 
 	int _counter;//帧计数器
+	int _slowRange = 100;	//低速时，子弹绕行半径
 
 	//mutable int _change;//方向判定
 	mutable int _mutekicnt;		//无敌状态

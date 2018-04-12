@@ -21,6 +21,8 @@ public:
 	const int* getEnemyDelEffect() const { return _enemyDelEffect; }
 	const int* getEnemyDelEffect2() const { return _enemyDelEffect2; }
 	const int* getShotEnemyEffect1() const { return _shotEnemyEffect1; }
+	const int* getBulletBreak() { return _bulletBreak; }
+	const int* getBoomEffect() { return _boomEffect; }
 	int getBoard() const { return _board; }
 	int getFusuma() const { return _fusuma; }
 	int getFloor() const { return _floor; }
@@ -50,6 +52,8 @@ private:
 	int _enemyDelEffect[5];//敌机死亡效果
 	int _enemyDelEffect2[4];//敌机死亡效果
 	int _shotEnemyEffect1[8];	//击中敌方特效
+	int _bulletBreak[8];	//消弹特效
+	int _boomEffect[12];	//boom特效
 	int _board;			//游戏背景
 	int _fusuma, _floor;//3d背景素材
 	int _backSpell00;	//场景背景

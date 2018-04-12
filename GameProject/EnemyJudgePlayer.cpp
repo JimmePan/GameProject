@@ -32,7 +32,10 @@ void EnemyJudgePlayer::Judge(std::shared_ptr<EnemyManager>& em, std::shared_ptr<
 				float y = (*i)->getY() - p->getY();
 				float r = (*i)->getRange() + p->getBomRange();	//敌人的碰撞判定和boom碰撞判定的合计范围
 				if ((x*x + y * y < r*r) && ((*i)->getY() <= p->getY()) && (p->getMutekicnt() % 5 == 0)) {
-					(*i)->setHp(31.25f);
+					/*if (p->getMutekicnt() % 100 == 0) {		//boom碰撞特效
+						EffectManager::addBoomEffect02((*i)->getX(), (*i)->getY());
+					}*/
+					(*i)->setHp(66);
 					PlayerShotJudgeEnemy::enemy_death_judge(i);
 				}
 

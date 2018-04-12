@@ -6,7 +6,7 @@ const static int LIST_LEN_MAX = 120;//最大120帧处理
 const static int FPS = 60;			//FPS
 const static int UPINTVL = 60;		//每60帧更新一次
 
-Fps::Fps():_counter(0),_fps(0)
+Fps::Fps() :_counter(0), _fps(0)
 {
 }
 

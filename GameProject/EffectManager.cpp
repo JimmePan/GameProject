@@ -5,6 +5,8 @@
 #include "ShotEnemyEffect01.h"
 #include "ShotEnemyEffect02.h"
 #include "BoomEffect01.h"
+#include "BoomEffect02.h"
+#include "BulletBreakEffect.h"
 
 using namespace std;
 
@@ -73,4 +75,14 @@ void EffectManager::addBoomEffect01()
 	for (int i = 7; i >= 0; i--) {
 		_list.emplace_back(make_shared<BoomEffect01>(i));
 	}
+}
+
+void EffectManager::addBoomEffect02(float x, float y)
+{
+	_list.emplace_back(make_shared<BoomEffect02>(x, y));
+}
+
+void EffectManager::addBulletBreakEffect(float x, float y, int color)
+{
+	_list.emplace_back(make_shared<BulletBreakEffect>(x, y, color));
 }

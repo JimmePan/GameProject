@@ -14,7 +14,7 @@ EnemyManager::EnemyManager()
 	//_list.emplace_back(make_shared<BigEnemy>(Define::CENTER_X, 500.f, 1, 500));
 	//_list.emplace_back(make_shared<NormalEnemy>(Define::CENTER_X-100, 0.f, 1, 150));
 	//_list.emplace_back(make_shared<BigEnemy>(Define::CENTER_X - 100.f, 0.f, 0, 1000));
-	_list.emplace_back(make_shared<Cirno>(Define::CENTER_X + 100, 0.f, 2, 150));
+	_list.emplace_back(make_shared<Cirno>(Define::CENTER_X + 100, 0.f, 4, 150));
 }
 
 bool EnemyManager::update()

@@ -5,9 +5,9 @@
 class Boss :public AbstractEnemy
 {
 public:
-	Boss(float x, float y, int type,int hp);
+	Boss(float x, float y, int type, int hp);
 	virtual ~Boss() = default;
-	
+
 	bool update() override;
 	int getBossCounter() const { return _bossCount; }
 

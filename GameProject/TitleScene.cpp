@@ -5,12 +5,12 @@
 #include "Keyboard.h"
 
 
-TitleScene::TitleScene(IOnSceneChangedListener *impl,const Parameter &parameter):AbstractScene(impl,parameter)
+TitleScene::TitleScene(IOnSceneChangedListener *impl, const Parameter &parameter) :AbstractScene(impl, parameter)
 {
 }
 
 void TitleScene::update() {
-	if (Keyboard::getIns()->getPressingCount(KEY_INPUT_E)==1) {
+	if (Keyboard::getIns()->getPressingCount(KEY_INPUT_E) == 1) {
 		Parameter parameter;
 		parameter.set(GameScene::ParameterTagLevel, Define::eLevel::Easy);
 		const bool stackClear = false;
@@ -27,7 +27,7 @@ void TitleScene::update() {
 
 	}
 }
-void TitleScene::draw() const{
+void TitleScene::draw() const {
 	DrawString(100, 100, "title screen", GetColor(255, 255, 255));
 }
 

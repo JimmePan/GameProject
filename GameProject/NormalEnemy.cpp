@@ -5,7 +5,7 @@
 #include "CalcUtils.h"
 
 
-NormalEnemy::NormalEnemy(float x, float y, int type,int hp) :AbstractEnemy(x, y, type,hp)
+NormalEnemy::NormalEnemy(float x, float y, int type, int hp) :AbstractEnemy(x, y, type, hp)
 {
 	_movePatternID = 1;
 	_shotPatternID = 1;
@@ -20,7 +20,7 @@ void NormalEnemy::draw() const
 	const static int DimgID[6] = { 3,2,1,0,1,2 };
 	int add;
 	float size = 2.0;
-	
+
 	SetDrawBlendMode(DX_BLENDMODE_ADD, 100);	//…Ë÷√¡¡∂»
 	switch (_type)				//—˝æ´±≥æ∞
 	{

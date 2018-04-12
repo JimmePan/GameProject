@@ -39,7 +39,7 @@ bool DelEnemyEffect2::update()
 {
 	_count++;
 	_r += 0.2f;//逐渐把效果的大小变大
-	if (_count>10)//如果计数为10以上
+	if (_count > 10)//如果计数为10以上
 		_brightness -= 10;//将亮度降低
 	if (_count > 20) {//效果为20以上
 		_flag = 0;	//销毁之

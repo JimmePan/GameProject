@@ -66,6 +66,8 @@ void EnemyMover::setFunction()
 	_movePattern.push_back(&EnemyMover::movePattern02);
 	_movePattern.push_back(&EnemyMover::movePattern03);
 	_movePattern.push_back(&EnemyMover::movePattern04);
+	_movePattern.push_back(&EnemyMover::movePattern05);
+	_movePattern.push_back(&EnemyMover::movePattern06);
 }
 /*ÏòÏÂ£¬Í£¶Ùºó£¬ÏòÏÂ*/
 void EnemyMover::movePattern00(AbstractEnemy * enemy)
@@ -108,16 +110,57 @@ void EnemyMover::movePattern01(AbstractEnemy * enemy)
 		enemy->setSpeed(4);
 	}
 }
-
+/*ç÷Â¶Åµ1·ÇÒÆ¶¯*/
 void EnemyMover::movePattern02(AbstractEnemy * enemy)
 {
-	int cnt = enemy->getCounter();
-	if (0 == cnt) {
-		enemy->setAngle(Define::PI * 1 / 4);
-		enemy->setSpeed(4);
+	int c = enemy->getBossCount() % 600;
+	if (c < 240) {
+		enemy->setAngle(Define::PI / 2);
+		enemy->setSpeed(0);
 	}
+	else if (c < 270)
+	{
+		enemy->setAngle(0);
+		enemy->setSpeed(10.0f - (10.0f / 30.0f*(c - 240)));
+	}
+	else if (c < 310)
+	{
+		enemy->setAngle(Define::PI + Define::PI / 6);
+		enemy->setSpeed(6.0f - (6.0f / 40.0f*(c - 270)));
+	}
+	else if (c < 370)
+	{
+		enemy->setAngle(Define::PI / 2);
+		enemy->setSpeed(0);
+	}
+	else if (c < 430)
+	{
+		enemy->setAngle(Define::PI - Define::PI / 8);
+		enemy->setSpeed(8.0f - (8.0f / 60.0f*(c - 370)));
+	}
+	else if (c < 460)
+	{
+		enemy->setAngle(Define::PI / 2);
+		enemy->setSpeed(0);
+	}
+	else if (c < 520)
+	{
+		enemy->setAngle(0);
+		enemy->setSpeed(8.0f - (8.0f / 60.0f*(c - 460)));
+	}
+	else if (c < 540)
+	{
+		//enemy->setAngle(Define::PI / 2);
+		enemy->setSpeed(0);
+	}
+	else if (c < 600)
+	{
+		enemy->setAngle(3.587);
+		enemy->setSpeed(2.4f - (2.4f / 60.0f*(c - 540)));
+	}
+
 }
-/*ÏòÓÒ£¬Í£¶Ù£¬Î¢Ïò×óÏÂ£¬Í£¶Ù£¬Î¢ÏòÓÒÉÏÍ£¶Ù£¬Ïò×ó£¬Í£¶Ù*/
+/*ÏòÓÒ£¬Í£¶Ù£¬Î¢Ïò×óÏÂ£¬Í£¶Ù£¬Î¢ÏòÓÒÉÏÍ£¶Ù£¬Ïò×ó£¬Í£¶Ù*/		//ç÷Â¶ÅµÍêÃÀ¶³½á
 void EnemyMover::movePattern03(AbstractEnemy * enemy)
 {
 	int c = enemy->getBossCount() % 1300;
@@ -161,14 +204,57 @@ void EnemyMover::movePattern03(AbstractEnemy * enemy)
 		enemy->setSpeed(0);
 	}
 }
-
 /*boss»Ø¹éÖÐÐÄµã*/
 void EnemyMover::movePattern04(AbstractEnemy * enemy)
 {
 	if (enemy->getMoveFlag()) {
-		moveWithConstantAcceleration(enemy, Define::CENTER_X, 200.f, 60);
+		moveWithConstantAcceleration(enemy, (float)Define::CENTER_X, 250.f, 60);
 		enemy->setMoveFlag(false);
 	}
 }
-
-
+/*ç÷Â¶Åµ2·Ç·ûÒÆ¶¯*/
+void EnemyMover::movePattern05(AbstractEnemy * enemy)
+{
+	int cnt = enemy->getBossCount();
+	int c = enemy->getBossCount() % 200;
+	if (cnt <= 70) {
+		enemy->setAngle(Define::PI / 2);
+		enemy->setSpeed(0);
+		return;
+	}
+	if (cnt % 200 == 0 && (cnt / 200) % 4 <= 1) {
+		enemy->setAngle(0.f + (float)(rand() / double(RAND_MAX)*Define::PI / 8) - Define::PI / 16);
+	}
+	if (cnt % 200 == 0 && (cnt / 200) % 4 > 1) {
+		enemy->setAngle(Define::PI + (float)(rand() / double(RAND_MAX)*Define::PI / 8) - Define::PI / 16);
+	}
+	if (c < 70 && cnt>70) {
+		enemy->setSpeed(4.f - (0.057f*c));
+	}
+	if (c == 70) {
+		enemy->setAngle(Define::PI / 2);
+		enemy->setSpeed(0);
+	}
+}
+/*ç÷Â¶Åµ2·û¿¨ÒÆ¶¯*/
+void EnemyMover::movePattern06(AbstractEnemy * enemy) {
+	int cnt = enemy->getBossCount();
+	int c = enemy->getBossCount() % 100;
+	int r = Define::PI*(rand() % 2);
+	if (cnt < 100) {
+		enemy->setAngle(Define::PI / 2);
+		enemy->setSpeed(0);
+		return;
+	}
+	if (c == 0) {
+		if (enemy->getX() < 200)
+			r = 0;
+		if (enemy->getX() > 700)
+			r = 1;
+		enemy->setAngle(Define::PI*r + (float)(rand() / double(RAND_MAX)*Define::PI / 8) - Define::PI / 16);
+		enemy->setSpeed(3.f);
+	}
+	if (c < 60) {
+		enemy->setSpeed(3.f - 0.05f*c);
+	}
+}

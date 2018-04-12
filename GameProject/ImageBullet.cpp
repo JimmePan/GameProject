@@ -21,6 +21,7 @@ const float ImageBullet::RANGE[] = {
 	10.0f * WEIGHT,//Ofuda
 	5.0f * WEIGHT,//Star
 	6.0f * WEIGHT,//Rain
+	6.5f * WEIGHT,//Ice
 	9.0f * WEIGHT,//Rainbow
 };
 
@@ -64,6 +65,7 @@ const int ImageBullet::SORT_Z[] =
 	2,//Ofuda
 	1,//Star
 	2,//Rain
+	1,//Ice
 	2,//Rainbow
 };
 
@@ -85,7 +87,8 @@ ImageBullet::ImageBullet()
 	_sizeList.push_back(new Size(28, 32));//13
 	_sizeList.push_back(new Size(34, 34));//14
 	_sizeList.push_back(new Size(20, 34));//15
-	_sizeList.push_back(new Size(20, 20));//16
+	_sizeList.push_back(new Size(32, 32));//16
+	_sizeList.push_back(new Size(20, 20));//17
 	myLoadDivGraph("E://dat/image/bullet/00.small.png");
 	myLoadDivGraph("E://dat/image/bullet/01.barrier.png");
 	myLoadDivGraph("E://dat/image/bullet/02.sparkSmall.png");
@@ -102,7 +105,8 @@ ImageBullet::ImageBullet()
 	myLoadDivGraph("E://dat/image/bullet/13.ofuda.png");
 	myLoadDivGraph("E://dat/image/bullet/14.star.png");
 	myLoadDivGraph("E://dat/image/bullet/15.rain.png");
-	myLoadDivGraph("E://dat/image/bullet/16.rainbow.png");
+	myLoadDivGraph("E://dat/image/bullet/16.ice.png");
+	myLoadDivGraph("E://dat/image/bullet/17.rainbow.png");
 }
 
 void ImageBullet::myLoadDivGraph(const char * fname)

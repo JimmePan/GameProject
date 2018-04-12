@@ -3,7 +3,7 @@
 #include "PlayerShot.h"
 #include <memory>
 #include <list>
-class PlayerShotManager:public Task
+class PlayerShotManager :public Task
 {
 public:
 	PlayerShotManager();

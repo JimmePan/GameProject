@@ -7,13 +7,15 @@ Image::Image()
 
 	myLoadDivGraph("E://dat/image/player/body/pl00a.png", 24, 8, 3, 32, 48, _player);
 	myLoadDivGraph("E://dat/image/player/body/pl00b.png", 24, 8, 3, 32, 48, _playerMuteki);
-	myLoadDivGraph("E://dat/image/player/slowplayer.png", 2, 2, 1, 64, 64, _slowPlayer);
+	myLoadDivGraph("E://dat/image/effect/slowplayer.png", 2, 2, 1, 64, 64, _slowPlayer);
 	_playerShot1 = myLoadGraph("E://dat/image/player/player_shot1.png");
 	_playerShot2 = myLoadGraph("E://dat/image/player/player_shot2.png");
 	myLoadDivGraph("E://dat/image/player/player1_shot_onmyou.png", 3, 3, 1, 16, 16, _onmyou);
-	myLoadDivGraph("E://dat/image/enemy/del_effect.png", 5, 5, 1, 140, 140, _enemyDelEffect);
-	myLoadDivGraph("E://dat/image/enemy/del_effect2.png", 4, 4, 1, 64, 64, _enemyDelEffect2);
+	myLoadDivGraph("E://dat/image/effect/del_effect.png", 5, 5, 1, 140, 140, _enemyDelEffect);
+	myLoadDivGraph("E://dat/image/effect/del_effect2.png", 4, 4, 1, 64, 64, _enemyDelEffect2);
 	myLoadDivGraph("E://dat/image/player/player_shot_effect1.png", 8, 4, 2, 16, 16, _shotEnemyEffect1);
+	myLoadDivGraph("E://dat/image/effect/etbreak.png", 8, 4, 2, 64, 64, _bulletBreak);
+	myLoadDivGraph("E://dat/image/effect/boom_effect.png", 12, 3, 4, 171, 80, _boomEffect);
 	_board = myLoadGraph("E://dat/Image/frame/board.png");
 	_fusuma = myLoadGraph("E://dat/image/background/fusuma.png");
 	_floor = myLoadGraph("E://dat/image/background/floor.png");

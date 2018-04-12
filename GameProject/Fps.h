@@ -12,7 +12,7 @@ private:
 	std::list<int> _list;
 	float _fps;
 	unsigned _counter;
-	
+
 	void updateAverage();
 	void regist();
 	unsigned getWaitTime() const;

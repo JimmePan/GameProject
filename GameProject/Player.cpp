@@ -3,6 +3,7 @@
 #include <Dxlib.h>
 #include "Image.h"
 #include "Define.h"
+#include "CalcUtils.h"
 #include "PlayerShotManager.h"
 #include "EffectManager.h"
 
@@ -15,7 +16,7 @@ float Player::pl_y;
 bool Player::_powerMax = false;
 
 Player::Player() :_x((float)Define::CENTER_X), _y((float)Define::OUT_H*0.8f), _counter(0), //_change(0),
-_direction(0), _changeCount(0), _slow(false),_bomFlag(false), _flag(0), _mutekicnt(0),
+_direction(0), _changeCount(0), _slow(false), _bomFlag(false), _flag(0), _mutekicnt(0),
 _range(3.8f)//应该根据不同机体变化判定点大小
 //,_power(Define::POWER_MIN)
 , _power(3.95f)
@@ -37,6 +38,7 @@ bool Player::update()
 		_y = (float)Define::OUT_H + 30;
 		_power = Define::POWER_MIN;				//火力归零
 		_powerMax = false;
+		CalcUtils::PlayFall();
 		_mutekicnt++;
 	}
 
@@ -62,6 +64,14 @@ bool Player::update()
 	move();
 	shot();
 	boom();
+
+	if (_slow && _slowRange > 40) {		//控制子弹范围
+		_slowRange -= 10;
+	}
+	else if (!_slow && _slowRange < 100) {
+		_slowRange += 10;
+	}
+
 	/*if (_power < 4.01f)
 		_power += 0.01f;*/
 	return true;
@@ -112,16 +122,9 @@ void Player::draw() const
 	子型号子弹阴阳玉
 	*/
 	for (int i = 0; i < _power; i++) {
-		if (_slow) {
-			DrawRotaGraphF(_x + 30.f*cos(2 * Define::PI / 60.0f * (_counter % 120) + Define::PI * 2 / (int)_power*i),
-				_y + 30.f*sin(2 * Define::PI / 60.0f * (_counter % 120) + Define::PI * 2 / (int)_power*i),
-				1.5, -Define::PI * 2 / 120 * _counter, Image::getIns()->getOnmyou()[0], TRUE);
-		}
-		else {
-			DrawRotaGraphF(_x + 100.f*cos(2 * Define::PI / 60.0f * (_counter % 60) + Define::PI * 2 / (int)_power*i),
-				_y + 100.f*sin(2 * Define::PI / 60.0f * (_counter % 120) + Define::PI * 2 / (int)_power*i),
-				1.5, -Define::PI * 2 / 120 * _counter, Image::getIns()->getOnmyou()[0], TRUE);
-		}
+		DrawRotaGraphF(_x + _slowRange*cos(2 * Define::PI / 60.0f * (_counter % 120) + Define::PI * 2 / (int)_power*i),
+			_y + _slowRange*sin(2 * Define::PI / 60.0f * (_counter % 120) + Define::PI * 2 / (int)_power*i),
+			1.5, -Define::PI * 2 / 120 * _counter, Image::getIns()->getOnmyou()[0], TRUE);
 	}
 
 
@@ -218,29 +221,17 @@ void Player::move()
 void Player::shot()
 {
 	if (Pad::getIns()->get(ePad::shot) > 0) {
-		//if (true) {
 		_shotCount++;
 		if (_shotCount % 6 == 0) {
 			PlayerShotManager::add(_x - 16.0f, _y, 0);
 			PlayerShotManager::add(_x + 16.0f, _y, 0);
 			if (_power >= 1.00f) {
-				if (_slow) {	//低速
-					for (int i = 0; i < _power; i++) {
-						PlayerShotManager::add(_x + 50.f*cos(2 * Define::PI / 60.0f * (_counter % 120) + Define::PI * 2 / (int)_power*i) - 8,
-							_y + 50.f*sin(2 * Define::PI / 60.0f * (_counter % 120) + Define::PI * 2 / (int)_power*i), 1);
-						PlayerShotManager::add(_x + 50.f*cos(2 * Define::PI / 60.0f * (_counter % 120) + Define::PI * 2 / (int)_power*i) + 8,
-							_y + 50.f*sin(2 * Define::PI / 60.0f * (_counter % 120) + Define::PI * 2 / (int)_power*i), 1);
-					}
-				}
-				else
-				{
 
-					for (int i = 0; i < _power; i++) {
-						PlayerShotManager::add(_x + 100.f*cos(2 * Define::PI / 60.0f * (_counter % 60) + Define::PI * 2 / (int)_power*i) - 8,
-							_y + 100.f*sin(2 * Define::PI / 60.0f * (_counter % 60) + Define::PI * 2 / (int)_power*i), 1);
-						PlayerShotManager::add(_x + 100.f*cos(2 * Define::PI / 60.0f * (_counter % 60) + Define::PI * 2 / (int)_power*i) + 8,
-							_y + 100.f*sin(2 * Define::PI / 60.0f * (_counter % 60) + Define::PI * 2 / (int)_power*i), 1);
-					}
+				for (int i = 0; i < _power; i++) {
+					PlayerShotManager::add(_x + _slowRange*cos(2 * Define::PI / 60.0f * (_counter % 120) + Define::PI * 2 / (int)_power*i) - 8,
+						_y + 50.f*sin(2 * Define::PI / 60.0f * (_counter % 120) + Define::PI * 2 / (int)_power*i), 1);
+					PlayerShotManager::add(_x + _slowRange*cos(2 * Define::PI / 60.0f * (_counter % 120) + Define::PI * 2 / (int)_power*i) + 8,
+						_y + 50.f*sin(2 * Define::PI / 60.0f * (_counter % 120) + Define::PI * 2 / (int)_power*i), 1);
 				}
 			}
 		}
@@ -252,12 +243,14 @@ void Player::shot()
 
 void Player::boom()
 {
-	if (Pad::getIns()->get(ePad::bom) > 0 && !_bomFlag) {
+	if (Pad::getIns()->get(ePad::bom) > 0 && !_bomFlag && _power>=1.00f) {
 		EffectManager::addBoomEffect01();	//根据自机类型，加入boom特效编号,暂时没有
 		_bomFlag = true;
 		_bomRange = 240.f;
+		_power -= 1.00f;
+		_powerMax = false;
 		_flag = 3;
-		_mutekicnt++;
+		_mutekicnt = 1;
 	}
 }
 

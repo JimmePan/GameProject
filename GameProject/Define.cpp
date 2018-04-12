@@ -15,11 +15,11 @@ const int Define::CENTER_Y = (OUT_H / 2);
 const int Define::IN_X = (OUT_W - IN_W) / 2;
 const int Define::IN_Y = (OUT_H - IN_H) / 2;
 const int Define::ITEM_GET_LINE = IN_H / 3;
-const int Define::HP_X = IN_X + 48;
-const int Define::HP_Y = IN_Y + 24;
+const int Define::HP_X = IN_X + 36;
+const int Define::HP_Y = IN_Y + 12;
 
-
-const int Define::PL_POWER[] = { 30,12 };
+//4p ÃëÉË1860
+const int Define::PL_POWER[] = { 45,12 };
 const float Define::PL_RANGE[] = { 7.f,2.f };
 
 const float Define::POWER_MAX = 4.00f;
@@ -34,7 +34,8 @@ const int Define::ITEM_SCORE[] = { 0,10,100,0,0,0,0,100 };
 //const int Define::BOSS_HP[] = { BOSS_01_HP };
 
 //const int Define::BOSS_01_IMG[] = Image::getIns()->getBoss01();
-const int Define::BOSS_01_MOVER[] = { 3,3 };
-const int Define::BOSS_01_SHOTER[] = { 1,0 };
-const int Define::BOSS_01_HP[] = { 5000,5000 };
-const int Define::BOSS_01_ITEM[] = { 1,1 };
+const int Define::BOSS_01_MOVER[] = { 2,3,5,6 };
+const int Define::BOSS_01_SHOTER[] = { 2,1,3,4 };
+const int Define::BOSS_01_HP[] = { 12000,14000,12000,16000 };
+//const int Define::BOSS_01_HP[] = { 2000,2000,2000,15000 };
+const int Define::BOSS_01_ITEM[] = { 4,4,4,4 };

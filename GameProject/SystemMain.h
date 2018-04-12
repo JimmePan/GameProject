@@ -1,5 +1,5 @@
 #pragma once
-class SystemMain final 
+class SystemMain final
 {
 public:
 	SystemMain() = default;

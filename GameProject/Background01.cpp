@@ -15,8 +15,8 @@ Background01::Background01()
 	_handle[1] = Image::getIns()->getFloor();
 	_handle[2] = _handle[0];
 	_handle[3] = 0;
-	for (int t = 0; t<Surface::DATANUM; t++) {
-		for (int z = START_N; z<END_N; z++) {
+	for (int t = 0; t < Surface::DATANUM; t++) {
+		for (int z = START_N; z < END_N; z++) {
 			_list.push_back(make_shared<Surface>(z, _handle[t], t));
 		}
 	}

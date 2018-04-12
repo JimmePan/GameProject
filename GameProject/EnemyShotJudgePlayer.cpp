@@ -1,6 +1,7 @@
 #include "EnemyShotJudgePlayer.h"
 #include "Define.h"
 #include "CalcUtils.h"
+#include "ItemManger.h"
 
 EnemyShotJudgePlayer::EnemyShotJudgePlayer()
 {
@@ -21,8 +22,8 @@ void EnemyShotJudgePlayer::Judge(std::shared_ptr<BulletManager>& bullets, std::s
 		i++;
 	}
 
-	if (p->getFlag() == 2 && p->getCount() == 1) {
-		ClearBullet(bullets);
+	if (p->getFlag() == 2 && p->getCount() < 60) {
+		CalcUtils::ClearBullet();
 	}
 }
 
@@ -31,7 +32,7 @@ void EnemyShotJudgePlayer::JudgeBullet(std::list<std::shared_ptr<Bullet>>::itera
 		if (p->getFlag() == 0) {				//普通状态下进行被弹判定
 			switch ((*i)->getType())
 			{
-			case 0:case 2:case 5:case 6:case 7:case 8:case 10:case 11:case 14:case 15:	//圆形弹判定，星形，雨形暂列为圆形
+			case 0:case 1:case 2:case 3:case 5:case 6:case 7:case 8:case 9:case 10:case 11:case 14:case 15:case 16://圆形弹判定，星形，雨形暂列为圆形
 				if (CalcUtils::out_judge_shot(i, &p)) {
 					(*i)->setFlag(0);//销毁弹幕
 									 /*决死处理（决个毛蛋死，咱就喜欢抱B撞）*/
@@ -43,9 +44,8 @@ void EnemyShotJudgePlayer::JudgeBullet(std::list<std::shared_ptr<Bullet>>::itera
 					}
 				}
 				break;
-			case 1:case 3:case 9:				//椭圆状弹判定
-
-				break;
+			//case 1:case 3:case 9:				//椭圆状弹判定	已向现实妥协
+			//	break;
 			case 4:case 12:case 13:				//矩形弹判定
 
 				break;
@@ -58,19 +58,19 @@ void EnemyShotJudgePlayer::JudgeBullet(std::list<std::shared_ptr<Bullet>>::itera
 		if (p->getBomFlag()) {					//boom消弹判定
 			switch ((*i)->getType())
 			{
-			case 0:case 2:case 5:case 6:case 7:case 8:case 10:case 11:case 14:case 15:	//圆形弹判定，星形，雨形暂列为圆形
+			case 0:case 2:case 5:case 6:case 7:case 8:case 10:case 11:case 14:case 15:case 1:case 3:case 9:case 16:	//圆形弹判定，星形，雨形暂列为圆形
 			{
 				float x = (*i)->getX() - p->getX();		//敌人和boom距离
 				float y = (*i)->getY() - p->getY();
 				float r = (*i)->getRange() + p->getBomRange();	//敌人的碰撞判定和boom碰撞判定的合计范围
-				if ((x*x + y * y < r*r) && ((*i)->getY() <= p->getY()) && (p->getMutekicnt() % 5 == 0 && p->getMutekicnt() % 10 !=0)) {	//半圆判定，共24次，次数太多太少都会有违和感，虽然现在也有
+				if ((x*x + y * y < r*r) && ((*i)->getY() <= p->getY()) && (p->getMutekicnt() % 5 == 0 && p->getMutekicnt() % 10 != 0)) {	//半圆判定，共24次，次数太多太少都会有违和感，虽然现在也有
 					(*i)->setFlag(0);
 				}
 			}
 			break;
-			case 1:case 3:case 9:						//椭圆状弹判定
+			//case 1:case 3:case 9:						//椭圆状弹判定
 
-				break;
+			//	break;
 			case 4:case 12:case 13:						//矩形弹判定
 
 				break;
@@ -80,26 +80,3 @@ void EnemyShotJudgePlayer::JudgeBullet(std::list<std::shared_ptr<Bullet>>::itera
 		}
 	}
 }
-
-void EnemyShotJudgePlayer::ClearBullet(std::shared_ptr<BulletManager>& bullets)
-{
-	for (auto i = bullets->getListSmall()->begin(); i != bullets->getListSmall()->end();) {
-		if ((*i)->getFlag() > 0) {
-			(*i)->setFlag(0);
-		}
-		i++;
-	}
-	for (auto i = bullets->getListNormal()->begin(); i != bullets->getListNormal()->end();) {
-		if ((*i)->getFlag() > 0) {
-			(*i)->setFlag(0);
-		}
-		i++;
-	}
-	for (auto i = bullets->getListBig()->begin(); i != bullets->getListBig()->end();) {
-		if ((*i)->getFlag() > 0) {
-			(*i)->setFlag(0);
-		}
-		i++;
-	}
-}
-

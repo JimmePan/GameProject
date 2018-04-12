@@ -25,5 +25,7 @@ private:
 	void movePattern02(AbstractEnemy *enemy);
 	void movePattern03(AbstractEnemy *enemy);
 	void movePattern04(AbstractEnemy *enemy);
+	void movePattern05(AbstractEnemy *enemy);
+	void movePattern06(AbstractEnemy *enemy);
 };
 

@@ -6,7 +6,7 @@
 #include "Fps.h"
 
 
-class Looper final :public IOnSceneChangedListener{
+class Looper final :public IOnSceneChangedListener {
 public:
 	Looper();
 	bool loop();

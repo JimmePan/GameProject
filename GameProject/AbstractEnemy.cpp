@@ -5,7 +5,7 @@
 
 
 
-AbstractEnemy::AbstractEnemy(float x, float y, int type,int hp) :
+AbstractEnemy::AbstractEnemy(float x, float y, int type, int hp) :
 	_flag(1),
 	_x(x),
 	_y(y),

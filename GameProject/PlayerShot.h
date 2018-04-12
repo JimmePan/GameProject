@@ -2,14 +2,14 @@
 #include "Task.h"
 #include <memory>
 #include <list>
-class PlayerShot:public Task
+class PlayerShot :public Task
 {
 public:
 	PlayerShot(float x, float y, int kind);		//是否以kind为标示待定
-	virtual ~PlayerShot() =default;
+	virtual ~PlayerShot() = default;
 	bool update() override;		//更新位置信息
 	void draw() const override; //画
-	int getFlag() const{ return _flag; }
+	int getFlag() const { return _flag; }
 	void setFlag(int flag) { _flag = flag; }
 	int getPower() const { return _power; }
 	void setPower(int power) { _power = power; }
@@ -42,6 +42,6 @@ protected:
 	bool isInside() const;		//判断出界
 private:
 	int get(unsigned int type)const;
-	
+
 };
 

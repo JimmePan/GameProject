@@ -231,6 +231,12 @@
     <ClCompile Include="BossHp.cpp">
       <Filter>Boss</Filter>
     </ClCompile>
+    <ClCompile Include="BulletBreakEffect.cpp">
+      <Filter>Effect</Filter>
+    </ClCompile>
+    <ClCompile Include="BoomEffect02.cpp">
+      <Filter>Effect</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Looper.h">
@@ -397,6 +403,12 @@
     </ClInclude>
     <ClInclude Include="BossHp.h">
       <Filter>Boss</Filter>
+    </ClInclude>
+    <ClInclude Include="BulletBreakEffect.h">
+      <Filter>Effect</Filter>
+    </ClInclude>
+    <ClInclude Include="BoomEffect02.h">
+      <Filter>Effect</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

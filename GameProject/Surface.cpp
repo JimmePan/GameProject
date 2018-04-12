@@ -5,11 +5,11 @@ const static float WIDX = 40.0f;
 const static float WIDY = 40.0f;
 const static float WIDZ = 40.0f;
 const static float SCRSPD = 0.1f;
-const static float SPACE =5;
+const static float SPACE = 5;
 const static float SPD = 0.01f;
 const static float csDefRotaX = (-Define::PI / 5.f);
 const static VECTOR vMOVE = { 0,5,-50 };							//移动方向
-const static VECTOR gvPos[ Surface::DATANUM ][4] = {				//一个正方体
+const static VECTOR gvPos[Surface::DATANUM][4] = {				//一个正方体
 	{ { 0,WIDY,0 },{ 0,WIDY,WIDZ },{ 0,0,WIDZ },{ 0,0,0 } },
 	{ { 0,0,0 },{ 0,0,WIDZ },{ WIDX,0,WIDZ },{ WIDX,0,0 } },
 	{ { WIDX,WIDY,0 },{ WIDX,WIDY,WIDZ },{ WIDX,0,WIDZ },{ WIDX,0,0 } },

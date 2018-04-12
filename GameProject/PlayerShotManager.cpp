@@ -12,7 +12,7 @@ std::list<std::shared_ptr<PlayerShot>> PlayerShotManager::_list;	//æ≤Ã¨±‰¡ø≥ı ºª
 
 void PlayerShotManager::add(float x, float y, int kind)
 {
-	_list.emplace_back(make_shared<PlayerShot>(x,y,kind));
+	_list.emplace_back(make_shared<PlayerShot>(x, y, kind));
 }
 
 bool PlayerShotManager::update()

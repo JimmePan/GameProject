@@ -8,7 +8,7 @@ BoomEffect01::BoomEffect01(int imgCount)
 	_flag = 1;
 	_r = 1.5f;
 	_imgCount = imgCount;
-	_brightness = 200 / pow(1.3f, _imgCount);
+	_brightness = (int)(200 / pow(1.3f, _imgCount));
 	_img = Image::getIns()->getPl00BoomA();
 	_count = 0 - _imgCount;
 	_color = 0;
@@ -34,7 +34,7 @@ bool BoomEffect01::update()
 		}
 		_turnFlag = false;
 	}
-	
+
 	if (_count > 240 - _imgCount) {
 		_flag = 0;	//Ïú»ÙÖ®
 		return false;
@@ -48,7 +48,7 @@ bool BoomEffect01::update()
 
 void BoomEffect01::draw() const
 {
-	SetDrawBright(255, 255-(20*_imgCount), 255);
+	SetDrawBright(255, 255 - (20 * _imgCount), 255);
 	if (_turnFlag)
 		DrawRotaGraph2F(_x, _y, 33, 174, _r, _angle, _img, TRUE, TRUE);
 	else

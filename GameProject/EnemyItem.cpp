@@ -63,6 +63,15 @@ void EnemyItem::itemPattern03(AbstractEnemy * enemy)
 
 void EnemyItem::itemPattern04(AbstractEnemy * enemy)
 {
+	const float x = enemy->getX();
+	const float y = enemy->getY();
+	for (int i = 0; i < 5; i++) {
+		addp(x + (rand() % 200 - 100), y + (rand() % 100 - 30));
+	}
+	for (int i = 0; i < 1; i++) {
+		addP(x + (rand() % 200 - 10), y + (rand() % 100 - 30));
+	}
+	addup(x + (rand() % 200 - 100), y + (rand() % 100 - 30));
 }
 
 
@@ -81,11 +90,15 @@ void EnemyItem::addp(float x, float y)
 void EnemyItem::addP(float x, float y)
 {
 	if (Player::getPowerMax()) {
-		ItemManger::add(x, y, -Define::PI / 2, 1);
+		ItemManger::add(x, y, -Define::PI / 2, 2);
 	}
 	else
 	{
 		ItemManger::add(x, y, -Define::PI / 2, 3);
 	}
+}
+void EnemyItem::addup(float x, float y)
+{
+	ItemManger::add(x, y, -Define::PI / 2, 4);
 }
 

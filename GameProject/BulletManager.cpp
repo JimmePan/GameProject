@@ -19,21 +19,21 @@ bool compare_SORT_Z(std::shared_ptr<Bullet> first, std::shared_ptr<Bullet> secon
 		return true;
 	}
 	return false;
-	
+
 }
 
-void BulletManager::add(float x, float y, unsigned int type, unsigned int color, int eff, float angle, float base_angle, float speed, float rate)
+void BulletManager::add(float x, float y, unsigned int type, unsigned int color, int state, float angle, float base_angle, float speed, float rate)
 {
 	switch (ImageBullet::getSORT_Z(type))
 	{
 	case 1:
-		_list_small.emplace_back(make_shared<Bullet>(x, y, type, color, eff, angle, base_angle, speed, rate));
+		_list_small.emplace_back(make_shared<Bullet>(x, y, type, color, state, angle, base_angle, speed, rate));
 		break;
 	case 2:
-		_list_normal.emplace_back(make_shared<Bullet>(x, y, type, color, eff, angle, base_angle, speed, rate));
+		_list_normal.emplace_back(make_shared<Bullet>(x, y, type, color, state, angle, base_angle, speed, rate));
 		break;
 	case 3:
-		_list_big.emplace_back(make_shared<Bullet>(x, y, type, color, eff, angle, base_angle, speed, rate));
+		_list_big.emplace_back(make_shared<Bullet>(x, y, type, color, state, angle, base_angle, speed, rate));
 		break;
 	default:
 		break;
@@ -72,9 +72,9 @@ bool BulletManager::update()
 
 void BulletManager::draw() const
 {
-	DrawFormatString(0, 90, GetColor(255, 255, 255), "同屏弹幕数：%d", +(_list_small.size()+ _list_normal.size()+ _list_big.size()));
+	DrawFormatString(0, 90, GetColor(255, 255, 255), "同屏弹幕数：%d", +(_list_small.size() + _list_normal.size() + _list_big.size()));
 	for (auto bullet : _list_big) {
-		
+
 		bullet->draw();
 	}
 	for (auto bullet : _list_normal) {

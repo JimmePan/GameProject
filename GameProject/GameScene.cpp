@@ -33,7 +33,7 @@ void GameScene::update() {
 	_bulletManager->update();
 	_playerShotManager->update();
 	_itemManger->update();
-	_judgement->update(_playerShotManager, _enemyManager, _bulletManager,_player, _itemManger);
+	_judgement->update(_playerShotManager, _enemyManager, _bulletManager, _player, _itemManger);
 	_effectManager->update();
 }
 

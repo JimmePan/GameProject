@@ -38,7 +38,7 @@ bool DelEnemyEffect::update()
 {
 	_count++;
 	_r += 0.10f;//逐渐把效果的大小变大
-	if (_count>10)//如果计数为10以上
+	if (_count > 10)//如果计数为10以上
 		_brightness -= 10;//将亮度降低
 	if (_count > 20) {//效果为20以上
 		_flag = 0;	//销毁之
@@ -50,7 +50,7 @@ bool DelEnemyEffect::update()
 void DelEnemyEffect::draw() const
 {
 	DrawRotaGraphF(_x, _y, _r, _angle, _img, TRUE);
-	
+
 }
 
 

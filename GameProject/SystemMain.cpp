@@ -8,7 +8,7 @@ bool SystemMain::initialize() const {
 	SetAlwaysRunFlag(TRUE);		//窗口活动
 	SetWindowSizeChangeEnableFlag(TRUE);	//自由更变窗口大小
 	SetOutApplicationLogValidFlag(FALSE);	//不记录输出
-	SetWindowText("东方逗你玩");	//窗口标题
+	SetWindowText("毕业设计");	//窗口标题
 	ChangeWindowMode(TRUE);			//窗口模式启动
 	//SetWindowSizeExtendRate(1.0);	//改变窗口大小，在放大比例
 	const int COLOR_BIT = 32;		//颜色位数

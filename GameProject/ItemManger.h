@@ -9,7 +9,7 @@ class ItemManger :public Task
 public:
 	ItemManger();
 	virtual ~ItemManger() = default;
-	static void add(float x, float y,float angle, int kind);
+	static void add(float x, float y, float angle, int kind);
 
 	bool update() override;
 	void draw() const override;

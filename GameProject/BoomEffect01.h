@@ -8,7 +8,7 @@ class BoomEffect01 final :
 protected:
 	int _imgCount;
 	bool _turnFlag;
-	
+
 public:
 	BoomEffect01(int imgCount);
 	virtual ~BoomEffect01() = default;

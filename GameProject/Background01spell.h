@@ -3,7 +3,7 @@
 #include <array>
 #include <memory>
 
-class Background01spell final:public AbstractBackground
+class Background01spell final :public AbstractBackground
 {
 public:
 	Background01spell();

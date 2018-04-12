@@ -21,8 +21,8 @@ Looper::Looper() {													//栈底为TitleScene时，按下键会出现5帧的掉帧，原因
 bool Looper::loop() {
 	Keyboard::getIns()->update();
 	Pad::getIns()->update();
-	_sceneStack.top() -> update(); //更新顶部场景
-	_sceneStack.top() -> draw();	//绘制
+	_sceneStack.top()->update(); //更新顶部场景
+	_sceneStack.top()->draw();	//绘制
 	_fps.draw();
 	_fps.wait();
 	return true;

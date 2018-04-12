@@ -4,7 +4,7 @@
 #include <memory>
 #include <list>
 
-class EnemyManager:public Task
+class EnemyManager :public Task
 {
 public:
 	EnemyManager();
@@ -12,7 +12,7 @@ public:
 	bool update() override;
 	void draw() const override;
 
-	std::list<std::shared_ptr<AbstractEnemy>>* getList(){ return &_list; }
+	std::list<std::shared_ptr<AbstractEnemy>>* getList() { return &_list; }
 private:
 	std::list<std::shared_ptr<AbstractEnemy>> _list;
 };

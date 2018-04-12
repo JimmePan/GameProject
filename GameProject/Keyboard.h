@@ -16,6 +16,6 @@ private:
 	std::array<int, KEY_NUM> _releasingCount;	//弹键计数
 
 	bool isAvailableCode(int keyCode);	//是否为有效按键输入
-	
+
 };
 

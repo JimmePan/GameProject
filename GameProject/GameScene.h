@@ -18,7 +18,7 @@ public:
 	const static char* ParameterTagStage;
 	const static char* ParameterTagLevel;
 
-	GameScene(IOnSceneChangedListener* impl,const Parameter& parameter);
+	GameScene(IOnSceneChangedListener* impl, const Parameter& parameter);
 	virtual ~GameScene() = default;
 
 	void update() override;

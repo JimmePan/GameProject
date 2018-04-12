@@ -11,7 +11,7 @@ public:
 private:
 	int w, h;
 };
-class ImageBullet final:public Singleton<ImageBullet>
+class ImageBullet final :public Singleton<ImageBullet>
 {
 public:
 	enum eBulletType {
@@ -31,6 +31,7 @@ public:
 		eOfuda,	//矩形
 		eStar,	//未知
 		eRain,	//未知
+		eice,
 		eRainbow,	//未知
 		eTypeNum,
 	};

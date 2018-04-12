@@ -14,23 +14,22 @@ ShotEnemyEffect01::ShotEnemyEffect01(float x, float y)
 	_color = 0;
 	_angle = 0;
 	_eff = 1;
-	_imgCount = 0;
 
 }
 
 bool ShotEnemyEffect01::update()
 {
-	_count++;
 	if (_count / 8 >= 4) {
 		_flag = 0;	//Ïú»ÙÖ®
 		return false;
 	}
 	else {
-		_img = Image::getIns()->getShotEnemyEffect1()[_imgCount + _count / 8];
+		_img = Image::getIns()->getShotEnemyEffect1()[_count / 8];
 		_angle += Define::PI / 16;
 		_brightness -= _count % 8;
-		_y -= 1.5f;
+		_y -= 2.0f;
 	}
+	_count++;
 	return true;
 }
 

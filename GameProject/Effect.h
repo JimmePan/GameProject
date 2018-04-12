@@ -7,13 +7,13 @@ public:
 	virtual ~Effect() = default;
 	virtual bool update() override = 0;
 
-	int getEff() const{ return _eff; }
+	int getEff() const { return _eff; }
 	void setEff(int eff) { _eff = eff; }
 	int getImg() const { return _img; }
 	void setImg(int img) { _img = img; }
 	int getBrt() const { return _brightness; }
 	void setBrt(int brt) { _brightness = brt; }
-	
+
 	float getX() const { return _x; }
 	void setX(float x) { _x = x; }
 	float getY() const { return _y; }

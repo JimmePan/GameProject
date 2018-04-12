@@ -10,7 +10,7 @@ BossHp::BossHp()
 void BossHp::DrawBossHp(int maxHp, int hp, int num) const
 {
 	int i, j, k = 1;
-	for (j = num - 1; j > 0; j--,k++) {
+	for (j = num - 1; j > 0; j--, k++) {
 		for (int i = 0; i < 25; i++) {
 			if (k % 2 > 0)
 				DrawGraph(Define::HP_X + i + (num - j - 1) * 30, 2 + Define::HP_Y, Image::getIns()->getBossHpR(), FALSE);

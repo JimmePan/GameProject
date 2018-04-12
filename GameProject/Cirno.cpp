@@ -27,10 +27,10 @@ void Cirno::draw() const
 			handle = Image::getIns()->getBoss01()[add + DimgID[(_changeCount / 8) % 4]];
 		}
 		if ((_change < 0 || _direction < 0) && (_direction - _change >= -1)) {	//çRÏñ
-			DrawRotaGraphF(_x, _y, 1.5, 0.0, handle, TRUE, TRUE);
+			DrawRotaGraphF(_dx, _dy, 1.5, 0.0, handle, TRUE, TRUE);
 		}
 		else {																//ÕýÏñ
-			DrawRotaGraphF(_x, _y, 1.5, 0.0, handle, TRUE);
+			DrawRotaGraphF(_dx, _dy, 1.5, 0.0, handle, TRUE);
 		}
 
 	}
@@ -42,11 +42,11 @@ void Cirno::draw() const
 		if (abs(_direction) > 0) {
 			const int handle = Image::getIns()->getBoss01()[7];
 			if (_direction < 0) {
-				DrawRotaGraphF(_x, _y, 1.5, 0.0, handle, TRUE, TRUE);
+				DrawRotaGraphF(_dx, _dy, 1.5, 0.0, handle, TRUE, TRUE);
 			}
 			else
 			{
-				DrawRotaGraphF(_x, _y, 1.5, 0.0, handle, TRUE);
+				DrawRotaGraphF(_dx, _dy, 1.5, 0.0, handle, TRUE);
 			}
 		}
 		else
@@ -54,11 +54,13 @@ void Cirno::draw() const
 			DrawRotaGraphF(_dx, _dy, 1.5, 0.0, handle, TRUE);
 		}
 	}
-	bossHp.DrawBossHp(Define::BOSS_01_HP[_type - _flag],_hp,_flag);
+	bossHp.DrawBossHp(Define::BOSS_01_HP[_type - _flag], _hp, _flag);
+	if (_state == 2) 
+		DrawFormatString(450, 100, GetColor(255, 255, 255), "%d", +(_endTime/60));
 }
 void Cirno::reset()
 {
-	_endTime = 99 * 60;
+	_endTime = 25 * 60;
 	_state = 1;		//×´Ì¬´ý»ú
 	_waitTime = 0;
 	_bossCount = 0;
