@@ -1,6 +1,6 @@
 #include "BulletBreakEffect.h"
 #include "Define.h"
-#include "Macro.h"
+#include <DxLib.h>
 #include "Image.h"
 
 BulletBreakEffect::BulletBreakEffect(float x, float y, int color)
@@ -29,6 +29,7 @@ bool BulletBreakEffect::update()
 			_brightness -= 5;
 	}
 	_count++;
+	return true;
 }
 
 void BulletBreakEffect::draw() const

@@ -37,5 +37,5 @@ const int Define::ITEM_SCORE[] = { 0,10,100,0,0,0,0,100 };
 const int Define::BOSS_01_MOVER[] = { 2,3,5,6 };
 const int Define::BOSS_01_SHOTER[] = { 2,1,3,4 };
 const int Define::BOSS_01_HP[] = { 12000,14000,12000,16000 };
-//const int Define::BOSS_01_HP[] = { 2000,2000,2000,15000 };
+//const int Define::BOSS_01_HP[] = { 2000,2000,2000,5000 };
 const int Define::BOSS_01_ITEM[] = { 4,4,4,4 };

@@ -1,6 +1,5 @@
 #pragma once
 #include "AbstractEnemy.h"
-#include "BossMoveControl.h"
 
 class Boss :public AbstractEnemy
 {
@@ -23,5 +22,7 @@ protected:
 	const int* ITEM;
 	virtual void reset() = 0;
 	virtual void changeMove() = 0;
+
+	void drawTime() const;
 
 };

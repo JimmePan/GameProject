@@ -43,7 +43,8 @@ public:
 	int getShotPatternID() const { return _shotPatternID; }
 	int getItemPatternID() const { return _itemPatternID; }
 
-
+	void setGraze() {}
+	bool getGraze() { return false; }
 
 	float shotatan2() const { return atan2(Player::getY() - _y, Player::getX() - _x); }		//敌人自机狙方向控制(权宜之计)
 

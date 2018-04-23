@@ -33,7 +33,7 @@ bool EnemyManager::update()
 
 void EnemyManager::draw() const
 {
-	DrawFormatString(0, 20, GetColor(255, 255, 255), "剩余敌人个数：%d", +_list.size());
+	DrawFormatString(70, 40, GetColor(255, 255, 255), "剩余敌人个数：%d", +_list.size());
 	for (auto enemy : _list) {
 		enemy->draw();
 	}

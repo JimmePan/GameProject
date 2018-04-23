@@ -24,6 +24,8 @@ public:
 	void  setY(float y) { _y = y; }
 	int getSort() { return _sort; }
 	void setSort(int sort) { _sort = sort; }
+	int getGraze() { return _graze; }
+	void setGraze() { _graze = false; }
 	int getType() { return _type; }
 	void setType(int type) { _type = type; _range = ImageBullet::getIns()->RANGE[type] * _rate; }	//子弹效果：更改子弹类型
 	int getColor() { return _color; }
@@ -38,6 +40,8 @@ public:
 	void setBaseAngle(float baseAngle) { _base_angle = baseAngle; }
 	int getState() { return _state; }
 	void setState(int state) { _state = state; }
+	float getRate() { return _rate; }
+	void setRate(float rate) { _rate = rate; }
 	float getRange() { return _range; }
 	void setRange(float range) { _range = range; }
 
@@ -51,6 +55,7 @@ private:
 	int _w;
 	int _h;
 	int _sort;		//弹幕显示顺序排序
+	bool _graze;	//擦弹判定
 
 	const int _till = 5;	//保证不消失最短时间，如下雨弹幕会先抛射出屏幕上方再落下，因此需要最短不消失时间
 

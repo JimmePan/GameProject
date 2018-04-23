@@ -7,6 +7,7 @@
 #include "BoomEffect01.h"
 #include "BoomEffect02.h"
 #include "BulletBreakEffect.h"
+#include "GrazeEffect.h"
 
 using namespace std;
 
@@ -31,7 +32,7 @@ bool EffectManager::update()
 
 void EffectManager::draw() const
 {
-	DrawFormatString(0, 70, GetColor(255, 255, 255), "剩余效果个数：%d", +_list.size());
+	DrawFormatString(70, 85, GetColor(255, 255, 255), "剩余效果个数：%d", +_list.size());
 	for (auto effect : _list) {
 		switch (effect->getEff())
 		{
@@ -77,12 +78,20 @@ void EffectManager::addBoomEffect01()
 	}
 }
 
-void EffectManager::addBoomEffect02(float x, float y)
+void EffectManager::addBoomEffect02(float x, float y,float angle)
 {
-	_list.emplace_back(make_shared<BoomEffect02>(x, y));
+	_list.emplace_back(make_shared<BoomEffect02>(x, y,angle));
 }
 
 void EffectManager::addBulletBreakEffect(float x, float y, int color)
 {
 	_list.emplace_back(make_shared<BulletBreakEffect>(x, y, color));
+}
+
+void EffectManager::addGrazeEffect(float x, float y)
+{
+	int a = rand() % (3) + 2;
+	for (int i = 0; i < a; i++) {
+		_list.emplace_back(make_shared<GrazeEffect>(x, y));
+	}
 }

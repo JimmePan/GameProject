@@ -2,6 +2,7 @@
 
 #include <vector>
 #include <memory>
+#include "Sound.h"
 
 class AbstractEnemy;
 
@@ -25,4 +26,6 @@ private:
 	void addp(float x, float y);
 	void addP(float x, float y);
 	void addup(float x, float y);
+	void addUP(float x, float y);
+
 };

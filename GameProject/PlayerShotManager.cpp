@@ -30,7 +30,7 @@ bool PlayerShotManager::update()
 
 void PlayerShotManager::draw() const
 {
-	DrawFormatString(0, 50, GetColor(255, 255, 255), "发射子弹数：%d", +_list.size());
+	DrawFormatString(70, 70, GetColor(255, 255, 255), "发射子弹数：%d", +_list.size());
 	for (auto shot : _list) {
 		shot->draw();
 	}

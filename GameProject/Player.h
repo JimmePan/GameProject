@@ -9,9 +9,6 @@ public:
 	bool update() override;
 	void draw() const override;
 
-	float getPower() { return _power; }
-	void setPower(float power) { _power = power; }
-	void addPower(float power) { _power += power; }
 	static float getX() { return pl_x; }
 	//void  setX(float x) { _x = x; }
 	static float getY() { return pl_y; }
@@ -41,7 +38,6 @@ private:
 	float _x, _y;
 	float _range;
 	static float pl_x, pl_y;		//为获取自机位置的权宜之计
-	float _power;
 	float _bomRange;
 	static bool _powerMax;		//满火力标示
 
@@ -56,6 +52,5 @@ private:
 	mutable int _direction; //方向
 	mutable int _changeCount; //方向改变计数器
 	mutable int _shotCount = 5;	//射击计数器
-	//int _image;
 };
 

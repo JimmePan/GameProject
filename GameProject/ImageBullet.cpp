@@ -9,7 +9,7 @@ const float ImageBullet::RANGE[] = {
 	4.0f * WEIGHT,//Barrier
 	4.5f * WEIGHT,//SparkSmall	//改
 	5.0f * WEIGHT,//Kome
-	4.5f * WEIGHT,//Umaibo
+	44.f * WEIGHT,// 4.5f * WEIGHT,//Umaibo
 	9.0f * WEIGHT,	//SparkBig
 	12.0f * WEIGHT,	//Kodama	//原10.0f	//改
 	6.5f * WEIGHT,	//Yosei
@@ -17,8 +17,8 @@ const float ImageBullet::RANGE[] = {
 	11.0f * WEIGHT,//Ame
 	23.0f * WEIGHT,	//Tama	//原19.5 //改
 	38.0f * WEIGHT,	//Odama
-	2.8f * WEIGHT,//Laser
-	10.0f * WEIGHT,//Ofuda
+	220.f * WEIGHT,//2.8f * WEIGHT,//Laser
+	22.f * WEIGHT,//10.0f * WEIGHT,//Ofuda
 	5.0f * WEIGHT,//Star
 	6.0f * WEIGHT,//Rain
 	6.5f * WEIGHT,//Ice

@@ -27,6 +27,8 @@ public:
 	//void  setAngle(float angle) { _angle = angle; }
 	float getRange() const { return _RANGE; }
 	//void  setRange(float range) { _RANGE = range; }
+	void setGraze() {}
+	bool getGraze() { return false; }
 
 protected:
 	mutable int _flag;		//´æÔÚ

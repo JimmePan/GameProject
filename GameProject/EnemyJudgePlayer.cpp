@@ -20,7 +20,7 @@ void EnemyJudgePlayer::Judge(std::shared_ptr<EnemyManager>& em, std::shared_ptr<
 					if (p->getFlag() == 0 && p->getMutekicnt() == 0) {	//状态为一般状态，且不是无敌状态下						
 						p->setFlag(1);			//1：正在进行决死处理 2：已经被击毁且新的自机正在从下浮起来
 						p->setCount_0();
-						//se_flag[3] = 1;//击毁声
+						PlaySoundMem(Sound::getIns()->getPlDead(), DX_PLAYTYPE_BACK);
 					}
 				}
 			}
@@ -31,12 +31,14 @@ void EnemyJudgePlayer::Judge(std::shared_ptr<EnemyManager>& em, std::shared_ptr<
 				float x = (*i)->getX() - p->getX();		//敌人和boom距离
 				float y = (*i)->getY() - p->getY();
 				float r = (*i)->getRange() + p->getBomRange();	//敌人的碰撞判定和boom碰撞判定的合计范围
-				if ((x*x + y * y < r*r) && ((*i)->getY() <= p->getY()) && (p->getMutekicnt() % 5 == 0)) {
-					/*if (p->getMutekicnt() % 100 == 0) {		//boom碰撞特效
-						EffectManager::addBoomEffect02((*i)->getX(), (*i)->getY());
-					}*/
-					(*i)->setHp(66);
-					PlayerShotJudgeEnemy::enemy_death_judge(i);
+				if ((x*x + y * y < r*r) && ((*i)->getY() <= p->getY())) {
+					if (p->getMutekicnt() % 30 >= 13 && p->getMutekicnt() % 30 <= 17) {		//boom碰撞特效
+						EffectManager::addBoomEffect02((*i)->getX(), (*i)->getY(), (*i)->shotatan2());
+					}
+					if (p->getMutekicnt() % 5 == 0) {
+						(*i)->setHp(66);
+						PlayerShotJudgeEnemy::enemy_death_judge(i);
+					}
 				}
 
 

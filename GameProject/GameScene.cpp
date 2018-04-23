@@ -1,8 +1,5 @@
 #include "GameScene.h"
-#include <DxLib.h>
 #include "Macro.h"
-#include "Background01spell.h"
-#include "Background01.h"
 
 using namespace std;
 
@@ -27,8 +24,8 @@ GameScene::GameScene(IOnSceneChangedListener* impl, const Parameter& parameter) 
 void GameScene::update() {
 	//_backgroundSpell->update();		//¶Ô³Æ±³¾°
 	_background->update();
-	_player->update();
 	_board->update();
+	_player->update();
 	_enemyManager->update();
 	_bulletManager->update();
 	_playerShotManager->update();
@@ -42,11 +39,11 @@ void GameScene::draw() const {
 	_background->draw();
 	//_backgroundSpell->draw();			//¶Ô³Æ±³¾°
 	_player->draw();
-	_board->draw();
-	_enemyManager->draw();
-	_bulletManager->draw();
 	_playerShotManager->draw();	//Éä»÷
-	_effectManager->draw();
 	_itemManger->draw();
+	_bulletManager->draw();
+	_enemyManager->draw();
+	_effectManager->draw();
+	_board->draw();
 
 }

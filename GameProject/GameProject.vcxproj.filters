@@ -76,6 +76,9 @@
     <Filter Include="Boss">
       <UniqueIdentifier>{4cd62fbb-a4a4-481b-9a87-4be1d474ccc1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Number">
+      <UniqueIdentifier>{58e8281d-3f4b-4ba4-a039-b6c5ccb99f55}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="game.cpp">
@@ -235,6 +238,27 @@
       <Filter>Effect</Filter>
     </ClCompile>
     <ClCompile Include="BoomEffect02.cpp">
+      <Filter>Effect</Filter>
+    </ClCompile>
+    <ClCompile Include="Sound.cpp">
+      <Filter>Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="test.cpp">
+      <Filter>源文件\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Vector.cpp">
+      <Filter>Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="Point.cpp">
+      <Filter>Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="Global.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="Number.cpp">
+      <Filter>Number</Filter>
+    </ClCompile>
+    <ClCompile Include="GrazeEffect.cpp">
       <Filter>Effect</Filter>
     </ClCompile>
   </ItemGroup>
@@ -408,6 +432,24 @@
       <Filter>Effect</Filter>
     </ClInclude>
     <ClInclude Include="BoomEffect02.h">
+      <Filter>Effect</Filter>
+    </ClInclude>
+    <ClInclude Include="Sound.h">
+      <Filter>Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Point.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Global.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Number.h">
+      <Filter>Number</Filter>
+    </ClInclude>
+    <ClInclude Include="GrazeEffect.h">
       <Filter>Effect</Filter>
     </ClInclude>
   </ItemGroup>

@@ -1,14 +1,13 @@
 #include "BigEnemy.h"
 #include <DxLib.h>
 #include "Image.h"
-#include "Define.h"
 
 BigEnemy::BigEnemy(float x, float y, int type, int hp) :AbstractEnemy(x, y, type, hp)
 {
 	_movePatternID = 0;
-	_shotPatternID = 1;
+	_shotPatternID = 0;
 	_itemPatternID = 3;
-	_RANGE = 50.f;
+	_RANGE = 45.f;
 }
 
 

@@ -1,5 +1,4 @@
 #include "BulletManager.h"
-#include "Bullet.h"
 #include "DxLib.h"
 #include "ImageBullet.h"
 using namespace std;
@@ -72,7 +71,7 @@ bool BulletManager::update()
 
 void BulletManager::draw() const
 {
-	DrawFormatString(0, 90, GetColor(255, 255, 255), "Í¬ÆÁµ¯Ä»Êı£º%d", +(_list_small.size() + _list_normal.size() + _list_big.size()));
+	DrawFormatString(70, 100, GetColor(255, 255, 255), "Í¬ÆÁµ¯Ä»Êı£º%d", +(_list_small.size() + _list_normal.size() + _list_big.size()));
 	for (auto bullet : _list_big) {
 
 		bullet->draw();

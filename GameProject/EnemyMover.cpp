@@ -2,7 +2,6 @@
 #include "Macro.h"
 #include "Define.h"
 #include "AbstractEnemy.h"
-#include "Boss.h"
 
 
 EnemyMover::EnemyMover()
@@ -72,22 +71,22 @@ void EnemyMover::setFunction()
 /*向下，停顿后，向下*/
 void EnemyMover::movePattern00(AbstractEnemy * enemy)
 {
-	const int cnt = enemy->getCounter();
-	const int wait = 180;
-	if (0 == cnt) {
-		enemy->setAngle(Define::PI / 2);
-		enemy->setSpeed(3);
-	}
-	if (60 < cnt && cnt <= 90) {
-		enemy->setSpeed(enemy->getSpeed() - 0.1f);
-	}
-	if (cnt >= 150) {
-		enemy->setAngle(Define::PI / 2);
-		enemy->setSpeed(0);
-	}
-	/*if (90 + wait < cnt && cnt <= 90 + wait + 30) {
-		enemy->setSpeed(enemy->getSpeed() + 0.1f);
-	}*/
+	//const int cnt = enemy->getCounter();
+	//const int wait = 180;
+	//if (0 == cnt) {
+	//	enemy->setAngle(Define::PI / 2);
+	//	enemy->setSpeed(3);
+	//}
+	//if (60 < cnt && cnt <= 90) {
+	//	enemy->setSpeed(enemy->getSpeed() - 0.1f);
+	//}
+	//if (cnt >= 150) {
+	//	enemy->setAngle(Define::PI / 2);
+	//	enemy->setSpeed(0);
+	//}
+	///*if (90 + wait < cnt && cnt <= 90 + wait + 30) {
+	//	enemy->setSpeed(enemy->getSpeed() + 0.1f);
+	//}*/
 }
 //左下移动
 void EnemyMover::movePattern01(AbstractEnemy * enemy)
@@ -155,7 +154,7 @@ void EnemyMover::movePattern02(AbstractEnemy * enemy)
 	}
 	else if (c < 600)
 	{
-		enemy->setAngle(3.587);
+		enemy->setAngle(3.587f);
 		enemy->setSpeed(2.4f - (2.4f / 60.0f*(c - 540)));
 	}
 

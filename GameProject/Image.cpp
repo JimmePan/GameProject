@@ -15,8 +15,12 @@ Image::Image()
 	myLoadDivGraph("E://dat/image/effect/del_effect2.png", 4, 4, 1, 64, 64, _enemyDelEffect2);
 	myLoadDivGraph("E://dat/image/player/player_shot_effect1.png", 8, 4, 2, 16, 16, _shotEnemyEffect1);
 	myLoadDivGraph("E://dat/image/effect/etbreak.png", 8, 4, 2, 64, 64, _bulletBreak);
-	myLoadDivGraph("E://dat/image/effect/boom_effect.png", 12, 3, 4, 171, 80, _boomEffect);
-	_board = myLoadGraph("E://dat/Image/frame/board.png");
+	myLoadDivGraph("E://dat/image/effect/boom_effect.png", 12, 3, 4, 157, 81, _boomEffect);
+	_front00 = myLoadGraph("E://dat/Image/front/front00.png");
+	_front01 = myLoadGraph("E://dat/Image/front/front01.png");
+	_front02 = myLoadGraph("E://dat/Image/front/front02.png");
+	_front03 = myLoadGraph("E://dat/Image/front/front03.png");
+	myLoadDivGraph("E://dat/Image/front/player_hp.png", 6, 6, 1, 28, 28, _playerHp);
 	_fusuma = myLoadGraph("E://dat/image/background/fusuma.png");
 	_floor = myLoadGraph("E://dat/image/background/floor.png");
 	_backSpell00 = myLoadGraph("E://dat/image/background/stage01a.png");
@@ -24,11 +28,13 @@ Image::Image()
 	myLoadDivGraph("E://dat/image/enemy/enemy.png", 224, 16, 14, 32, 32, _enemyNormal);
 	myLoadDivGraph("E://dat/image/enemy/enemy.png", 56, 8, 7, 64, 64, _enemyBig);
 	_pl00BoomA = myLoadGraph("E://dat/image/player/pl00BoomA.png");
-	//_pl00BoomA = myLoadGraph("E://dat/image/player/body/test.png");
+	_playerGraze = myLoadGraph("E://dat/image/player/player_graze.png");
 	myLoadDivGraph("E://dat/image/bullet/item.png", 8, 8, 1, 16, 16, _item);
 	myLoadDivGraph("E://dat/image/stgenm/stage01/enm1m.png", 11, 4, 3, 64, 80, _boss01);
 	_bossHpR = myLoadGraph("E://dat/image/enemy/hp_boss.png");
 	_bossHpW = myLoadGraph("E://dat/image/enemy/hp.png");
+	myLoadDivGraph("E://dat/image/ascii/BNumber.png", 15, 15, 1, 32, 32, _bigNumber);
+	myLoadDivGraph("E://dat/image/ascii/SNumber.png", 15, 15, 1, 16, 18, _smallNumber);
 }
 
 void Image::release()
@@ -38,6 +44,7 @@ void Image::release()
 		DeleteGraph(_images[i]);
 	}
 	_images.clear();
+
 }
 
 //加载图片，并将其句柄添加到成员变量中(单张)

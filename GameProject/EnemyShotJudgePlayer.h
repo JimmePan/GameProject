@@ -17,7 +17,7 @@ public:
 
 
 private:
-	static void JudgeBullet(std::list<std::shared_ptr<Bullet>>::iterator & i, std::shared_ptr<Player>& p);
-	//static void ClearBullet(std::shared_ptr<BulletManager> &bullets);
+	static void JudgeBullet(std::list<std::shared_ptr<Bullet>>::iterator & i, std::shared_ptr<Player>& p);	
+	static void miss(std::list<std::shared_ptr<Bullet>>::iterator & i, std::shared_ptr<Player>& p);
 	//static void ClearBulletEn(std::shared_ptr<BulletManager> &bullets);
 };

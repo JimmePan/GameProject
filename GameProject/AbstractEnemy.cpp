@@ -4,11 +4,11 @@
 #include "Define.h"
 
 
-
 AbstractEnemy::AbstractEnemy(float x, float y, int type, int hp) :
 	_flag(1),
 	_x(x),
 	_y(y),
+	_boss(false),
 	_speed(0),
 	_angle(0),
 	_counter(0),

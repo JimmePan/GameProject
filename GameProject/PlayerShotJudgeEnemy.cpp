@@ -1,6 +1,8 @@
 #include "PlayerShotJudgeEnemy.h"
 #include "Define.h"
 #include "CalcUtils.h"
+#include "Sound.h"
+#include "Global.h"
 
 PlayerShotJudgeEnemy::PlayerShotJudgeEnemy()
 {
@@ -19,6 +21,13 @@ void PlayerShotJudgeEnemy::Judge(std::shared_ptr<PlayerShotManager> &playShots, 
 						{
 						case 0:
 							EffectManager::addShotEnemyEffect01((*i)->getX(), (*s)->getY() - (*s)->getRange() / 2);
+							if ((*s)->getBoss() && (*s)->getHp() <= 2000) {
+								PlaySoundMem(Sound::getIns()->getEnDamage01(), DX_PLAYTYPE_BACK);
+							}
+							else
+							{
+								PlaySoundMem(Sound::getIns()->getEnDamage00(), DX_PLAYTYPE_BACK);
+							}
 							break;
 						case 1:
 							EffectManager::addShotEnemyEffect02((*i)->getX(), (*s)->getY());
@@ -27,6 +36,7 @@ void PlayerShotJudgeEnemy::Judge(std::shared_ptr<PlayerShotManager> &playShots, 
 						}
 
 						(*i)->setFlag(0);			//消除子弹
+						Global::getIns()->setScore(10);		//增加分数
 						(*s)->setHp((*i)->getPower());		//敌方减血
 						enemy_death_judge(s);		//判定敌方是否死亡
 					}
@@ -82,6 +92,7 @@ void PlayerShotJudgeEnemy::enemy_death_judge(std::list<std::shared_ptr<AbstractE
 		EffectManager::addEnemyDelEffect((*s)->getX(), (*s)->getY(), (*s)->getType());
 		EffectManager::addEnemyDelEffect2((*s)->getX(), (*s)->getY(), (*s)->getType());
 		(*s)->setFlag(0);
+		PlaySoundMem(Sound::getIns()->getEnBreak00(), DX_PLAYTYPE_BACK);
 		//for (i = 0; i<SHOT_MAX; i++) {//敌人总数次循环
 		//	if (shot[i].flag != 0) {//如果有没有登录的弹幕
 		//		if (s == shot[i].num) {//且敌人有已经登录了的弹幕

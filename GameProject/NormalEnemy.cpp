@@ -1,7 +1,6 @@
 #include "NormalEnemy.h"
 #include <DxLib.h>
 #include "Image.h"
-#include "Define.h"
 #include "CalcUtils.h"
 
 

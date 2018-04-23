@@ -1,7 +1,6 @@
 #pragma once
-
-#pragma once
 #include "Effect.h"
+
 class BoomEffect01 final :
 	public Effect
 {

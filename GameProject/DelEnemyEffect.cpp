@@ -1,7 +1,7 @@
 #include "DelEnemyEffect.h"
 #include "Image.h"
 #include "Define.h"
-#include <Dxlib.h>
+#include <DxLib.h>
 
 DelEnemyEffect::DelEnemyEffect(float x, float y, int color)
 {

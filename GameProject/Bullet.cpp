@@ -12,6 +12,7 @@ Bullet::Bullet(float x, float y, unsigned int type, unsigned int color, int stat
 	_type = type;
 	_color = color;
 	_count = 0;
+	_graze = TRUE;
 	_state = state;
 	_angle = angle;
 	_speed = speed;

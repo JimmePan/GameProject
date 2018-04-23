@@ -1,6 +1,8 @@
 #include "ItemJudgePlayer.h"
 #include "Define.h"
+#include "Global.h"
 #include "CalcUtils.h"
+#include "Sound.h"
 
 ItemJudgePlayer::ItemJudgePlayer()
 {
@@ -30,16 +32,20 @@ void ItemJudgePlayer::Judge(std::shared_ptr<ItemManger>& im, std::shared_ptr<Pla
 				{
 				case 0:case 3:
 				{
-					float before = p->getPower();
+					float before = Global::POWER;
 					if (before < Define::POWER_MAX) {		//小于满火力，拾取
-						before + Define::ITEM_POWER[kind] >= Define::POWER_MAX ? p->setPower(Define::POWER_MAX) : p->addPower(Define::ITEM_POWER[kind]);
-						if ((int)before < (int)p->getPower()) {
+						before + Define::ITEM_POWER[kind] >= Define::POWER_MAX ? Global::getIns()->setPower(Define::POWER_MAX) : Global::getIns()->addPower(Define::ITEM_POWER[kind]);
+						if ((int)before < (int)Global::POWER) {
 							//满1火力，火力up效果
+							PlaySoundMem(Sound::getIns()->getPowerUp(), DX_PLAYTYPE_BACK);
 						}
-						if (p->getPower() > Define::POWER_MAX - 0.001f)
+						if (Global::POWER > Define::POWER_MAX - 0.001f) {
 							p->setPowerMax(true);
+							if (!CheckSoundMem(Sound::getIns()->getPowerMax())) {
+								PlaySoundMem(Sound::getIns()->getPowerMax(), DX_PLAYTYPE_BACK);
+							}
+						}
 					}
-
 					(*i)->setFlag(0);
 				}
 				case 1:
@@ -62,6 +68,15 @@ void ItemJudgePlayer::Judge(std::shared_ptr<ItemManger>& im, std::shared_ptr<Pla
 					break;
 				default:
 					break;
+				}
+				if ((*i)->getFlag() >= 7) {
+					if (!CheckSoundMem(Sound::getIns()->getItem01())) {
+						PlaySoundMem(Sound::getIns()->getItem01(), DX_PLAYTYPE_BACK);
+					}
+				}
+				else
+				{
+					PlaySoundMem(Sound::getIns()->getItem00(), DX_PLAYTYPE_BACK);
 				}
 			}
 

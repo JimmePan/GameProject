@@ -55,8 +55,10 @@ void Cirno::draw() const
 		}
 	}
 	bossHp.DrawBossHp(Define::BOSS_01_HP[_type - _flag], _hp, _flag);
-	if (_state == 2) 
-		DrawFormatString(450, 100, GetColor(255, 255, 255), "%d", +(_endTime/60));
+
+	if (_state == 2)
+		drawTime();
+
 }
 void Cirno::reset()
 {

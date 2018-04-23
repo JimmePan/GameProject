@@ -11,6 +11,8 @@
 #include "EffectManager.h"
 #include "BulletManager.h"
 #include "ItemManger.h"
+#include "Background01spell.h"
+#include "Background01.h"
 
 class GameScene : public AbstractScene
 {

@@ -27,7 +27,7 @@ bool ItemManger::update()
 
 void ItemManger::draw() const
 {
-	DrawFormatString(0, 110, GetColor(255, 255, 255), "道具数：%d", +_list.size());
+	DrawFormatString(70, 115, GetColor(255, 255, 255), "道具数：%d", +_list.size());
 	for (auto shot : _list) {
 		shot->draw();
 	}

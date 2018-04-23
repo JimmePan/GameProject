@@ -6,9 +6,13 @@ class BoomEffect02 final :
 {
 protected:
 public:
-	BoomEffect02(float x, float y);	
+	BoomEffect02(float x, float y, float angle);
 	virtual ~BoomEffect02() = default;
 	bool update() override;
 	void draw() const override;
+protected:
+	float _speed;
+	float _baseAngle;
+	int _i;
 };
 
