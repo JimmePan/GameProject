@@ -15,5 +15,8 @@ public:
 	std::list<std::shared_ptr<AbstractEnemy>>* getList() { return &_list; }
 private:
 	std::list<std::shared_ptr<AbstractEnemy>> _list;
+	int _count;
+
+	void state01Play();
 };
 

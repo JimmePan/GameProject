@@ -8,6 +8,7 @@
 #include "BoomEffect02.h"
 #include "BulletBreakEffect.h"
 #include "GrazeEffect.h"
+#include "BulletShotEffect.h"
 
 using namespace std;
 
@@ -94,4 +95,9 @@ void EffectManager::addGrazeEffect(float x, float y)
 	for (int i = 0; i < a; i++) {
 		_list.emplace_back(make_shared<GrazeEffect>(x, y));
 	}
+}
+
+void EffectManager::addBulletShotEffect(float x, float y, int color)
+{
+	_list.emplace_back(make_shared<BulletShotEffect>(x, y,color));
 }

@@ -35,6 +35,7 @@ Image::Image()
 	_bossHpW = myLoadGraph("E://dat/image/enemy/hp.png");
 	myLoadDivGraph("E://dat/image/ascii/BNumber.png", 15, 15, 1, 32, 32, _bigNumber);
 	myLoadDivGraph("E://dat/image/ascii/SNumber.png", 15, 15, 1, 16, 18, _smallNumber);
+	myLoadDivGraph("E://dat/image/bullet/05.sparkBig.png", 9, 9, 1, 76, 76, _bulletShotEffect);
 }
 
 void Image::release()

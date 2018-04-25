@@ -9,7 +9,7 @@
 class AbstractEnemy : public Task
 {
 public:
-	AbstractEnemy(float x, float y, int type, int hp);
+	AbstractEnemy(float x, float y, int type, int hp, int movePatternID, int shotPatternID, int itemPatternID);
 	virtual ~AbstractEnemy() = default;
 	void initialize();
 	bool update() override;

@@ -4,7 +4,8 @@
 #include "CalcUtils.h"
 
 
-NormalEnemy::NormalEnemy(float x, float y, int type, int hp) :AbstractEnemy(x, y, type, hp)
+NormalEnemy::NormalEnemy(float x, float y, int type, int hp, int movePatternID, int shotPatternID, int itemPatternID)
+	:AbstractEnemy(x, y, type, hp, movePatternID, shotPatternID, itemPatternID)
 {
 	_movePatternID = 1;
 	_shotPatternID = 1;

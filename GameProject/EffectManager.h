@@ -18,6 +18,7 @@ public:
 	static void addBoomEffect02(float x, float y, float angle);
 	static void addBulletBreakEffect(float x, float y, int color);
 	static void addGrazeEffect(float x,float y);
+	static void addBulletShotEffect(float x, float y, int color);
 private:
 	static std::list<std::shared_ptr<Effect>> _list;
 };

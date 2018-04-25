@@ -3,7 +3,8 @@
 #include "Image.h"
 #include "Define.h"
 
-Cirno::Cirno(float x, float y, int type, int hp) :Boss(x, y, type, hp)
+Cirno::Cirno(float x, float y, int type, int hp, int movePatternID, int shotPatternID, int itemPatternID)
+	:Boss(x, y, type, hp, movePatternID, shotPatternID, itemPatternID)
 {
 	MOVER = Define::BOSS_01_MOVER;
 	SHOTER = Define::BOSS_01_SHOTER;

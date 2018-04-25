@@ -5,7 +5,7 @@ class Cirno :
 	public Boss
 {
 public:
-	Cirno(float x, float y, int type, int hp);
+	Cirno(float x, float y, int type, int hp, int movePatternID, int shotPatternID, int itemPatternID);
 	~Cirno() = default;
 	void draw() const override;
 

@@ -171,6 +171,7 @@
     <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="BulletBreakEffect.cpp" />
     <ClCompile Include="BulletManager.cpp" />
+    <ClCompile Include="BulletShotEffect.cpp" />
     <ClCompile Include="CalcUtils.cpp" />
     <ClCompile Include="Cirno.cpp" />
     <ClCompile Include="Define.cpp" />
@@ -234,6 +235,7 @@
     <ClInclude Include="Bullet.h" />
     <ClInclude Include="BulletBreakEffect.h" />
     <ClInclude Include="BulletManager.h" />
+    <ClInclude Include="BulletShotEffect.h" />
     <ClInclude Include="CalcUtils.h" />
     <ClInclude Include="Cirno.h" />
     <ClInclude Include="Define.h" />

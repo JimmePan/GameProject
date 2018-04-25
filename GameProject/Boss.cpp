@@ -7,7 +7,8 @@
 using namespace std;
 
 const static int wtime = 140;
-Boss::Boss(float x, float y, int type, int hp) :AbstractEnemy(x, y, type, hp)
+Boss::Boss(float x, float y, int type, int hp, int movePatternID, int shotPatternID, int itemPatternID)
+	:AbstractEnemy(x, y, type, hp, movePatternID, shotPatternID, itemPatternID)
 {
 
 	_flag = type;

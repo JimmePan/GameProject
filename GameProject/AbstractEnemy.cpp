@@ -4,7 +4,7 @@
 #include "Define.h"
 
 
-AbstractEnemy::AbstractEnemy(float x, float y, int type, int hp) :
+AbstractEnemy::AbstractEnemy(float x, float y, int type, int hp, int movePatternID, int shotPatternID, int itemPatternID) :
 	_flag(1),
 	_x(x),
 	_y(y),
@@ -20,7 +20,10 @@ AbstractEnemy::AbstractEnemy(float x, float y, int type, int hp) :
 	_type(type),
 	_moveFlag(true),
 	_change(0),
-	_changeCount(0)
+	_changeCount(0),
+	_movePatternID(movePatternID), 
+	_shotPatternID(shotPatternID), 
+	_itemPatternID(itemPatternID)
 {
 }
 

@@ -44,6 +44,7 @@ public:
 		eGreen,
 		eLime,
 		eAqua,
+		eWhite,
 		eColorNum,
 	};
 	const static float RANGE[];		//ÅÐ¶¨·¶Î§

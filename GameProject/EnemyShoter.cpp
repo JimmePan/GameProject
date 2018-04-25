@@ -5,6 +5,7 @@
 #include "Player.h"
 #include "BulletManager.h"
 #include "Sound.h"
+#include "EffectManager.h"
 
 EnemyShoter::EnemyShoter()
 {
@@ -33,28 +34,36 @@ void EnemyShoter::setFunction()
 /*无弹幕*/
 void EnemyShoter::shotPattern00(AbstractEnemy * enemy)
 {
-	if(enemy->getCount() == 10)
-	BulletManager::add(enemy->getX(), enemy->getY(), 12, 0, 0, Define::PI / 2,
-		Define::PI/2,4.0f, 1.5f);
+	if (enemy->getCount() == 10)
+		BulletManager::add(enemy->getX(), enemy->getY(), 12, 0, 0, Define::PI / 2,
+			Define::PI / 2, 4.0f, 1.5f);
 }
 /*Bullet(float x, float y,unsigned int type, unsigned int color,int state,float angle,float base_angle,float speed,float rate)*/
-/*琪露诺，完美冻结*/
+/*琪露诺，1符完美冻结*/
 void EnemyShoter::shotPattern01(AbstractEnemy * enemy)
 {
 	int i, t = enemy->getBossCount() % 650;
+	float x = enemy->getX();
+	float y = enemy->getY();
 	//最开始的随机发射
+	if (t <= 160 && t % 10 == 0) 
+		EffectManager::addBulletShotEffect(x, y, 8);
+	
 	if (t < 180) {
 		for (i = 0; i < 2; i++) {//1次计数发射2次
-			BulletManager::add(enemy->getX(), enemy->getY(), 8, rand() % 7, 1, (float)(rand() / double(RAND_MAX)*Define::PI * 2),
+			BulletManager::add(x, y, 8, rand() % 7, 1, (float)(rand() / double(RAND_MAX)*Define::PI * 2),
 				0.0f, 4.2f + (float)(rand() / double(RAND_MAX)*2.1f), 1.0f);
 		}
 		if (t % 8 == 0)
 			PlaySoundMem(Sound::getIns()->getCh03(), DX_PLAYTYPE_BACK);
 	}
+
+	if (210 <= t && t <= 250 && t % 10 == 0) 
+		EffectManager::addBulletShotEffect(((float)Define::CENTER_X+x)/2, y, 0);
 	if (210 < t && t < 270 && t % 3 == 0) {
 		float angle = enemy->shotatan2();
 		for (i = 0; i < 8; i++) {
-			BulletManager::add(enemy->getX(), enemy->getY(), 8, 0, -1,
+			BulletManager::add(x, y, 8, 0, -1,
 				angle - Define::PI / 2 * 0.8f + Define::PI * 0.8f / 8 * i + (float)(rand() / double(RAND_MAX)*(Define::PI / 180)), 0.0f,
 				(float)(7.0f + rand() / double(RAND_MAX)*0.7f), 1.0f);
 		}
@@ -88,6 +97,10 @@ void EnemyShoter::shotPattern01(AbstractEnemy * enemy)
 void EnemyShoter::shotPattern02(AbstractEnemy * enemy)
 {
 	int t = enemy->getBossCount() % 600;
+
+	if (t == 50 || t == 110 || t == 170)
+		EffectManager::addBulletShotEffect(enemy->getX(), enemy->getY(), 0);
+
 	if (t % 60 == 0 && t < 240 && t > 0) {
 		PlaySoundMem(Sound::getIns()->getTan00(), DX_PLAYTYPE_BACK);
 		_groupAngle00 = enemy->shotatan2();
@@ -95,6 +108,9 @@ void EnemyShoter::shotPattern02(AbstractEnemy * enemy)
 	if (t >= 60 && t < 240 && t % 4 == 0 && t % 60 <= 24) {
 		shotPlayerBullet(enemy->getX(), enemy->getY(), 16, 0, -1, _groupAngle00, 12.0f, 0.8f, Define::PI / 40, (t % 60) / 4 + 3);
 	}
+
+	if (t >= 250 && t % 100 == 50 && t < 520)
+		EffectManager::addBulletShotEffect(enemy->getX(), enemy->getY(), 0);
 	if (t >= 270 && t % 100 == 70 && t < 520) {		//16向蓝色弹
 		PlaySoundMem(Sound::getIns()->getTan01(), DX_PLAYTYPE_BACK);
 		for (int i = 0; i < 16; i++) {
@@ -102,6 +118,9 @@ void EnemyShoter::shotPattern02(AbstractEnemy * enemy)
 				0.0f, 8.0f, 1.0f);
 		}
 	}
+
+	if (t >= 270 && t % 100 == 90 && t < 520)
+		EffectManager::addBulletShotEffect(enemy->getX(), enemy->getY(), 0);
 	if (t >= 270 && t % 100 == 10 && t < 520) {		//18向蓝色弹
 		PlaySoundMem(Sound::getIns()->getTan01(), DX_PLAYTYPE_BACK);
 		for (int i = 0; i < 18; i++) {
@@ -109,10 +128,13 @@ void EnemyShoter::shotPattern02(AbstractEnemy * enemy)
 				0.0f, 8.0f, 1.0f);
 		}
 	}
+
+	if (t >= 270 && t % 100 == 70 && t < 520)
+		EffectManager::addBulletShotEffect(enemy->getX(), enemy->getY(), 8);
 	if (t >= 270 && t % 100 == 90 && t < 520) {		//32向白色弹
 		PlaySoundMem(Sound::getIns()->getTan02(), DX_PLAYTYPE_BACK);
 		for (int i = 0; i < 32; i++) {
-			BulletManager::add(enemy->getX(), enemy->getY(), 16, 7, 2, 0.f + i * Define::PI / 16,
+			BulletManager::add(enemy->getX(), enemy->getY(), 16, 8, 2, 0.f + i * Define::PI / 16,
 				0.f + i * Define::PI / 16, 3.0f, 0.8f);
 		}
 	}
@@ -133,6 +155,9 @@ void EnemyShoter::shotPattern02(AbstractEnemy * enemy)
 void EnemyShoter::shotPattern03(AbstractEnemy * enemy)
 {
 	int cnt = enemy->getBossCount();
+
+	if (cnt % 200 >= 90 && cnt % 200 <= 140 && cnt % 10 == 0) 
+		EffectManager::addBulletShotEffect(enemy->getX(), enemy->getY(), 0);
 	if (cnt % 200 > 100 && cnt % 200 <= 150 && cnt % 6 == 0) {
 		PlaySoundMem(Sound::getIns()->getCh03(), DX_PLAYTYPE_BACK);
 		int c = cnt % 200 / 6 - 17;
@@ -143,6 +168,9 @@ void EnemyShoter::shotPattern03(AbstractEnemy * enemy)
 			}
 		}
 	}
+
+	if ((cnt % 200 == 130) && cnt > 200)
+		EffectManager::addBulletShotEffect(enemy->getX(), enemy->getY(), 7);
 	if ((cnt % 200 == 150) && cnt > 200) {
 		PlaySoundMem(Sound::getIns()->getFocusFix(), DX_PLAYTYPE_BACK);
 		for (int i = 0; i < 2; i++) {
@@ -187,6 +215,8 @@ void EnemyShoter::shotPattern03(AbstractEnemy * enemy)
 void EnemyShoter::shotPattern04(AbstractEnemy * enemy)
 {
 	int cnt = enemy->getBossCount();
+	if (cnt % 100 >= 50 && cnt % 100 <= 100 && cnt % 10 == 0)
+		EffectManager::addBulletShotEffect(enemy->getX(), enemy->getY(), 0);
 	if (cnt % 100 >= 60 && cnt % 100 <= 100 && cnt % 5 == 0) {
 		PlaySoundMem(Sound::getIns()->getCh03(), DX_PLAYTYPE_BACK);
 		int c = cnt % 100 / 6 - 10;
@@ -197,6 +227,8 @@ void EnemyShoter::shotPattern04(AbstractEnemy * enemy)
 			}
 		}
 	}
+	if ((cnt % 400 == 280 || cnt % 400 == 380) && cnt > 0)
+		EffectManager::addBulletShotEffect(enemy->getX(), enemy->getY(), 7);
 	if ((cnt % 400 == 300 || cnt % 400 == 0) && cnt > 0) {
 		PlaySoundMem(Sound::getIns()->getFocusFix(), DX_PLAYTYPE_BACK);
 		for (int i = 0; i < 2; i++) {

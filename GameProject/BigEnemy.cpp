@@ -2,7 +2,8 @@
 #include <DxLib.h>
 #include "Image.h"
 
-BigEnemy::BigEnemy(float x, float y, int type, int hp) :AbstractEnemy(x, y, type, hp)
+BigEnemy::BigEnemy(float x, float y, int type, int hp, int movePatternID, int shotPatternID, int itemPatternID)
+	:AbstractEnemy(x, y, type, hp, movePatternID, shotPatternID, itemPatternID)
 {
 	_movePatternID = 0;
 	_shotPatternID = 0;

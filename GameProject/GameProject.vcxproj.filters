@@ -261,6 +261,9 @@
     <ClCompile Include="GrazeEffect.cpp">
       <Filter>Effect</Filter>
     </ClCompile>
+    <ClCompile Include="BulletShotEffect.cpp">
+      <Filter>Effect</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Looper.h">
@@ -450,6 +453,9 @@
       <Filter>Number</Filter>
     </ClInclude>
     <ClInclude Include="GrazeEffect.h">
+      <Filter>Effect</Filter>
+    </ClInclude>
+    <ClInclude Include="BulletShotEffect.h">
       <Filter>Effect</Filter>
     </ClInclude>
   </ItemGroup>

@@ -42,6 +42,8 @@ public:
 	const int* getBigNumber()const { return _bigNumber; }
 	const int* getSmallNumber()const { return _smallNumber; }
 	const int* getPlayerHp()const { return _playerHp; }
+	const int* getBulletShotEffect()const { return _bulletShotEffect; }
+	
 
 private:
 	int myLoadGraph(const char *);		//原例中传入并非常量，注意，今后会修改
@@ -78,4 +80,5 @@ private:
 	int _bigNumber[15];
 	int _smallNumber[15];
 	int _playerHp[6];
+	int _bulletShotEffect[9];
 };

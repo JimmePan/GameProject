@@ -4,7 +4,7 @@
 class Boss :public AbstractEnemy
 {
 public:
-	Boss(float x, float y, int type, int hp);
+	Boss(float x, float y, int type, int hp, int movePatternID, int shotPatternID, int itemPatternID);
 	virtual ~Boss() = default;
 
 	bool update() override;
