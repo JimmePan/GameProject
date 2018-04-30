@@ -28,6 +28,7 @@ void EnemyItem::setFunction()
 	_itemPattern.push_back(&EnemyItem::itemPattern02);
 	_itemPattern.push_back(&EnemyItem::itemPattern03);
 	_itemPattern.push_back(&EnemyItem::itemPattern04);
+	_itemPattern.push_back(&EnemyItem::itemPattern05);
 }
 /*无道具掉落*/
 void EnemyItem::itemPattern00(AbstractEnemy * enemy)
@@ -47,19 +48,19 @@ void EnemyItem::itemPattern01(AbstractEnemy * enemy)
 //带有1蓝
 void EnemyItem::itemPattern02(AbstractEnemy * enemy)
 {
-
+	const float x = enemy->getX();
+	const float y = enemy->getY();
+	addb(x, y);
 }
 
-//带有3P
+//带有1P
 void EnemyItem::itemPattern03(AbstractEnemy * enemy)
 {
 	const float x = enemy->getX();
 	const float y = enemy->getY();
 	addP(x, y);
-	addP(x, y);
-	addP(x, y);
 }
-
+//5p5P
 void EnemyItem::itemPattern04(AbstractEnemy * enemy)
 {
 	const float x = enemy->getX();
@@ -72,8 +73,14 @@ void EnemyItem::itemPattern04(AbstractEnemy * enemy)
 	}
 	addup(x, y);
 }
-
-
+//5b
+void EnemyItem::itemPattern05(AbstractEnemy * enemy) {
+	const float x = enemy->getX();
+	const float y = enemy->getY();
+	for (int i = 0; i < 5; i++) {
+		addb(x, y);
+	}
+}
 
 void EnemyItem::addp(float x, float y)
 {
@@ -95,6 +102,11 @@ void EnemyItem::addP(float x, float y)
 	{
 		ItemManger::add(x + (rand() % 200 - 100) + 20.f, y + (rand() % 100 - 30), -Define::PI / 2, 3);
 	}
+}
+
+void EnemyItem::addb(float x, float y)
+{
+	ItemManger::add(x + (rand() % 200 - 100) + 20.f, y + (rand() % 100 - 30), -Define::PI / 2, 1);
 }
 
 void EnemyItem::addup(float x, float y)

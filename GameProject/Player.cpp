@@ -47,11 +47,12 @@ bool Player::update()
 		_y = (float)Define::OUT_H + 30;
 		Global::getIns()->setPower();	//火力归零
 		_powerMax = false;
-		CalcUtils::PlayFall();
 		_mutekicnt++;
 	}
 
 	if (_flag == 2) {			//如果已经死掉正在上浮的话
+		if (_counter == 25) 
+			CalcUtils::PlayFall();
 		_y -= 4;
 		if (_counter > 55) {
 			_counter = 0;

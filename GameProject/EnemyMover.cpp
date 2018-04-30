@@ -67,8 +67,23 @@ void EnemyMover::setFunction()
 	_movePattern.push_back(&EnemyMover::movePattern04);
 	_movePattern.push_back(&EnemyMover::movePattern05);
 	_movePattern.push_back(&EnemyMover::movePattern06);
+	_movePattern.push_back(&EnemyMover::movePattern07);
+	_movePattern.push_back(&EnemyMover::movePattern08);
+	_movePattern.push_back(&EnemyMover::movePattern09);
+	_movePattern.push_back(&EnemyMover::movePattern10);
+	_movePattern.push_back(&EnemyMover::movePattern11);
+	_movePattern.push_back(&EnemyMover::movePattern12);
+	_movePattern.push_back(&EnemyMover::movePattern13);
+	_movePattern.push_back(&EnemyMover::movePattern14);
+	_movePattern.push_back(&EnemyMover::movePattern15);
+	_movePattern.push_back(&EnemyMover::movePattern16);
+	_movePattern.push_back(&EnemyMover::movePattern17);
+	_movePattern.push_back(&EnemyMover::movePattern18);
+	_movePattern.push_back(&EnemyMover::movePattern19);
+	_movePattern.push_back(&EnemyMover::movePattern20);
+	_movePattern.push_back(&EnemyMover::movePattern21);
 }
-/*向下，停顿后，向下*/
+/*不动*/
 void EnemyMover::movePattern00(AbstractEnemy * enemy)
 {
 	//const int cnt = enemy->getCounter();
@@ -256,4 +271,265 @@ void EnemyMover::movePattern06(AbstractEnemy * enemy) {
 	if (c < 60) {
 		enemy->setSpeed(3.f - 0.05f*c);
 	}
+}
+/*道中0阶段妖精移动1，偏左*/
+void EnemyMover::movePattern07(AbstractEnemy * enemy) {
+	int cnt = enemy->getCount();
+	if (cnt == 0)
+	{
+		enemy->setAngle(Define::PI / 2 + 0.15f);
+		enemy->setSpeed(5.0f);
+		return;
+	}
+	if (cnt >= 50 && cnt < 60) {
+		enemy->setSpeed(enemy->getSpeed() - 0.5f);
+		return;
+	}
+	if (cnt == 60) {
+		enemy->setAngle(Define::PI / 2);
+		enemy->setSpeed(0.f);
+		return;
+	}
+	if (cnt >= 110 && cnt < 130) {
+		enemy->setSpeed(enemy->getSpeed() + 0.2f);
+		return;
+	}
+}
+/*道中0阶段妖精移动2，偏右*/
+void EnemyMover::movePattern08(AbstractEnemy * enemy) {
+	int cnt = enemy->getCount();
+	if (cnt == 0)
+	{
+		enemy->setAngle(Define::PI / 2 - 0.15f);
+		enemy->setSpeed(5.0f);
+		return;
+	}
+	if (cnt >= 50 && cnt < 60) {
+		enemy->setSpeed(enemy->getSpeed() - 0.5f);
+		return;
+	}
+	if (cnt == 60) {
+		enemy->setAngle(Define::PI / 2);
+		enemy->setSpeed(0.f);
+		return;
+	}
+	if (cnt >= 110 && cnt < 130) {
+		enemy->setSpeed(enemy->getSpeed() + 0.2f);
+		return;
+	}
+}
+/*道中0阶段大妖精，进场停止两侧退场*/
+void EnemyMover::movePattern09(AbstractEnemy * enemy) {
+	int cnt = enemy->getCount();
+	if (cnt == 0)
+	{
+		enemy->setAngle(Define::PI / 2);
+		enemy->setSpeed(4.0f);
+		return;
+	}
+	if (cnt >= 60 && cnt < 80) {
+		enemy->setSpeed(enemy->getSpeed() - 0.2f);
+		return;
+	}
+	if (cnt == 80) {
+		enemy->setSpeed(0.f);
+		return;
+	}
+	if (cnt == 320) {
+		if (enemy->getX() < Define::CENTER_X) {
+			enemy->setSpeed(3.f);
+			enemy->setAngle(Define::PI);
+		}
+		else
+		{
+			enemy->setSpeed(3.f);
+			enemy->setAngle(0.f);
+		}
+	}
+}
+/*道中1阶段妖精移动01*/
+void EnemyMover::movePattern10(AbstractEnemy * enemy) {
+	int cnt = enemy->getCount();
+	if (cnt == 0)
+	{
+		enemy->setAngle(Define::PI / 2);
+		enemy->setSpeed(5.5f);
+		return;
+	}
+	if (cnt >= 30 && cnt < 102) {
+		enemy->setAngle(enemy->getAngle() + Define::PI / 144);
+		return;
+	}
+	if (cnt == 102) {
+		enemy->setAngle(Define::PI);
+		enemy->setSpeed(5.5f);
+	}
+}
+/*道中2阶段妖精移动01*/
+void EnemyMover::movePattern11(AbstractEnemy * enemy) {
+	int cnt = enemy->getCount();
+	if (cnt == 0)
+	{
+		enemy->setAngle(3 * Define::PI / 2);
+		enemy->setSpeed(5.2f);
+		return;
+	}
+	if (cnt >= 120 && cnt < 240) {
+		enemy->setAngle(enemy->getAngle() - Define::PI / 144);
+		enemy->setSpeed(enemy->getSpeed() - (float)1 / 48);
+		return;
+	}
+	if (cnt == 240) {
+		enemy->setAngle(2 * Define::PI / 3);
+		enemy->setSpeed(2.7f);
+	}
+}
+/*道中2阶段妖精移动02*/
+void EnemyMover::movePattern12(AbstractEnemy * enemy) {
+	int cnt = enemy->getCount();
+	if (cnt == 0)
+	{
+		enemy->setAngle(Define::PI*2.f);
+		enemy->setSpeed(6.f);
+		return;
+	}
+	if (cnt >= 60 && cnt < 160) {
+		enemy->setAngle(enemy->getAngle() - Define::PI / 120);
+		enemy->setSpeed(enemy->getSpeed() - (float)1 / 40);
+		return;
+	}
+	if (cnt == 160) {
+		enemy->setAngle(7 * Define::PI / 6);
+		enemy->setSpeed(3.5f);
+	}
+}
+/*道中2阶段妖精移动03*/
+void EnemyMover::movePattern13(AbstractEnemy * enemy) {
+	int cnt = enemy->getCount();
+	if (cnt == 0)
+	{
+		enemy->setAngle(Define::PI / 2);
+		enemy->setSpeed(4.5f);
+		return;
+	}
+	if (cnt >= 20 && cnt < 90) {
+		enemy->setAngle(enemy->getAngle() - Define::PI / 140);
+		return;
+	}
+	if (cnt == 90) {
+		enemy->setAngle(0.f);
+	}
+}
+/*道中2阶段大妖精移动01*/
+void EnemyMover::movePattern14(AbstractEnemy * enemy) {
+	int cnt = enemy->getCount();
+	if (cnt == 0)
+	{
+		enemy->setAngle(Define::PI / 2);
+		enemy->setSpeed(5.0f);
+		return;
+	}
+	if (cnt >= 40 && cnt < 60) {
+		enemy->setSpeed(enemy->getSpeed() - 0.25f);
+		return;
+	}
+	if (cnt == 60) {
+		enemy->setSpeed(0.f);
+		return;
+	}
+	if (cnt == 400) {
+		if (enemy->getX() < Define::CENTER_X) {
+			enemy->setAngle(3 * Define::PI / 2 - Define::PI / 16);
+		}
+		else
+		{
+			enemy->setAngle(3 * Define::PI / 2 + Define::PI / 16);
+		}
+		return;
+	}
+	if (cnt > 400 && cnt <= 420) {
+		enemy->setSpeed(enemy->getSpeed() + 0.15f);
+	}
+}
+/*道中3阶段妖精移动01*/
+void EnemyMover::movePattern15(AbstractEnemy * enemy)
+{
+	int cnt = enemy->getCount();
+	if (cnt == 0)
+	{
+		if (enemy->getY() > Define::CENTER_Y) {
+			enemy->setSpeed(4.2f);
+			enemy->setAngle(3 * Define::PI / 2);
+
+		}
+		else
+		{
+			enemy->setSpeed(4.0f);
+			enemy->setAngle(Define::PI / 2);
+		}
+		return;
+	}
+}
+/*道中3阶段妖精移动02*/
+void EnemyMover::movePattern16(AbstractEnemy * enemy)
+{
+	int cnt = enemy->getCount();
+	if (cnt == 0)
+	{
+		if (enemy->getX() > Define::CENTER_X) {
+			enemy->setSpeed(3.5f);
+			enemy->setAngle(Define::PI);
+
+		}
+		else
+		{
+			enemy->setSpeed(3.5f);
+			enemy->setAngle(0.f);
+		}
+		return;
+	}
+}
+/*道中3阶段妖精移动03*/
+void EnemyMover::movePattern17(AbstractEnemy * enemy)
+{
+	int cnt = enemy->getCount();
+	if (cnt == 0)
+	{
+		if (enemy->getX() > Define::CENTER_X) {
+			enemy->setAngle(Define::PI);
+		}
+		else {
+			enemy->setAngle(0.f);
+		}
+		enemy->setSpeed(6.f);
+		return;
+	}
+	if (cnt >= 10 && cnt < 140) {
+		if (enemy->getX() > Define::CENTER_X) {
+			enemy->setAngle(enemy->getAngle() + Define::PI / 156);
+		}
+		else
+		{
+			enemy->setAngle(enemy->getAngle() - Define::PI / 156);
+		}
+		enemy->setSpeed(enemy->getSpeed()-0.023f);
+		return;
+	}
+
+}
+
+void EnemyMover::movePattern18(AbstractEnemy * enemy)
+{
+}
+
+void EnemyMover::movePattern19(AbstractEnemy * enemy)
+{
+}
+
+void EnemyMover::movePattern20(AbstractEnemy * enemy)
+{
+}
+
+void EnemyMover::movePattern21(AbstractEnemy * enemy)
+{
 }

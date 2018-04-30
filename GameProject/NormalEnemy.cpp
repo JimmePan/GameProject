@@ -7,9 +7,6 @@
 NormalEnemy::NormalEnemy(float x, float y, int type, int hp, int movePatternID, int shotPatternID, int itemPatternID)
 	:AbstractEnemy(x, y, type, hp, movePatternID, shotPatternID, itemPatternID)
 {
-	_movePatternID = 1;
-	_shotPatternID = 1;
-	_itemPatternID = 1;
 	_RANGE = 20;
 }
 

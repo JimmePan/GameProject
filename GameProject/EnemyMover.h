@@ -27,5 +27,20 @@ private:
 	void movePattern04(AbstractEnemy *enemy);
 	void movePattern05(AbstractEnemy *enemy);
 	void movePattern06(AbstractEnemy *enemy);
+	void movePattern07(AbstractEnemy *enemy);
+	void movePattern08(AbstractEnemy *enemy);
+	void movePattern09(AbstractEnemy *enemy);
+	void movePattern10(AbstractEnemy *enemy);
+	void movePattern11(AbstractEnemy *enemy);
+	void movePattern12(AbstractEnemy *enemy);
+	void movePattern13(AbstractEnemy *enemy);
+	void movePattern14(AbstractEnemy *enemy);
+	void movePattern15(AbstractEnemy *enemy);
+	void movePattern16(AbstractEnemy *enemy);
+	void movePattern17(AbstractEnemy *enemy);
+	void movePattern18(AbstractEnemy *enemy);
+	void movePattern19(AbstractEnemy *enemy);
+	void movePattern20(AbstractEnemy *enemy);
+	void movePattern21(AbstractEnemy *enemy);
 };
 
