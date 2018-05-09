@@ -22,7 +22,7 @@ void NormalEnemy::draw() const
 	switch (_type)				//Ñý¾«±³¾°
 	{
 	case 0:case 8:
-		DrawRotaGraphF(_x, _y, CalcUtils::roundSize(1.0f, 2.5f, _counter), Define::PI * 2 / 90 * _counter, Image::getIns()->getEnemyNormal()[114], TRUE);
+		DrawRotaGraphF(_x, _y, CalcUtils::roundSize(1.0f, 2.5f, _counter), Define::PI * 2 / 60 * _counter, Image::getIns()->getEnemyNormal()[114], TRUE);
 		break;
 	case 1:case 9:
 		DrawRotaGraphF(_x, _y, CalcUtils::roundSize(1.0f, 2.5f, _counter), Define::PI * 2 / 60 * _counter, Image::getIns()->getEnemyNormal()[112], TRUE);

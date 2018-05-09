@@ -45,13 +45,14 @@ bool Player::update()
 		}
 		_x = (float)Define::CENTER_X;				//重设坐标
 		_y = (float)Define::OUT_H + 30;
+		updatePosition();  //重置外接方位
 		Global::getIns()->setPower();	//火力归零
 		_powerMax = false;
 		_mutekicnt++;
 	}
 
 	if (_flag == 2) {			//如果已经死掉正在上浮的话
-		if (_counter == 25) 
+		if (_counter == 25)
 			CalcUtils::PlayFall();
 		_y -= 4;
 		if (_counter > 55) {
@@ -129,10 +130,14 @@ void Player::draw() const
 	子型号子弹阴阳玉
 	*/
 	for (int i = 0; i < Global::POWER; i++) {
-		DrawRotaGraphF((_x + _slowRange * cos(2 * Define::PI / 60.0f * (_counter % 120) + Define::PI * 2 / (int)Global::POWER*i)) > (Define::IN_X + Define::IN_W) ?
-			_x + _slowRange * cos(2 * Define::PI / 60.0f * (_counter % 120) + Define::PI * 2 / (int)Global::POWER*i) - Define::IN_W :
-			_x + _slowRange * cos(2 * Define::PI / 60.0f * (_counter % 120) + Define::PI * 2 / (int)Global::POWER*i),
-			_y + _slowRange * sin(2 * Define::PI / 60.0f * (_counter % 120) + Define::PI * 2 / (int)Global::POWER*i),
+		float x = _x + _slowRange * cos(2 * Define::PI / 60.0f * (_counter % 120) + Define::PI * 2 / (int)Global::POWER*i);
+		if (x > (Define::IN_X + Define::IN_W)) {
+			x = x - Define::IN_W;
+		}
+		if (x < Define::IN_X) {
+			x = x + Define::IN_W;
+		}
+		DrawRotaGraphF(x, _y + _slowRange * sin(2 * Define::PI / 60.0f * (_counter % 120) + Define::PI * 2 / (int)Global::POWER*i),
 			1.5, -Define::PI * 2 / 120 * _counter, Image::getIns()->getOnmyou()[0], TRUE);
 	}
 
@@ -198,9 +203,7 @@ void Player::move()
 	{
 		_y += moveY;
 	}
-
-	pl_x = _x;		//权宜之计
-	pl_y = _y;
+	updatePosition();
 }
 
 void Player::shot()
@@ -213,18 +216,16 @@ void Player::shot()
 			if (Global::POWER >= 1.00f) {
 				PlaySoundMem(Sound::getIns()->getPlShot(), DX_PLAYTYPE_BACK);
 				for (int i = 0; i < Global::POWER; i++) {
-					/*DrawRotaGraphF((_x + _slowRange*cos(2 * Define::PI / 60.0f * (_counter % 120) + Define::PI * 2 / (int)Global::POWER*i))>(Define::IN_X+Define::IN_W)?
-			_x + _slowRange * cos(2 * Define::PI / 60.0f * (_counter % 120) + Define::PI * 2 / (int)Global::POWER*i) - Define::IN_W:
-			_x + _slowRange * cos(2 * Define::PI / 60.0f * (_counter % 120) + Define::PI * 2 / (int)Global::POWER*i),
-			_y + _slowRange*sin(2 * Define::PI / 60.0f * (_counter % 120) + Define::PI * 2 / (int)Global::POWER*i),
-			1.5, -Define::PI * 2 / 120 * _counter, Image::getIns()->getOnmyou()[0], TRUE);*/
-					PlayerShotManager::add((_x + _slowRange * cos(2 * Define::PI / 60.0f * (_counter % 120) + Define::PI * 2 / (int)Global::POWER*i) - 8) > (Define::IN_X + Define::IN_W) ?
-						_x + _slowRange * cos(2 * Define::PI / 60.0f * (_counter % 120) + Define::PI * 2 / (int)Global::POWER*i) - 8 - Define::IN_W :
-						_x + _slowRange * cos(2 * Define::PI / 60.0f * (_counter % 120) + Define::PI * 2 / (int)Global::POWER*i) - 8,
+					float x = _x + _slowRange * cos(2 * Define::PI / 60.0f * (_counter % 120) + Define::PI * 2 / (int)Global::POWER*i);
+					if (x > (Define::IN_X + Define::IN_W)) {
+						x = x - Define::IN_W;
+					}
+					if (x < Define::IN_X) {
+						x = x + Define::IN_W;
+					}
+					PlayerShotManager::add(x - 8,
 						_y + 50.f*sin(2 * Define::PI / 60.0f * (_counter % 120) + Define::PI * 2 / (int)Global::POWER*i), 1);
-					PlayerShotManager::add((_x + _slowRange * cos(2 * Define::PI / 60.0f * (_counter % 120) + Define::PI * 2 / (int)Global::POWER*i) + 8) > (Define::IN_X + Define::IN_W) ?
-						_x + _slowRange * cos(2 * Define::PI / 60.0f * (_counter % 120) + Define::PI * 2 / (int)Global::POWER*i) + 8 - Define::IN_W :
-						_x + _slowRange * cos(2 * Define::PI / 60.0f * (_counter % 120) + Define::PI * 2 / (int)Global::POWER*i) + 8,
+					PlayerShotManager::add(x + 8,
 						_y + 50.f*sin(2 * Define::PI / 60.0f * (_counter % 120) + Define::PI * 2 / (int)Global::POWER*i), 1);
 				}
 			}
@@ -247,6 +248,11 @@ void Player::boom()
 		_flag = 3;
 		_mutekicnt = 1;
 	}
+}
+
+void Player::updatePosition() {	//权宜之计
+	pl_x = _x;		
+	pl_y = _y;
 }
 
 

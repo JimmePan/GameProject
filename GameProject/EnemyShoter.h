@@ -14,6 +14,12 @@ public:
 private:
 	float _groupAngle00;	//组形自机狙，暂用角度
 	float _groupAngle01;
+	float _groupAngle02;
+	float _groupAngle03;
+	float _groupAngle04;
+	float _groupAngle05;
+	float _groupX;
+	float _groupY;
 
 
 	typedef void(EnemyShoter::*FUNC)(AbstractEnemy* enemy);
@@ -36,6 +42,10 @@ private:
 	void shotPattern13(AbstractEnemy *enemy);
 	void shotPattern14(AbstractEnemy *enemy);
 	void shotPattern15(AbstractEnemy *enemy);
+	void shotPattern16(AbstractEnemy *enemy);
+	void shotPattern17(AbstractEnemy *enemy);
+	void shotPattern18(AbstractEnemy *enemy);
+	void shotPattern19(AbstractEnemy *enemy);
 
 	/*interval 自机狙间隔角度，num自机狙个数*/
 	void shotPlayerBullet(float x, float y, unsigned int type, unsigned int color, int state, float angle,

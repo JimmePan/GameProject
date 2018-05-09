@@ -35,6 +35,8 @@ private:
 	void shot();
 	void boom();
 
+	void updatePosition();
+
 	float _x, _y;
 	float _range;
 	static float pl_x, pl_y;		//为获取自机位置的权宜之计

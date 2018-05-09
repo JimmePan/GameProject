@@ -82,6 +82,12 @@ void EnemyMover::setFunction()
 	_movePattern.push_back(&EnemyMover::movePattern19);
 	_movePattern.push_back(&EnemyMover::movePattern20);
 	_movePattern.push_back(&EnemyMover::movePattern21);
+	_movePattern.push_back(&EnemyMover::movePattern22);
+	_movePattern.push_back(&EnemyMover::movePattern23);
+	_movePattern.push_back(&EnemyMover::movePattern24);
+	_movePattern.push_back(&EnemyMover::movePattern25);
+	_movePattern.push_back(&EnemyMover::movePattern26);
+	_movePattern.push_back(&EnemyMover::movePattern27);
 }
 /*不动*/
 void EnemyMover::movePattern00(AbstractEnemy * enemy)
@@ -512,24 +518,213 @@ void EnemyMover::movePattern17(AbstractEnemy * enemy)
 		{
 			enemy->setAngle(enemy->getAngle() - Define::PI / 156);
 		}
-		enemy->setSpeed(enemy->getSpeed()-0.023f);
+		enemy->setSpeed(enemy->getSpeed() - 0.023f);
 		return;
 	}
 
 }
-
+/*道中3阶段大妖精移动01*/
 void EnemyMover::movePattern18(AbstractEnemy * enemy)
 {
+	int cnt = enemy->getCount();
+	if (cnt == 0)
+	{
+		enemy->setSpeed(6.0f);
+		enemy->setAngle(Define::PI / 2);
+		return;
+	}
+	if (cnt < 60) {
+		enemy->setSpeed(6.0f - cnt * 0.1f);
+	}
+	if (cnt == 60) {
+		enemy->setSpeed(0.f);
+	}
+	if (cnt == 390) {
+		enemy->setSpeed(5.f);
+	}
 }
-
+/*道中3阶段妖精移动04*/
 void EnemyMover::movePattern19(AbstractEnemy * enemy)
 {
+	int cnt = enemy->getCount();
+	if (cnt == 0)
+	{
+		enemy->setSpeed(12.f);
+		enemy->setAngle(Define::PI / 8);
+		return;
+	}
+	if (cnt >= 30 && cnt < 90) {
+		enemy->setAngle(enemy->getAngle() + 7 * Define::PI / 480);
+		if (cnt >= 60) {
+			enemy->setSpeed(enemy->getSpeed() - 0.4f);
+		}
+		return;
+	}
+	if (cnt == 90) {
+		enemy->setSpeed(0.0f);
+		enemy->setAngle(Define::PI);
+	}
+	if (cnt > 90 && cnt <= 150) {
+		enemy->setAngle(enemy->getAngle() + Define::PI / 80);
+		if (cnt <= 120) {
+			enemy->setSpeed(enemy->getSpeed() + 0.4f);
+		}
+	}
 }
-
+/*道中3阶段妖精移动05*/
 void EnemyMover::movePattern20(AbstractEnemy * enemy)
 {
+	int cnt = enemy->getCount();
+	if (cnt == 0)
+	{
+		enemy->setSpeed(12.0f);
+		enemy->setAngle(7 * Define::PI / 8);
+		return;
+	}
+	if (cnt >= 30 && cnt < 90) {
+		enemy->setAngle(enemy->getAngle() - 7 * Define::PI / 480);
+		if (cnt >= 60) {
+			enemy->setSpeed(enemy->getSpeed() - 0.4f);
+		}
+		return;
+	}
+	if (cnt == 90) {
+		enemy->setSpeed(0.0f);
+		enemy->setAngle(0.f);
+	}
+	if (cnt > 90 && cnt <= 150) {
+		enemy->setAngle(enemy->getAngle() - Define::PI / 80);
+		if (cnt <= 120) {
+			enemy->setSpeed(enemy->getSpeed() + 0.4f);
+		}
+	}
 }
-
+/*道中4阶段毛玉移动01*/
 void EnemyMover::movePattern21(AbstractEnemy * enemy)
 {
+	int cnt = enemy->getCount();
+	if (cnt == 60)
+	{
+		enemy->setSpeed(0.f);
+		enemy->setAngle(atan2(430 - enemy->getY(), 380 - enemy->getX()) + Define::PI / 2);
+		return;
+	}
+	if (cnt <= 240) {
+		enemy->setSpeed(enemy->getSpeed() + 1.f / 30);
+		enemy->setAngle(enemy->getAngle() - Define::PI / 180);
+	}
+	if (cnt == 240) {
+		enemy->setSpeed(enemy->getSpeed() + 1.5f);
+	}
+	if (cnt > 240 && cnt < 300) {
+		enemy->setAngle(enemy->getAngle() - Define::PI / 48);
+	}
+
 }
+/*道中4阶段毛玉移动02*/
+void EnemyMover::movePattern22(AbstractEnemy * enemy)
+{
+	int cnt = enemy->getCount();
+	if (cnt == 60)
+	{
+		enemy->setSpeed(0.f);
+		enemy->setAngle(atan2(430 - enemy->getY(), 380 - enemy->getX()) - Define::PI / 2);
+		return;
+	}
+	if (cnt <= 240) {
+		enemy->setSpeed(enemy->getSpeed() + 1.f / 30);
+		enemy->setAngle(enemy->getAngle() + Define::PI / 180);
+	}
+	if (cnt == 240) {
+		enemy->setSpeed(4.f);
+	}
+	if (cnt > 240 && cnt < 300) {
+		enemy->setSpeed(enemy->getSpeed() + 1.0f / 30);
+		enemy->setAngle(enemy->getAngle() + Define::PI / 52);
+	}
+
+}
+/*道中5阶段妖精移动01*/
+void EnemyMover::movePattern23(AbstractEnemy * enemy) {
+	int cnt = enemy->getCount();
+	if (cnt == 0)
+	{
+		enemy->setSpeed(5.f);
+		enemy->setAngle(Define::PI / 2);
+		return;
+	}
+	if (cnt >= 30 && cnt < 40) {
+		enemy->setSpeed(enemy->getSpeed() - 0.5f);
+	}
+	if (cnt == 40) {
+		enemy->setSpeed(0.f);
+	}
+	if (cnt == 80) {
+		enemy->setAngle(0.f);
+		enemy->setSpeed(2.f);
+	}
+
+}
+/*道中5阶段妖精移动02*/
+void EnemyMover::movePattern24(AbstractEnemy * enemy) {
+	int cnt = enemy->getCount();
+	if (cnt == 0)
+	{
+		enemy->setSpeed(5.f);
+		enemy->setAngle(Define::PI / 2);
+		return;
+	}
+	if (cnt >= 30 && cnt < 40) {
+		enemy->setSpeed(enemy->getSpeed() - 0.5f);
+	}
+	if (cnt == 40) {
+		enemy->setSpeed(0.f);
+		return;
+	}
+	if (cnt == 80) {
+		enemy->setAngle(Define::PI);
+		enemy->setSpeed(2.f);
+	}
+}
+/*道中5阶段妖精移动03*/
+void EnemyMover::movePattern25(AbstractEnemy * enemy) {
+	int cnt = enemy->getCount();
+	if (cnt == 0)
+	{
+		enemy->setSpeed(4.f);
+		enemy->setAngle(Define::PI / 2);
+		return;
+	}
+	if (cnt >= 30 && cnt < 50) {
+		enemy->setSpeed(enemy->getSpeed() - 0.2f);
+	}
+	if (cnt == 50) {
+		enemy->setSpeed(0.f);
+		return;
+	}
+	if (cnt == 80) {
+		enemy->setSpeed(2.5f);
+	}
+}
+/*道中5阶段妖精移动04*/
+void EnemyMover::movePattern26(AbstractEnemy * enemy) {
+	int cnt = enemy->getCount();
+	if (cnt == 0)
+	{
+		enemy->setSpeed(6.f);
+		enemy->setAngle(enemy->shotatan2());
+		return;
+	}
+	if (cnt >= 80 && cnt < 100) {
+		enemy->setSpeed(enemy->getSpeed()-0.3f);
+	}
+	if (cnt == 100) {
+		enemy->setSpeed(0.f);
+		enemy->setAngle(-enemy->shotatan2());
+	}
+	if (cnt >= 120 && cnt < 140) {
+		enemy->setSpeed(enemy->getSpeed() + 0.2f);
+	}
+}
+/*道中5阶段妖精移动05*/
+void EnemyMover::movePattern27(AbstractEnemy * enemy) {}

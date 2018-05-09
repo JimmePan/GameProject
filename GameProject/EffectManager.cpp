@@ -9,6 +9,7 @@
 #include "BulletBreakEffect.h"
 #include "GrazeEffect.h"
 #include "BulletShotEffect.h"
+#include "LogoEffect.h"
 
 using namespace std;
 
@@ -79,9 +80,9 @@ void EffectManager::addBoomEffect01()
 	}
 }
 
-void EffectManager::addBoomEffect02(float x, float y,float angle)
+void EffectManager::addBoomEffect02(float x, float y, float angle)
 {
-	_list.emplace_back(make_shared<BoomEffect02>(x, y,angle));
+	_list.emplace_back(make_shared<BoomEffect02>(x, y, angle));
 }
 
 void EffectManager::addBulletBreakEffect(float x, float y, int color)
@@ -99,5 +100,10 @@ void EffectManager::addGrazeEffect(float x, float y)
 
 void EffectManager::addBulletShotEffect(float x, float y, int color)
 {
-	_list.emplace_back(make_shared<BulletShotEffect>(x, y,color));
+	_list.emplace_back(make_shared<BulletShotEffect>(x, y, color));
+}
+
+void EffectManager::addLogoEffect(float x, float y, int num)
+{
+	_list.emplace_back(make_shared<LogoEffect>(x, y, num));
 }

@@ -264,6 +264,18 @@
     <ClCompile Include="BulletShotEffect.cpp">
       <Filter>Effect</Filter>
     </ClCompile>
+    <ClCompile Include="LogoEffect.cpp">
+      <Filter>Effect</Filter>
+    </ClCompile>
+    <ClCompile Include="CycloneEnemy.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="KedamaEnemy.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="YinyangEnemy.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Looper.h">
@@ -457,6 +469,18 @@
     </ClInclude>
     <ClInclude Include="BulletShotEffect.h">
       <Filter>Effect</Filter>
+    </ClInclude>
+    <ClInclude Include="LogoEffect.h">
+      <Filter>Effect</Filter>
+    </ClInclude>
+    <ClInclude Include="CycloneEnemy.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="KedamaEnemy.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="YinyangEnemy.h">
+      <Filter>Enemy</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

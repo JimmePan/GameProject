@@ -16,7 +16,9 @@ public:
 private:
 	std::list<std::shared_ptr<AbstractEnemy>> _list;
 	int _count;
-
+	int _halfCount;
+	void clearEnemy();
 	void state01Play();
+	void state02Play();
 };
 

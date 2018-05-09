@@ -43,6 +43,7 @@ public:
 	const int* getSmallNumber()const { return _smallNumber; }
 	const int* getPlayerHp()const { return _playerHp; }
 	const int* getBulletShotEffect()const { return _bulletShotEffect; }
+	int getSt01Logo() const { return _st01Logo; }
 	
 
 private:
@@ -81,4 +82,5 @@ private:
 	int _smallNumber[15];
 	int _playerHp[6];
 	int _bulletShotEffect[9];
+	int _st01Logo;
 };

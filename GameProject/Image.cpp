@@ -36,6 +36,7 @@ Image::Image()
 	myLoadDivGraph("E://dat/image/ascii/BNumber.png", 15, 15, 1, 32, 32, _bigNumber);
 	myLoadDivGraph("E://dat/image/ascii/SNumber.png", 15, 15, 1, 16, 18, _smallNumber);
 	myLoadDivGraph("E://dat/image/bullet/05.sparkBig.png", 9, 9, 1, 76, 76, _bulletShotEffect);
+	_st01Logo = myLoadGraph("E://dat/image/front/logo/st01logo.png");
 }
 
 void Image::release()
