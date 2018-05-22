@@ -47,7 +47,9 @@ public:
 	bool getGraze() { return false; }
 
 	float shotatan2() const { return atan2(Player::getY() - _y, Player::getX() - _x); }		//敌人自机狙方向控制(权宜之计)
-
+																							
+	//boss特有
+	void setShotFlag(bool shotFlag) { _shotFlag = shotFlag; };	//boss放出弹幕方法
 
 protected:
 	virtual void setSize() = 0;
@@ -81,8 +83,9 @@ protected:
 	mutable int _changeCount; //方向改变计数器
 
 	//boss特有
-	bool _boss;	//是否为boss
+	bool _boss;		//是否为boss
 	int _bossCount;
+	mutable bool _shotFlag;
 
 };
 

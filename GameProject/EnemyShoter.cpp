@@ -44,13 +44,19 @@ void EnemyShoter::setFunction()
 	_shotPattern.push_back(&EnemyShoter::shotPattern17);
 	_shotPattern.push_back(&EnemyShoter::shotPattern18);
 	_shotPattern.push_back(&EnemyShoter::shotPattern19);
+	_shotPattern.push_back(&EnemyShoter::shotPattern20);
+	_shotPattern.push_back(&EnemyShoter::shotPattern21);
+	_shotPattern.push_back(&EnemyShoter::shotPattern22);
+	_shotPattern.push_back(&EnemyShoter::shotPattern23);
+	_shotPattern.push_back(&EnemyShoter::shotPattern24);
+	_shotPattern.push_back(&EnemyShoter::shotPattern25);
+	_shotPattern.push_back(&EnemyShoter::shotPattern26);
 }
 /*无弹幕*/
 void EnemyShoter::shotPattern00(AbstractEnemy * enemy)
 {
-	/*if (enemy->getCount() == 10)
-		BulletManager::add(enemy->getX(), enemy->getY(), 12, 0, 0, Define::PI / 2,
-			Define::PI / 2, 4.0f, 1.5f);*/
+	/*if (enemy->getBossCount() == 10)
+		enemy->setShotFlag(true);*/
 }
 /*Bullet(float x, float y,unsigned int type, unsigned int color,int state,float angle,float base_angle,float speed,float rate)*/
 /*琪露诺，1符完美冻结*/
@@ -695,7 +701,296 @@ void EnemyShoter::shotPattern19(AbstractEnemy * enemy) {
 		}
 	}
 }
+/*道中6阶段阴阳玉子弹01*/
+void EnemyShoter::shotPattern20(AbstractEnemy * enemy)
+{
+	const int cnt = enemy->getCount();
+	if (cnt % 16 == 10 && cnt <= 192) {
+		EffectManager::addBulletShotEffect(enemy->getX(), enemy->getY(), 3);
+	}
+	if (cnt % 16 == 0 && cnt <= 192) {
+		PlaySoundMem(Sound::getIns()->getLazer01(), DX_PLAYTYPE_BACK);
+		for (int i = 0; i < 6; i++) {
+			if (i == 0) {
+				BulletManager::add(enemy->getX(), enemy->getY(), 12, 3, 20, Define::PI / 2 + i * Define::PI / 3, Define::PI / 2 + i * Define::PI / 3, 6.f, 0.f);
+			}
+			else {
+				BulletManager::add(enemy->getX(), enemy->getY(), 12, 3, 20, Define::PI / 2 + i * Define::PI / 3, Define::PI / 2 + i * Define::PI / 3, 7.5f, 0.f);
+			}
+		}
+	}
+	for (auto it = BulletManager::getListSmall()->begin(); it != BulletManager::getListSmall()->end();) {
+		if ((*it)->getFlag() > 0) {
+			float count = (float)(*it)->getCount();
+			if (count < 16 && (*it)->getState() == 20) {
+				(*it)->setRate(count / 15);
+			}
+			if (count == 16 && (*it)->getState() == 20) {
+				(*it)->setState(1020);
+			}
+			if ((*it)->getState() == 1020 && (*it)->getCount() == 60) {
+				(*it)->setSpeed((*it)->getSpeed() - 3.f);
+				(*it)->setState(0);
+			}
+		}
+		it++;
+	}
+}
+/*道中6阶段阴阳玉子弹02*/
+void EnemyShoter::shotPattern21(AbstractEnemy * enemy) {
+	const int cnt = enemy->getCount();
+	if (cnt % 16 == 10 && cnt <= 192) {
+		EffectManager::addBulletShotEffect(enemy->getX(), enemy->getY(), 0);
+	}
+	if (cnt % 16 == 0 && cnt <= 192) {
+		PlaySoundMem(Sound::getIns()->getLazer01(), DX_PLAYTYPE_BACK);
+		for (int i = 0; i < 6; i++) {
+			if (i == 1 || 5) {
+				BulletManager::add(enemy->getX(), enemy->getY(), 12, 0, 21, Define::PI / 2 + i * Define::PI / 3, Define::PI / 2 + i * Define::PI / 3, 5.5f, 0.f);
+			}
+			else {
+				BulletManager::add(enemy->getX(), enemy->getY(), 12, 0, 21, Define::PI / 2 + i * Define::PI / 3, Define::PI / 2 + i * Define::PI / 3, 7.5f, 0.f);
+			}
+		}
+	}
+	for (auto it = BulletManager::getListSmall()->begin(); it != BulletManager::getListSmall()->end();) {
+		if ((*it)->getFlag() > 0) {
+			float count = (float)(*it)->getCount();
+			if (count < 16 && (*it)->getState() == 21) {
+				(*it)->setRate(count / 15);
+			}
+			if (count == 16 && (*it)->getState() == 21) {
+				(*it)->setState(1021);
+			}
+			if ((*it)->getState() == 1021 && (*it)->getCount() == 60) {
+				(*it)->setSpeed((*it)->getSpeed() - 3.f);
+				(*it)->setState(0);
+			}
+		}
+		it++;
+	}
+}
+/*道中6阶段大妖精子弹01*/
+void EnemyShoter::shotPattern22(AbstractEnemy * enemy) {
+	const int cnt = enemy->getCount() - 30;
+	if (cnt % 10 == 0) {
+		if (cnt / 70 % 2 == 0) {
+			for (int i = 0; i < 30; i++) {
+				BulletManager::add(enemy->getX() + ((float)(rand() / double(RAND_MAX)*100.f - 50.f)), enemy->getY() + ((float)(rand() / double(RAND_MAX)*100.f) - 50.f),
+					14, 3, 22, Define::PI / 2 + cnt * Define::PI / 25 + ((float)(rand() / double(RAND_MAX)*Define::PI / 2) - Define::PI / 4),
+					Define::PI / 2 + cnt * Define::PI / 25, 6.0f, 0.6f);
+			}
+		}
+		else
+		{
+			for (int i = 0; i < 30; i++) {
+				BulletManager::add(enemy->getX() + ((float)(rand() / double(RAND_MAX)*100.f - 50.f)), enemy->getY() + ((float)(rand() / double(RAND_MAX)*100.f) - 50.f),
+					14, 7, 22, Define::PI / 2 - cnt * Define::PI / 25 + ((float)(rand() / double(RAND_MAX)*Define::PI / 2) - Define::PI / 4),
+					Define::PI / 2 - cnt * Define::PI / 25, 6.0f, 0.6f);
+			}
+		}
+	}
+	//结构批漏，需要加入bullet类的update中
+	//for (auto it = BulletManager::getListSmall()->begin(); it != BulletManager::getListSmall()->end();) {
+	//	if ((*it)->getFlag() > 0) {
+	//		if ((*it)->getState() == 22 || (*it)->getState() == 1022) {
+	//			(*it)->setBaseAngle((*it)->getBaseAngle() + Define::PI / 15);
+	//		}
+	//		if ((*it)->getState() == 22 && (*it)->getCount() == 30) {
+	//			(*it)->setSpeed(2.7f);
+	//		}
+	//	}
+	//	it++;
+	//}
+}
+/*小伞1非*/
+void EnemyShoter::shotPattern23(AbstractEnemy * enemy) {
+	int t = enemy->getBossCount() % 120;
+	if (t == 0) {
+		enemy->setShotFlag(true);
+	}
+	if (t < 40) {
+		bool i = TRUE;
+		if (cos(enemy->getAngle()) < -0.1) {
+			i = FALSE;
+		}
+		if (i) {
+			BulletManager::add(enemy->getX() + cos(3 * Define::PI / 4 - t * Define::PI / 20)*46.f,
+				enemy->getY() + sin(3 * Define::PI / 4 - t * Define::PI / 20)*46.f,
+				8, 2, 23, 3 * Define::PI / 4 - t * Define::PI / 20,
+				0.0f, 7.f, 1.0f);
+			BulletManager::add(enemy->getX() + cos(4 * Define::PI / 4 - t * Define::PI / 20)*54.f,
+				enemy->getY() + sin(4 * Define::PI / 4 - t * Define::PI / 20)*54.f
+				, 8, 2, 23, 4 * Define::PI / 4 - t * Define::PI / 20,
+				0.0f, 6.5f, 1.0f);
+			BulletManager::add(
+				enemy->getX() + cos(5 * Define::PI / 4 - t * Define::PI / 20)*62.f,
+				enemy->getY() + sin(5 * Define::PI / 4 - t * Define::PI / 20)*62.f,
+				8, 2, 23, 5 * Define::PI / 4 - t * Define::PI / 20,
+				0.0f, 6.f, 1.0f);
+			BulletManager::add(enemy->getX() + cos(6 * Define::PI / 4 - t * Define::PI / 20)*70.f,
+				enemy->getY() + sin(6 * Define::PI / 4 - t * Define::PI / 20)*70.f
+				, 8, 2, 23, 6 * Define::PI / 4 - t * Define::PI / 20,
+				0.0f, 5.5f, 1.0f);
+		}
+		else
+		{
+			BulletManager::add(enemy->getX() + cos(7 * Define::PI / 4 + t * Define::PI / 20)*70.f,
+				enemy->getY() + sin(7 * Define::PI / 4 + t * Define::PI / 20)*70.f,
+				8, 2, 23, 7 * Define::PI / 4 + t * Define::PI / 20,
+				0.0f, 7.f, 1.0f);
+			BulletManager::add(enemy->getX() + cos(6 * Define::PI / 4 + t * Define::PI / 20)*62.f,
+				enemy->getY() + sin(6 * Define::PI / 4 + t * Define::PI / 20)*62.f
+				, 8, 2, 23, 6 * Define::PI / 4 + t * Define::PI / 20,
+				0.0f, 6.5f, 1.0f);
+			BulletManager::add(
+				enemy->getX() + cos(5 * Define::PI / 4 + t * Define::PI / 20)*54.f,
+				enemy->getY() + sin(5 * Define::PI / 4 + t * Define::PI / 20)*54.f,
+				8, 2, 23, 5 * Define::PI / 4 + t * Define::PI / 20,
+				0.0f, 6.f, 1.0f);
+			BulletManager::add(enemy->getX() + cos(4 * Define::PI / 4 + t * Define::PI / 20)*46.f,
+				enemy->getY() + sin(4 * Define::PI / 4 + t * Define::PI / 20)*46.f
+				, 8, 2, 23, 4 * Define::PI / 4 + t * Define::PI / 20,
+				0.0f, 5.5f, 1.0f);
+		}
+	}
 
+	for (auto it = BulletManager::getListBig()->begin(); it != BulletManager::getListBig()->end();) {
+		if ((*it)->getFlag() > 0) {
+			if ((*it)->getState() == 23 && (*it)->getCount() <= 30) {
+				(*it)->setSpeed((*it)->getSpeed() - 0.1f);
+			}
+			if ((*it)->getState() == 23 && (*it)->getCount() > 60 && (*it)->getCount() <= 90) {
+				(*it)->setSpeed((*it)->getSpeed() + 0.1f);
+			}
+		}
+		it++;
+	}
+
+}
+/*小伞1符卡*/
+void EnemyShoter::shotPattern24(AbstractEnemy * enemy) {
+	int t = enemy->getBossCount() % 120;
+	if (t == 0) {
+		enemy->setShotFlag(true);
+	}
+	if (t < 50) {
+		bool i = TRUE;
+		if (cos(enemy->getAngle()) < -0.1) {
+			i = FALSE;
+		}
+		if (i) {
+			BulletManager::add(enemy->getX() + cos(3 * Define::PI / 4 + t * Define::PI / 25)*70.f,
+				enemy->getY() + sin(3 * Define::PI / 4 + t * Define::PI / 25)*70.f,
+				8, 1, 23, 3 * Define::PI / 4 + t * Define::PI / 25,
+				0.0f, 6.5f, 1.0f);
+			BulletManager::add(enemy->getX() + cos(4 * Define::PI / 4 + t * Define::PI / 25)*62.f,
+				enemy->getY() + sin(4 * Define::PI / 4 + t * Define::PI / 25 + Define::PI)*62.f
+				, 8, 2, 23, 4 * Define::PI / 4 + t * Define::PI / 25,
+				0.0f, 6.0f, 1.0f);
+			BulletManager::add(enemy->getX() + cos(5 * Define::PI / 4 + t * Define::PI / 25)*54.f,
+				enemy->getY() + sin(5 * Define::PI / 4 + t * Define::PI / 25 + Define::PI)*54.f,
+				8, 3, 23, 5 * Define::PI / 4 + t * Define::PI / 25,
+				0.0f, 6.5f, 1.0f);
+			BulletManager::add(enemy->getX() + cos(6 * Define::PI / 4 + t * Define::PI / 25)*46.f,
+				enemy->getY() + sin(6 * Define::PI / 4 + t * Define::PI / 25)*46.f
+				, 8, 4, 23, 6 * Define::PI / 4 + t * Define::PI / 25,
+				0.0f, 6.5f, 1.0f);
+		}
+		else {
+			BulletManager::add(enemy->getX() + cos(7 * Define::PI / 4 + t * Define::PI / 25)*70.f,
+				enemy->getY() + sin(3 * Define::PI / 4 + t * Define::PI / 25)*70.f,
+				8, 1, 23, 3 * Define::PI / 4 + t * Define::PI / 25,
+				0.0f, 5.5f, 1.0f);
+			BulletManager::add(enemy->getX() + cos(6 * Define::PI / 4 + t * Define::PI / 25)*62.f,
+				enemy->getY() + sin(4 * Define::PI / 4 + t * Define::PI / 25)*62.f
+				, 8, 2, 23, 4 * Define::PI / 4 + t * Define::PI / 25,
+				0.0f, 6.0f, 1.0f);
+			BulletManager::add(enemy->getX() + cos(5 * Define::PI / 4 + t * Define::PI / 25)*54.f,
+				enemy->getY() + sin(5 * Define::PI / 4 + t * Define::PI / 25)*54.f,
+				8, 3, 23, 5 * Define::PI / 4 + t * Define::PI / 25,
+				0.0f, 6.5f, 1.0f);
+			BulletManager::add(enemy->getX() + cos(4 * Define::PI / 4 + t * Define::PI / 25)*46.f,
+				enemy->getY() + sin(6 * Define::PI / 4 + t * Define::PI / 25)*46.f
+				, 8, 4, 23, 6 * Define::PI / 4 + t * Define::PI / 25,
+				0.0f, 7.0f, 1.0f);
+		}
+	}
+
+	for (auto it = BulletManager::getListBig()->begin(); it != BulletManager::getListBig()->end();) {
+		if ((*it)->getFlag() > 0) {
+			if ((*it)->getState() == 23 && (*it)->getCount() <= 30) {
+				(*it)->setSpeed((*it)->getSpeed() - 0.1f);
+			}
+			if ((*it)->getState() == 23 && (*it)->getCount() > 30 && (*it)->getCount() <= 60) {
+				(*it)->setSpeed((*it)->getSpeed() + 0.1f);
+			}
+
+		}
+		it++;
+	}
+}
+/*小伞2非*/
+void EnemyShoter::shotPattern25(AbstractEnemy * enemy) {
+	int t = enemy->getBossCount();
+	if (t > 0) {
+		BulletManager::add(Define::IN_X + (float)(rand() / double(RAND_MAX)*Define::IN_W), 0, 15, 7, 25, Define::PI / 2, -Define::PI / 2,
+			4.5f + (float)(rand() / double(RAND_MAX)*3.0), 0.8f + (float)(rand() / double(RAND_MAX)*0.3f));
+	}
+	for (auto it = BulletManager::getListNormal()->begin(); it != BulletManager::getListNormal()->end();) {
+		if ((*it)->getFlag() > 0) {
+			if ((*it)->getState() == 25) {
+				if ((*it)->getX() < (enemy->getX() + 80.f) && (*it)->getX() > (enemy->getX() - 80.f)
+					&& (*it)->getY() > (enemy->getY() - 80.f) && (*it)->getY() < (enemy->getY())) {
+					(*it)->setFlag(0);
+				}
+			}
+		}
+		it++;
+	}
+}
+/*小伞2符*/
+void EnemyShoter::shotPattern26(AbstractEnemy * enemy) {
+	int t = enemy->getBossCount();
+	if (t > 0) {
+		BulletManager::add(Define::IN_X + (float)(rand() / double(RAND_MAX)*Define::IN_W), 0, 15, 7, 25, Define::PI / 2, -Define::PI / 2,
+			4.5f + (float)(rand() / double(RAND_MAX)*3.0), 0.8f + (float)(rand() / double(RAND_MAX)*0.3f));
+	}
+	if (t % 3 == 0) {
+		BulletManager::add(0, (float)(rand() / double(RAND_MAX)*Define::IN_H), 15, 7, 25, Define::PI / 2, -Define::PI / 2,
+			4.5f + (float)(rand() / double(RAND_MAX)*3.0), 0.8f + (float)(rand() / double(RAND_MAX)*0.3f));
+		BulletManager::add(Define::IN_X + Define::IN_H, (float)(rand() / double(RAND_MAX)*Define::IN_H), 15, 7, 25, Define::PI / 2, -Define::PI / 2,
+			4.5f + (float)(rand() / double(RAND_MAX)*3.0), 0.8f + (float)(rand() / double(RAND_MAX)*0.3f));
+	}
+	if (t % 150 == 120) {
+		enemy->setShotFlag(true);
+		_groupAngle00 =  Define::PI / 2 + ((int)enemy->getX() - Define::CENTER_X) * Define::PI / 1500;
+		shotPlayerBullet(enemy->getX() + cos(_groupAngle00)*60.f,
+			enemy->getY() + sin(_groupAngle00)*60.f, 11, 3, -1, _groupAngle00, 10.0f, 1.0f, Define::PI / 12, 3);
+	}
+	if (t % 150 == 125) {
+		shotPlayerBullet(enemy->getX() + cos(_groupAngle00)*60.f,
+			enemy->getY() + sin(_groupAngle00)*60.f, 11, 3, -1, _groupAngle00, 9.0f, 1.0f, Define::PI / 12, 3);
+	}
+	if (t % 150 == 130) {
+		shotPlayerBullet(enemy->getX() + cos(_groupAngle00)*60.f,
+			enemy->getY() + sin(_groupAngle00)*60.f, 11, 3, -1, _groupAngle00, 8.0f, 1.0f, Define::PI / 12, 3);
+	}
+	for (auto it = BulletManager::getListNormal()->begin(); it != BulletManager::getListNormal()->end();) {
+		if ((*it)->getFlag() > 0) {
+			if ((*it)->getState() == 25) {
+				int a = (int)enemy->getX() - Define::CENTER_X;
+				(*it)->setBaseAngle(-Define::PI / 2 + a * Define::PI / 1500);
+				(*it)->setAngle(Define::PI / 2 + a * Define::PI / 1500);
+				if ((*it)->getX() < (enemy->getX() + 80.f) && (*it)->getX() > (enemy->getX() - 80.f)
+					&& (*it)->getY() > (enemy->getY() - 80.f) && (*it)->getY() < (enemy->getY())) {
+					(*it)->setFlag(0);
+				}
+			}
+		}
+		it++;
+	}
+}
 
 
 void EnemyShoter::shotPlayerBullet(float x, float y, unsigned int type, unsigned int color, int state, float angle, float speed, float rate, float interval, int num)

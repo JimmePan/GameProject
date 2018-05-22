@@ -41,8 +41,8 @@ void GameScene::draw() const {
 	_player->draw();
 	_playerShotManager->draw();	//Éä»÷
 	_itemManger->draw();
-	_bulletManager->draw();
 	_enemyManager->draw();
+	_bulletManager->draw();
 	_effectManager->draw();
 	_board->draw();
 

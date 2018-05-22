@@ -27,6 +27,8 @@ Sound::Sound()
 	_bonus2 = myLoadSound("E://dat/se/se_bonus2.wav", 1);
 	_graze = myLoadSound("E://dat/se/se_graze.wav", 1);
 	_timeout = myLoadSound("E://dat/se/se_timeout.wav", 1);
+	_lazer00 = myLoadSound("E://dat/se/se_lazer00.wav", 2);
+	_lazer01 = myLoadSound("E://dat/se/se_lazer01.wav", 2);
 } 
 
 void Sound::release()

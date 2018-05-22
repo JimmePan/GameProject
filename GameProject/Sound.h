@@ -35,6 +35,8 @@ public:
 	int getBonus2() const { return _bonus2; }
 	int getGraze() const { return _graze; }
 	int getTimeout() const { return _timeout; }
+	int getLazer00() const { return _lazer00; }
+	int getLazer01() const { return _lazer01; }
 
 private:
 	int myLoadSound(const char *, int type);
@@ -64,4 +66,6 @@ private:
 	int _bonus2;
 	int _graze;
 	int _timeout;
+	int _lazer00;
+	int _lazer01;
 };

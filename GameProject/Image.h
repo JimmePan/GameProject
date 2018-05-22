@@ -37,6 +37,8 @@ public:
 	int getPlayerGraze() const { return _playerGraze; }
 	const int* getItem() const { return _item; }
 	const int* getBoss01()const { return _boss01; }
+	const int* getBoss02()const { return _boss02; }
+	const int* getBoss02Shot()const { return _boss02Shot; }
 	int getBossHpR() const { return _bossHpR; }
 	int getBossHpW() const { return _bossHpW; }
 	const int* getBigNumber()const { return _bigNumber; }
@@ -76,6 +78,8 @@ private:
 	int _playerGraze;	//²Áµ¯Ð§¹û
 	int _item[8];
 	int _boss01[11];
+	int _boss02[8];
+	int _boss02Shot[15];
 	int _bossHpR;
 	int _bossHpW;
 	int _bigNumber[15];

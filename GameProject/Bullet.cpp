@@ -29,6 +29,13 @@ bool Bullet::update()
 		EffectManager::addBulletBreakEffect(_x, _y, _color);
 		return false;
 	}
+	if (_type == 14) {
+		_base_angle = _base_angle + Define::PI / 15;
+		if (_state == 22 && _count == 30) {
+			_speed = 2.7f;
+			_state = 1022;
+		}
+	}
 	_count++;
 	_x = _x + cos(_angle)*_speed;
 	_y = _y + sin(_angle)*_speed;

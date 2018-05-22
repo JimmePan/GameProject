@@ -9,6 +9,7 @@
 #include "CycloneEnemy.h"
 #include "KedamaEnemy.h"
 #include "YinyangEnemy.h"
+#include "TataraKogasa.h"
 #include "Sound.h"
 
 using namespace std;
@@ -589,6 +590,80 @@ void EnemyManager::state02Play() {
 	/*第五阶段共600帧，下一阶段从2500帧起*/
 	//const int step06 = _halfCount+2500;
 	const int step06 = 0;
-	if(_count - step06 == 0)
-		_list.emplace_back(make_shared<YinyangEnemy>(Define::IN_X + rand() / double(RAND_MAX)*Define::IN_W, 0.f, 0, 500, 26, 0, 1));
+	//if (_count - step06 == 0) {
+	//	_list.emplace_back(make_shared<YinyangEnemy>(Define::CENTER_X + 250, 0.f, 0, 500, 27, 20, 1));
+	//	_list.emplace_back(make_shared<YinyangEnemy>(Define::CENTER_X - 250, 0.f, 2, 500, 27, 20, 1));
+	//	return;
+	//}
+	//if (_count - step06 == 20) {
+	//	_list.emplace_back(make_shared<YinyangEnemy>(Define::CENTER_X + 250, 0.f, 0, 500, 27, 20, 1));
+	//	_list.emplace_back(make_shared<YinyangEnemy>(Define::CENTER_X - 250, 0.f, 2, 500, 27, 20, 1));
+	//	return;
+	//}
+	//if (_count - step06 == 40) {
+	//	_list.emplace_back(make_shared<YinyangEnemy>(Define::CENTER_X + 250, 0.f, 0, 500, 27, 20, 1));
+	//	_list.emplace_back(make_shared<YinyangEnemy>(Define::CENTER_X - 250, 0.f, 2, 500, 27, 20, 1));
+	//	return;
+	//}
+	//if (_count - step06 == 60) {
+	//	_list.emplace_back(make_shared<YinyangEnemy>(Define::CENTER_X + 250, 0.f, 0, 500, 27, 20, 1));
+	//	_list.emplace_back(make_shared<YinyangEnemy>(Define::CENTER_X - 250, 0.f, 2, 500, 27, 20, 1));
+	//	return;
+	//}
+	//if (_count - step06 == 80) {
+	//	_list.emplace_back(make_shared<YinyangEnemy>(Define::CENTER_X + 250, 0.f, 0, 500, 27, 20, 1));
+	//	_list.emplace_back(make_shared<YinyangEnemy>(Define::CENTER_X - 250, 0.f, 2, 500, 27, 20, 1));
+	//	return;
+	//}
+
+	//if (_count - step06 == 250) {
+	//	_list.emplace_back(make_shared<YinyangEnemy>(Define::CENTER_X + 100, 0.f, 0, 500, 28, 21, 1));
+	//	_list.emplace_back(make_shared<YinyangEnemy>(Define::CENTER_X - 100, 0.f, 2, 500, 28, 21, 1));
+	//	return;
+	//}
+	//if (_count - step06 == 270) {
+	//	_list.emplace_back(make_shared<YinyangEnemy>(Define::CENTER_X + 100, 0.f, 0, 500, 28, 21, 1));
+	//	_list.emplace_back(make_shared<YinyangEnemy>(Define::CENTER_X - 100, 0.f, 2, 500, 28, 21, 1));
+	//	return;
+	//}
+	//if (_count - step06 == 290) {
+	//	_list.emplace_back(make_shared<YinyangEnemy>(Define::CENTER_X + 100, 0.f, 0, 500, 28, 21, 1));
+	//	_list.emplace_back(make_shared<YinyangEnemy>(Define::CENTER_X - 100, 0.f, 2, 500, 28, 21, 1));
+	//	return;
+	//}
+	//if (_count - step06 == 310) {
+	//	_list.emplace_back(make_shared<YinyangEnemy>(Define::CENTER_X + 100, 0.f, 0, 500, 28, 21, 1));
+	//	_list.emplace_back(make_shared<YinyangEnemy>(Define::CENTER_X - 100, 0.f, 2, 500, 28, 21, 1));
+	//	return;
+	//}
+	//if (_count - step06 == 440) {
+	//	_list.emplace_back(make_shared<YinyangEnemy>(Define::CENTER_X + 300, 0.f, 0, 500, 27, 20, 1));
+	//	_list.emplace_back(make_shared<YinyangEnemy>(Define::CENTER_X - 300, 0.f, 2, 500, 27, 20, 1));
+	//	return;
+	//}
+	//if (_count - step06 == 460) {
+	//	_list.emplace_back(make_shared<YinyangEnemy>(Define::CENTER_X + 300, 0.f, 0, 500, 27, 20, 1));
+	//	_list.emplace_back(make_shared<YinyangEnemy>(Define::CENTER_X - 300, 0.f, 2, 500, 27, 20, 1));
+	//	return;
+	//}
+	//if (_count - step06 == 480) {
+	//	_list.emplace_back(make_shared<YinyangEnemy>(Define::CENTER_X + 300, 0.f, 0, 500, 27, 20, 1));
+	//	_list.emplace_back(make_shared<YinyangEnemy>(Define::CENTER_X - 300, 0.f, 2, 500, 27, 20, 1));
+	//	return;
+	//}
+	//if (_count - step06 == 500) {
+	//	_list.emplace_back(make_shared<YinyangEnemy>(Define::CENTER_X + 300, 0.f, 0, 500, 27, 20, 1));
+	//	_list.emplace_back(make_shared<YinyangEnemy>(Define::CENTER_X - 300, 0.f, 2, 500, 27, 20, 1));
+	//	return;
+	//}
+	//if (_count - step06 == 680) {
+	//	_list.emplace_back(make_shared<BigEnemy>(Define::CENTER_X , 0.f, 1, 5000, 29, 22, 1));
+	//	return;
+	//}
+	//if (_count - step06 == 1100) {
+	if (_count - step06 == 10) {
+		_list.emplace_back(make_shared<TataraKogasa>(0.f , 200.f, 4, 5000, 29, 22, 1));
+		return;
+	}
+
 }

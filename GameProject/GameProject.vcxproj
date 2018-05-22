@@ -217,6 +217,7 @@
     <ClCompile Include="Sound.cpp" />
     <ClCompile Include="Surface.cpp" />
     <ClCompile Include="SystemMain.cpp" />
+    <ClCompile Include="TataraKogasa.cpp" />
     <ClCompile Include="test.cpp" />
     <ClCompile Include="TitleScene.cpp" />
     <ClCompile Include="Vector.cpp" />
@@ -288,6 +289,7 @@
     <ClInclude Include="Surface.h" />
     <ClInclude Include="SystemMain.h" />
     <ClInclude Include="Task.h" />
+    <ClInclude Include="TataraKogasa.h" />
     <ClInclude Include="TitleScene.h" />
     <ClInclude Include="Vector.h" />
     <ClInclude Include="YinyangEnemy.h" />

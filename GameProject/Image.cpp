@@ -30,7 +30,9 @@ Image::Image()
 	_pl00BoomA = myLoadGraph("E://dat/image/player/pl00BoomA.png");
 	_playerGraze = myLoadGraph("E://dat/image/player/player_graze.png");
 	myLoadDivGraph("E://dat/image/bullet/item.png", 8, 8, 1, 16, 16, _item);
-	myLoadDivGraph("E://dat/image/stgenm/stage01/enm1m.png", 11, 4, 3, 64, 80, _boss01);
+	myLoadDivGraph("E://dat/image/stgenm/stage01/enm1.png", 11, 4, 3, 64, 80, _boss01);
+	myLoadDivGraph("E://dat/image/stgenm/stage01/enm2.png", 8, 4, 2, 64, 96, _boss02);
+	myLoadDivGraph("E://dat/image/stgenm/stage01/enm2.png", 15, 3, 5, 96, 96, _boss02Shot);
 	_bossHpR = myLoadGraph("E://dat/image/enemy/hp_boss.png");
 	_bossHpW = myLoadGraph("E://dat/image/enemy/hp.png");
 	myLoadDivGraph("E://dat/image/ascii/BNumber.png", 15, 15, 1, 32, 32, _bigNumber);
