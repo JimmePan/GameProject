@@ -37,6 +37,9 @@ public:
 	int getTimeout() const { return _timeout; }
 	int getLazer00() const { return _lazer00; }
 	int getLazer01() const { return _lazer01; }
+	int getRain00() const { return _rain00; }
+	int getRain01() const { return _rain01; }
+	int getUFO() const { return _ufo; }
 
 private:
 	int myLoadSound(const char *, int type);
@@ -68,4 +71,7 @@ private:
 	int _timeout;
 	int _lazer00;
 	int _lazer01;
+	int _rain00;
+	int _rain01;
+	int _ufo;
 };

@@ -53,6 +53,13 @@ private:
 	void shotPattern24(AbstractEnemy *enemy);
 	void shotPattern25(AbstractEnemy *enemy);
 	void shotPattern26(AbstractEnemy *enemy);
+	void shotPattern27(AbstractEnemy *enemy);
+	void shotPattern28(AbstractEnemy *enemy);
+	void shotPattern29(AbstractEnemy *enemy);
+	void shotPattern30(AbstractEnemy *enemy);
+	void shotPattern31(AbstractEnemy *enemy);
+	void shotPattern32(AbstractEnemy *enemy);
+	void shotPattern33(AbstractEnemy *enemy);
 
 	/*interval 自机狙间隔角度，num自机狙个数*/
 	void shotPlayerBullet(float x, float y, unsigned int type, unsigned int color, int state, float angle,

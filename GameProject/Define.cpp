@@ -42,8 +42,13 @@ const int Define::BOSS_01_ITEM[] = { 4,4,4,4 };
 //30,23
 //30,24
 //31,25
-const int Define::BOSS_02_MOVER[] = { 31,3,5,6 };
-const int Define::BOSS_02_SHOTER[] = { 26,1,3,4 };
-//const int Define::BOSS_01_HP[] = { 12000,14000,12000,16000 };
-const int Define::BOSS_02_HP[] = { 2000,2000,2000,5000 };
+//31,26
+//33,32
+//0,27
+
+
+const int Define::BOSS_02_MOVER[] = { 30,30,31,31,33,0,0};
+const int Define::BOSS_02_SHOTER[] = { 23,24,25,26,32,27,33 };
+const int Define::BOSS_02_HP[] = { 12000,14000,12000,16000,12000,12000,12000 };
+//const int Define::BOSS_02_HP[] = { 2000,2000,2000,5000 };
 const int Define::BOSS_02_ITEM[] = { 4,4,4,4 };

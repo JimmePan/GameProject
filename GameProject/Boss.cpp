@@ -3,6 +3,7 @@
 #include "Define.h"
 #include "CalcUtils.h"
 #include "Sound.h"
+#include "EnemyManager.h"
 
 using namespace std;
 
@@ -41,6 +42,7 @@ bool Boss::update()
 		reset();
 		_moveFlag = true;
 		CalcUtils::ClearBulletEn();
+		EnemyManager::clearNormalEn();
 		_movePatternID = 4;		//归位
 	}
 	if (_state == 2 && _endTime <= 0) {	//超时
@@ -48,6 +50,7 @@ bool Boss::update()
 		reset();
 		_moveFlag = true;
 		CalcUtils::ClearBulletEn();
+		EnemyManager::clearNormalEn();
 		_movePatternID = 4;		//归位
 	}
 	if (_state == 2) {	//放出弹幕

@@ -6,6 +6,8 @@
 #include "BulletManager.h"
 #include "Sound.h"
 #include "EffectManager.h"
+#include "EnemyManager.h"
+
 
 EnemyShoter::EnemyShoter()
 {
@@ -51,6 +53,13 @@ void EnemyShoter::setFunction()
 	_shotPattern.push_back(&EnemyShoter::shotPattern24);
 	_shotPattern.push_back(&EnemyShoter::shotPattern25);
 	_shotPattern.push_back(&EnemyShoter::shotPattern26);
+	_shotPattern.push_back(&EnemyShoter::shotPattern27);
+	_shotPattern.push_back(&EnemyShoter::shotPattern28);
+	_shotPattern.push_back(&EnemyShoter::shotPattern29);
+	_shotPattern.push_back(&EnemyShoter::shotPattern30);
+	_shotPattern.push_back(&EnemyShoter::shotPattern31);
+	_shotPattern.push_back(&EnemyShoter::shotPattern32);
+	_shotPattern.push_back(&EnemyShoter::shotPattern33);
 }
 /*ÎÞµ¯Ä»*/
 void EnemyShoter::shotPattern00(AbstractEnemy * enemy)
@@ -815,6 +824,10 @@ void EnemyShoter::shotPattern23(AbstractEnemy * enemy) {
 			i = FALSE;
 		}
 		if (i) {
+			BulletManager::add(enemy->getX() + cos(2 * Define::PI / 4 - t * Define::PI / 20)*38.f,
+				enemy->getY() + sin(2 * Define::PI / 4 - t * Define::PI / 20)*38.f,
+				8, 2, 23, 2 * Define::PI / 4 - t * Define::PI / 20,
+				0.0f, 7.5f, 1.0f);
 			BulletManager::add(enemy->getX() + cos(3 * Define::PI / 4 - t * Define::PI / 20)*46.f,
 				enemy->getY() + sin(3 * Define::PI / 4 - t * Define::PI / 20)*46.f,
 				8, 2, 23, 3 * Define::PI / 4 - t * Define::PI / 20,
@@ -832,9 +845,17 @@ void EnemyShoter::shotPattern23(AbstractEnemy * enemy) {
 				enemy->getY() + sin(6 * Define::PI / 4 - t * Define::PI / 20)*70.f
 				, 8, 2, 23, 6 * Define::PI / 4 - t * Define::PI / 20,
 				0.0f, 5.5f, 1.0f);
+			BulletManager::add(enemy->getX() + cos(7 * Define::PI / 4 - t * Define::PI / 20)*78.f,
+				enemy->getY() + sin(7 * Define::PI / 4 - t * Define::PI / 20)*78.f
+				, 8, 2, 23, 7 * Define::PI / 4 - t * Define::PI / 20,
+				0.0f, 5.f, 1.0f);
 		}
 		else
 		{
+			BulletManager::add(enemy->getX() + cos(8 * Define::PI / 4 + t * Define::PI / 20)*78.f,
+				enemy->getY() + sin(8 * Define::PI / 4 + t * Define::PI / 20)*70.f,
+				8, 2, 23, 8 * Define::PI / 4 + t * Define::PI / 20,
+				0.0f, 7.5f, 1.0f);
 			BulletManager::add(enemy->getX() + cos(7 * Define::PI / 4 + t * Define::PI / 20)*70.f,
 				enemy->getY() + sin(7 * Define::PI / 4 + t * Define::PI / 20)*70.f,
 				8, 2, 23, 7 * Define::PI / 4 + t * Define::PI / 20,
@@ -852,6 +873,13 @@ void EnemyShoter::shotPattern23(AbstractEnemy * enemy) {
 				enemy->getY() + sin(4 * Define::PI / 4 + t * Define::PI / 20)*46.f
 				, 8, 2, 23, 4 * Define::PI / 4 + t * Define::PI / 20,
 				0.0f, 5.5f, 1.0f);
+			BulletManager::add(enemy->getX() + cos(3 * Define::PI / 4 + t * Define::PI / 20)*38.f,
+				enemy->getY() + sin(3 * Define::PI / 4 + t * Define::PI / 20)*38.f
+				, 8, 2, 23, 3 * Define::PI / 4 + t * Define::PI / 20,
+				0.0f, 5.f, 1.0f);
+		}
+		if (t % 8 == 0) {
+			PlaySoundMem(Sound::getIns()->getCh03(), DX_PLAYTYPE_BACK);
 		}
 	}
 
@@ -896,6 +924,10 @@ void EnemyShoter::shotPattern24(AbstractEnemy * enemy) {
 				enemy->getY() + sin(6 * Define::PI / 4 + t * Define::PI / 25)*46.f
 				, 8, 4, 23, 6 * Define::PI / 4 + t * Define::PI / 25,
 				0.0f, 6.5f, 1.0f);
+			BulletManager::add(enemy->getX() + cos(9 * Define::PI / 4 + t * Define::PI / 25)*38.f,
+				enemy->getY() + sin(4 * Define::PI / 4 + t * Define::PI / 25)*38.f
+				, 8, 5, 23, 4 * Define::PI / 4 + t * Define::PI / 25,
+				0.0f, 6.f, 1.0f);
 		}
 		else {
 			BulletManager::add(enemy->getX() + cos(7 * Define::PI / 4 + t * Define::PI / 25)*70.f,
@@ -914,6 +946,13 @@ void EnemyShoter::shotPattern24(AbstractEnemy * enemy) {
 				enemy->getY() + sin(6 * Define::PI / 4 + t * Define::PI / 25)*46.f
 				, 8, 4, 23, 6 * Define::PI / 4 + t * Define::PI / 25,
 				0.0f, 7.0f, 1.0f);
+			BulletManager::add(enemy->getX() + cos(8 * Define::PI / 4 + t * Define::PI / 25)*38.f,
+				enemy->getY() + sin(4 * Define::PI / 4 + t * Define::PI / 25)*38.f
+				, 8, 5, 23, 4 * Define::PI / 4 + t * Define::PI / 25,
+				0.0f, 6.5f, 1.0f);
+		}
+		if (t % 10 == 0) {
+			PlaySoundMem(Sound::getIns()->getCh03(), DX_PLAYTYPE_BACK);
 		}
 	}
 
@@ -933,6 +972,9 @@ void EnemyShoter::shotPattern24(AbstractEnemy * enemy) {
 /*Ð¡É¡2·Ç*/
 void EnemyShoter::shotPattern25(AbstractEnemy * enemy) {
 	int t = enemy->getBossCount();
+	if (t == 0) {
+		PlaySoundMem(Sound::getIns()->getRain00(), DX_PLAYTYPE_LOOP);
+	}
 	if (t > 0) {
 		BulletManager::add(Define::IN_X + (float)(rand() / double(RAND_MAX)*Define::IN_W), 0, 15, 7, 25, Define::PI / 2, -Define::PI / 2,
 			4.5f + (float)(rand() / double(RAND_MAX)*3.0), 0.8f + (float)(rand() / double(RAND_MAX)*0.3f));
@@ -952,6 +994,13 @@ void EnemyShoter::shotPattern25(AbstractEnemy * enemy) {
 /*Ð¡É¡2·û*/
 void EnemyShoter::shotPattern26(AbstractEnemy * enemy) {
 	int t = enemy->getBossCount();
+	if (t == 0) {
+		StopSoundMem(Sound::getIns()->getRain00());
+		PlaySoundMem(Sound::getIns()->getRain01(), DX_PLAYTYPE_BACK);
+	}
+	if (enemy->getHp() < 150) {
+		StopSoundMem(Sound::getIns()->getRain01());
+	}
 	if (t > 0) {
 		BulletManager::add(Define::IN_X + (float)(rand() / double(RAND_MAX)*Define::IN_W), 0, 15, 7, 25, Define::PI / 2, -Define::PI / 2,
 			4.5f + (float)(rand() / double(RAND_MAX)*3.0), 0.8f + (float)(rand() / double(RAND_MAX)*0.3f));
@@ -963,8 +1012,9 @@ void EnemyShoter::shotPattern26(AbstractEnemy * enemy) {
 			4.5f + (float)(rand() / double(RAND_MAX)*3.0), 0.8f + (float)(rand() / double(RAND_MAX)*0.3f));
 	}
 	if (t % 150 == 120) {
+		PlaySoundMem(Sound::getIns()->getTan01(), DX_PLAYTYPE_BACK);
 		enemy->setShotFlag(true);
-		_groupAngle00 =  Define::PI / 2 + ((int)enemy->getX() - Define::CENTER_X) * Define::PI / 1500;
+		_groupAngle00 = Define::PI / 2 + ((int)enemy->getX() - Define::CENTER_X) * Define::PI / 1500;
 		shotPlayerBullet(enemy->getX() + cos(_groupAngle00)*60.f,
 			enemy->getY() + sin(_groupAngle00)*60.f, 11, 3, -1, _groupAngle00, 10.0f, 1.0f, Define::PI / 12, 3);
 	}
@@ -991,7 +1041,235 @@ void EnemyShoter::shotPattern26(AbstractEnemy * enemy) {
 		it++;
 	}
 }
+/*Ð¡É¡3·û*/
+void EnemyShoter::shotPattern27(AbstractEnemy * enemy)
+{
+	int t = enemy->getBossCount();
+	if (t % 240 == 5) {
+		enemy->setShotFlag(true);
+	}
 
+	if (EnemyManager::getSize() > 1) {
+		if (!CheckSoundMem(Sound::getIns()->getUFO()))
+			PlaySoundMem(Sound::getIns()->getUFO(), DX_PLAYTYPE_BACK);
+	}
+	if (t % 1200 == 0)
+		PlaySoundMem(Sound::getIns()->getCh02(), DX_PLAYTYPE_BACK);
+	if (t % 1200 == 15) {
+		EnemyManager::addSpell27(enemy->getX() + 75.f, enemy->getY(), 0, 28);
+		EnemyManager::addSpell27(enemy->getX(), enemy->getY() + 75.f, 1, 29);
+		EnemyManager::addSpell27(enemy->getX(), enemy->getY() - 75.f, 2, 30);
+		EnemyManager::addSpell27(enemy->getX() - 75.f, enemy->getY(), 3, 31);
+	}
+
+	if (t % 240 >= 14 && t % 240 <= 54 && t > 240 && t % 2 == 0) {
+		if (t % 240 == 14)
+			PlaySoundMem(Sound::getIns()->getTan00(), DX_PLAYTYPE_BACK);
+		BulletManager::add(enemy->getX() + cos(3 * Define::PI / 4 - t * Define::PI / 20)*46.f,
+			enemy->getY() + sin(3 * Define::PI / 4 - t * Define::PI / 20)*46.f,
+			6, 1, 27, 3 * Define::PI / 4 - t * Define::PI / 20,
+			0.0f, 7.f, 1.0f);
+	}
+
+	for (auto it = BulletManager::getListSmall()->begin(); it != BulletManager::getListSmall()->end();) {
+		if ((*it)->getFlag() > 0) {
+			if ((*it)->getState() == 29 && (*it)->getCount() < 30) {
+				if ((*it)->getAngle() <= 3 * Define::PI / 2) {
+					(*it)->setAngle((*it)->getAngle() - Define::PI / 60);
+				}
+				else
+				{
+					(*it)->setAngle((*it)->getAngle() + Define::PI / 60);
+				}
+				(*it)->setSpeed((*it)->getSpeed() + 0.05f);
+			}
+			if ((*it)->getState() == 29 && (*it)->getCount() > 30 && (*it)->getCount() < 60) {
+				if ((*it)->getAngle() <= 3 * Define::PI / 2) {
+					(*it)->setAngle((*it)->getAngle() - Define::PI / 120);
+				}
+				else
+				{
+					(*it)->setAngle((*it)->getAngle() + Define::PI / 120);
+				}
+				(*it)->setSpeed((*it)->getSpeed() + 0.1f);
+			}
+
+		}
+		it++;
+	}
+
+}
+/*Ð¡É¡3·ûUFO 1*/
+void EnemyShoter::shotPattern28(AbstractEnemy * enemy) {
+	const int cnt = enemy->getCount();
+	if (cnt < 930 && cnt>200) {
+		if (cnt % 100 == 35) {
+			EffectManager::addBulletShotEffect(enemy->getX(), enemy->getY(), 3);
+		}
+		if (cnt % 100 == 45) {
+			_groupAngle00 = enemy->shotatan2();
+			_groupX = enemy->getX();
+			_groupY = enemy->getY();
+			shotPlayerBullet(_groupX, _groupY, 11, 3, 28, _groupAngle00, 8.f, 1.f, Define::PI / 12, 5);
+		}
+		if (cnt % 100 == 55) {
+			shotPlayerBullet(_groupX, _groupY, 11, 3, 28, _groupAngle00, 8.f, 1.f, Define::PI / 12, 5);
+		}
+		if (cnt % 100 == 65) {
+			shotPlayerBullet(_groupX, _groupY, 11, 3, 28, _groupAngle00, 8.f, 1.f, Define::PI / 12, 5);
+		}
+	}
+	else
+	{
+		if (cnt >= 930 && cnt <= 955 && cnt % 5 == 0) {
+			EffectManager::addBulletShotEffect(enemy->getX(), enemy->getY(), 3);
+		}
+		if (cnt == 970) {
+			shotPlayerBullet(enemy->getX(), enemy->getY(), 10, 3, 0, enemy->shotatan2(), 10.f, 1.f, Define::PI / 8, 16);
+			enemy->setFlag(-1);
+		}
+	}
+
+}
+/*Ð¡É¡3·ûUFO 2*/
+void EnemyShoter::shotPattern29(AbstractEnemy * enemy) {
+	const int cnt = enemy->getCount();
+
+	if (cnt < 900) {
+		if (cnt % 30 == 20) {
+			EffectManager::addBulletShotEffect(enemy->getX(), enemy->getY(), 0);
+		}
+		if (cnt > 35 && cnt % 3 > 0) {
+			BulletManager::add(enemy->getX(), enemy->getY(),
+				14, rand() % (8), 29, 3 * Define::PI / 2 + ((float)(rand() / double(RAND_MAX)*Define::PI / 2) - Define::PI / 4),
+				((float)(rand() / double(RAND_MAX) * 2 * Define::PI) - Define::PI / 4), 3.f, 0.7f);
+		}
+	}
+	else
+	{
+		if (cnt >= 940 && cnt <= 965 && cnt % 5 == 0) {
+			EffectManager::addBulletShotEffect(enemy->getX(), enemy->getY(), 3);
+		}
+		if (cnt == 980) {
+			shotPlayerBullet(enemy->getX(), enemy->getY(), 10, 1, 0, enemy->shotatan2(), 10.f, 1.f, Define::PI / 8, 17);
+			enemy->setFlag(-1);
+		}
+	}
+}
+/*Ð¡É¡3·ûUFO 3*/
+void EnemyShoter::shotPattern30(AbstractEnemy * enemy) {
+	const int cnt = enemy->getCount();
+	if (cnt < 930 && cnt > 200) {
+		if (cnt % 200 == 70 || cnt % 200 == 90) {
+			EffectManager::addBulletShotEffect(enemy->getX(), enemy->getY(), 3);
+		}
+		if (cnt % 200 == 80) {
+			_groupAngle01 = enemy->shotatan2();
+			shotPlayerBullet(enemy->getX(), enemy->getY(), 0, 6, 28, _groupAngle01, 8.f, 1.f, Define::PI / 8, 16);
+		}
+		if (cnt % 200 == 90) {
+			shotPlayerBullet(enemy->getX(), enemy->getY(), 0, 5, 28, _groupAngle01, 8.f, 1.f, Define::PI / 16, 31);
+		}
+		if (cnt % 200 == 100) {
+			shotPlayerBullet(enemy->getX(), enemy->getY(), 0, 4, 28, _groupAngle01, 8.f, 1.f, Define::PI / 8, 16);
+		}
+		if (cnt % 200 == 110) {
+			shotPlayerBullet(enemy->getX(), enemy->getY(), 0, 5, 28, _groupAngle01, 8.f, 1.f, Define::PI / 16, 31);
+		}
+		if (cnt % 200 == 120) {
+			shotPlayerBullet(enemy->getX(), enemy->getY(), 0, 6, 28, _groupAngle01, 8.f, 1.f, Define::PI / 8, 16);
+		}
+	}
+	else
+	{
+		if (cnt >= 950 && cnt <= 975 && cnt % 5 == 0) {
+			EffectManager::addBulletShotEffect(enemy->getX(), enemy->getY(), 3);
+		}
+		if (cnt == 990) {
+			shotPlayerBullet(enemy->getX(), enemy->getY(), 10, 6, 0, enemy->shotatan2(), 10.f, 1.f, Define::PI / 8, 16);
+			enemy->setFlag(-1);
+		}
+	}
+}
+/*Ð¡É¡3·ûUFO 4*/
+void EnemyShoter::shotPattern31(AbstractEnemy * enemy) {
+	const int cnt = enemy->getCount();
+
+	if (cnt < 1000 && cnt >= 102 && cnt % 6 == 0) {
+		if (cnt % 5 == 0) {
+			EffectManager::addBulletShotEffect(enemy->getX(), enemy->getY(), 4);
+		}
+		BulletManager::add(enemy->getX(), enemy->getY(), 16, 4, 31, Define::PI / 2 + (cnt - 102) * Define::PI / 256,
+			Define::PI / 2 + (cnt - 102) * Define::PI / 256, 5.5f, 1.f);
+		BulletManager::add(enemy->getX(), enemy->getY(), 16, 4, 31, 3 * Define::PI / 2 + (cnt - 102) * Define::PI / 256,
+			3 * Define::PI / 2 + (cnt - 102) * Define::PI / 256, 5.5f, 1.f);
+	}
+	else
+	{
+		if (cnt >= 960 && cnt <= 985 && cnt % 5 == 0) {
+			EffectManager::addBulletShotEffect(enemy->getX(), enemy->getY(), 4);
+		}
+		if (cnt == 1000) {
+			shotPlayerBullet(enemy->getX(), enemy->getY(), 10, 4, 0, enemy->shotatan2(), 10.f, 1.f, Define::PI / 8, 17);
+			enemy->setFlag(-1);
+		}
+	}
+}
+/*Ð¡É¡3·Ç*/
+void EnemyShoter::shotPattern32(AbstractEnemy * enemy) {
+	int t = enemy->getBossCount() - 60;
+	if (t < 0) {
+		return;
+	}
+	if (t % 600 == 0 && t == 0) {
+		_groupAngle00 = enemy->shotatan2();
+	}
+	if (t % 600 <= 540 && t % 30 == 0 && t / 600 % 2 == 0) {
+		PlaySoundMem(Sound::getIns()->getTan02(), DX_PLAYTYPE_BACK);
+		_groupAngle00 = _groupAngle00 - Define::PI / 9;
+		shotPlayerBullet(enemy->getX(), enemy->getY(), 3, 7, 32, -_groupAngle00, 3, 0.8f, 11 * Define::PI / 576, 96);
+	}
+	if (t % 600 <= 540 && t % 600 > 40 && t % 30 >= 15 && t % 5 == 0 && t / 600 % 2 == 0) {
+		if (t % 30 == 20)
+			PlaySoundMem(Sound::getIns()->getTan01(), DX_PLAYTYPE_BACK);
+		shotPlayerBullet(enemy->getX(), enemy->getY(), 5, 0, 32, -_groupAngle00, 4.5, 0.8f, 7 * Define::PI / 192, 48);
+	}
+	if (t % 600 <= 540 && t % 30 == 0 && t / 600 % 2 != 0) {
+		PlaySoundMem(Sound::getIns()->getTan02(), DX_PLAYTYPE_BACK);
+		_groupAngle00 = _groupAngle00 + Define::PI / 9;
+		shotPlayerBullet(enemy->getX(), enemy->getY(), 3, 3, 32, -_groupAngle00, 3, 0.8f, 11 * Define::PI / 576, 96);
+	}
+	if (t % 600 <= 540 && t % 600 > 40 && t % 30 >= 15 && t % 5 == 0 && t / 600 % 2 != 0) {
+		if (t % 30 == 20)
+			PlaySoundMem(Sound::getIns()->getTan01(), DX_PLAYTYPE_BACK);
+		shotPlayerBullet(enemy->getX(), enemy->getY(), 5, 2, 32, -_groupAngle00, 4.5, 0.8f, 7 * Define::PI / 192, 48);
+	}
+}
+/*Ð¡É¡4·û¿¨*/
+void EnemyShoter::shotPattern33(AbstractEnemy * enemy) {
+	int t = enemy->getBossCount();
+	int k;
+	if (t >= 0 && t % 90 == 0) {
+		PlaySoundMem(Sound::getIns()->getTan02(), DX_PLAYTYPE_BACK);
+		for (int j = 0; j < 2; j++) {
+			shotPlayerBullet(enemy->getX(), enemy->getY(), 9, 5, j, (float)(rand() / double(RAND_MAX)*Define::PI / 2), 3.0f, 0.5f, Define::PI / 30, 60);
+
+		}
+	}
+	//ÉùÒô
+	for (auto it = BulletManager::getListBig()->begin(); it != BulletManager::getListBig()->end();) {//
+		if ((*it)->getFlag() > 0) {
+			int state = (*it)->getState();
+			int cnt = (*it)->getCount();
+			if (30 < cnt && cnt < 120) {
+				(*it)->setSpeed((*it)->getSpeed() - 1.2f / 90.0f);
+				(*it)->setBaseAngle((*it)->getBaseAngle() + Define::PI / 90.f*(state ? -1 : 1));
+				(*it)->setAngle((*it)->getAngle() + Define::PI / 90.f*(state ? -1 : 1));
+			}
+		}
+		it++;
+	}
+}
 
 void EnemyShoter::shotPlayerBullet(float x, float y, unsigned int type, unsigned int color, int state, float angle, float speed, float rate, float interval, int num)
 {

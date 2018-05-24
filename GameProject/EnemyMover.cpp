@@ -2,6 +2,7 @@
 #include "Macro.h"
 #include "Define.h"
 #include "AbstractEnemy.h"
+#include "EnemyManager.h"
 
 
 EnemyMover::EnemyMover()
@@ -92,6 +93,8 @@ void EnemyMover::setFunction()
 	_movePattern.push_back(&EnemyMover::movePattern29);
 	_movePattern.push_back(&EnemyMover::movePattern30);
 	_movePattern.push_back(&EnemyMover::movePattern31);
+	_movePattern.push_back(&EnemyMover::movePattern32);
+	_movePattern.push_back(&EnemyMover::movePattern33);
 }
 /*不动*/
 void EnemyMover::movePattern00(AbstractEnemy * enemy)
@@ -264,7 +267,7 @@ void EnemyMover::movePattern05(AbstractEnemy * enemy)
 void EnemyMover::movePattern06(AbstractEnemy * enemy) {
 	int cnt = enemy->getBossCount();
 	int c = enemy->getBossCount() % 100;
-	int r = Define::PI*(rand() % 2);
+	int r = (int)Define::PI*(rand() % 2);
 	if (cnt < 100) {
 		enemy->setAngle(Define::PI / 2);
 		enemy->setSpeed(0);
@@ -800,7 +803,7 @@ void EnemyMover::movePattern29(AbstractEnemy * enemy) {
 void EnemyMover::movePattern30(AbstractEnemy * enemy) {
 	int cnt = enemy->getBossCount();
 	int c = enemy->getBossCount() % 120;
-	int r = Define::PI*(rand() % 2);
+	int r = (int)Define::PI*(rand() % 2);
 	if (cnt < 60) {
 		enemy->setAngle(Define::PI / 2);
 		enemy->setSpeed(0);
@@ -815,15 +818,15 @@ void EnemyMover::movePattern30(AbstractEnemy * enemy) {
 		enemy->setSpeed(3.f);
 	}
 	if (c > 60 && c <= 100) {
-		
-		enemy->setSpeed(enemy->getSpeed()-0.075f);
+
+		enemy->setSpeed(enemy->getSpeed() - 0.075f);
 	}
 }
-
+/*小伞2非2符*/
 void EnemyMover::movePattern31(AbstractEnemy * enemy) {
 	int cnt = enemy->getBossCount();
 	int c = enemy->getBossCount() % 150;
-	int r = Define::PI*(rand() % 2);
+	int r = (int)Define::PI*(rand() % 2);
 	if (cnt < 40) {
 		enemy->setAngle(Define::PI / 2);
 		enemy->setSpeed(0);
@@ -840,5 +843,30 @@ void EnemyMover::movePattern31(AbstractEnemy * enemy) {
 	if (c > 40 && c <= 120) {
 
 		enemy->setSpeed(enemy->getSpeed() - 0.05f);
+	}
+}
+/*小伞3符UFO*/
+void EnemyMover::movePattern32(AbstractEnemy * enemy)
+{
+	float x = (*EnemyManager::getList()->begin())->getX();
+	float y = (*EnemyManager::getList()->begin())->getY();	//圆心坐标
+
+	enemy->setX(x + 75.f * cos(2 * Define::PI / 120 * (enemy->getCount() % 120) + enemy->getType()*Define::PI / 2));
+	enemy->setY(y + 75.f * sin(2 * Define::PI / 120 * (enemy->getCount() % 120) + enemy->getType()*Define::PI / 2));
+}
+/*小伞3非*/
+void EnemyMover::movePattern33(AbstractEnemy * enemy) {
+	int cnt = enemy->getBossCount();
+	if (cnt == 0)
+	{
+		enemy->setSpeed(4.f);
+		enemy->setAngle(Define::PI / 2);
+		return;
+	}
+	if (cnt <= 60) {
+		enemy->setSpeed(enemy->getSpeed() + 0.1f);
+	}
+	if (cnt == 60) {
+		enemy->setSpeed(0.f);
 	}
 }

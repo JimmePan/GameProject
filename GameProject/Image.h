@@ -33,6 +33,7 @@ public:
 	int getBackSpell01() const { return _backSpell01; }
 	const int* getEnemyNormal() const { return _enemyNormal; }
 	const int* getEnemyBig() const { return _enemyBig; }
+	const int* getUFOEnemy() const { return _UFOEnemy; }
 	int getPl00BoomA() const { return _pl00BoomA; }
 	int getPlayerGraze() const { return _playerGraze; }
 	const int* getItem() const { return _item; }
@@ -74,6 +75,7 @@ private:
 	int _backSpell01;	//场景背景
 	int _enemyNormal[224];	//中等大小妖精
 	int _enemyBig[56];	//大型妖精
+	int _UFOEnemy[16];
 	int _pl00BoomA;
 	int _playerGraze;	//擦弹效果
 	int _item[8];

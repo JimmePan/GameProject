@@ -10,7 +10,7 @@ ItemJudgePlayer::ItemJudgePlayer()
 
 void ItemJudgePlayer::Judge(std::shared_ptr<ItemManger>& im, std::shared_ptr<Player>& p)
 {
-	if (p->getY() < Define::ITEM_GET_LINE && p->getFlag()!=2) {	//道具收集线,改变道具移动状态
+	if (p->getY() < Define::ITEM_GET_LINE && p->getFlag() != 2) {	//道具收集线,改变道具移动状态
 		float a = p->getY();
 		int b = p->getFlag();
 		CollectStatus(im);
@@ -78,7 +78,8 @@ void ItemJudgePlayer::Judge(std::shared_ptr<ItemManger>& im, std::shared_ptr<Pla
 				}
 				else
 				{
-					PlaySoundMem(Sound::getIns()->getItem00(), DX_PLAYTYPE_BACK);
+					if (!CheckSoundMem(Sound::getIns()->getItem01()))
+						PlaySoundMem(Sound::getIns()->getItem00(), DX_PLAYTYPE_BACK);
 				}
 			}
 

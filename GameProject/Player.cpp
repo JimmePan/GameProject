@@ -72,7 +72,8 @@ bool Player::update()
 		}
 	}
 	_counter++;
-	move();
+	if (_flag != 1)
+		move();
 	shot();
 	boom();
 
@@ -251,7 +252,7 @@ void Player::boom()
 }
 
 void Player::updatePosition() {	//»®“À÷Æº∆
-	pl_x = _x;		
+	pl_x = _x;
 	pl_y = _y;
 }
 

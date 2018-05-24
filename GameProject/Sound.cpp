@@ -29,6 +29,9 @@ Sound::Sound()
 	_timeout = myLoadSound("E://dat/se/se_timeout.wav", 1);
 	_lazer00 = myLoadSound("E://dat/se/se_lazer00.wav", 2);
 	_lazer01 = myLoadSound("E://dat/se/se_lazer01.wav", 2);
+	_rain00 = myLoadSound("E://dat/se/se_rain00.wav", 1);
+	_rain01 = myLoadSound("E://dat/se/se_rain01.wav", 1);
+	_ufo = myLoadSound("E://dat/se/se_ufoalert.wav", 2);
 } 
 
 void Sound::release()

@@ -9,19 +9,16 @@
 #include "CycloneEnemy.h"
 #include "KedamaEnemy.h"
 #include "YinyangEnemy.h"
+#include "UFOEnemy.h"
 #include "TataraKogasa.h"
 #include "Sound.h"
 
 using namespace std;
 
+std::list<std::shared_ptr<AbstractEnemy>> EnemyManager::_list;
+
 EnemyManager::EnemyManager()
 {
-	//_list.emplace_back(make_shared<NormalEnemy>(Define::CENTER_X, 100.f, 0, 200));
-	//_list.emplace_back(make_shared<BigEnemy>(Define::CENTER_X-100, 0.f, 1, 5000));
-	//_list.emplace_back(make_shared<BigEnemy>(Define::CENTER_X, 500.f, 1, 500));
-	//_list.emplace_back(make_shared<NormalEnemy>(Define::CENTER_X-100, 0.f, 1, 150));
-	//_list.emplace_back(make_shared<BigEnemy>(Define::CENTER_X - 100.f, 0.f, 0, 1000));
-	//_list.emplace_back(make_shared<Cirno>(Define::CENTER_X + 100, 0.f, 4, 150));
 	_halfCount = 0;
 	_count = 0;
 }
@@ -55,6 +52,28 @@ void EnemyManager::draw() const
 	for (auto enemy : _list) {
 		enemy->draw();
 	}
+}
+
+void EnemyManager::addSpell27(float x, float y, int type,int shotID)
+{
+	_list.emplace_back(make_shared<UFOEnemy>(x, y, type, 3000, 32, shotID, 0));
+}
+
+void EnemyManager::clearNormalEn()
+{
+	int i = 0;
+	for (auto it = _list.begin(); it != _list.end();) {
+		if(i!=0)
+			(*it)->setFlag(0);
+		it++;
+		i++;
+	}
+}
+
+
+int EnemyManager::getSize()
+{
+	return _list.size();
 }
 void EnemyManager::clearEnemy()
 {
@@ -589,7 +608,6 @@ void EnemyManager::state02Play() {
 	*/
 	/*第五阶段共600帧，下一阶段从2500帧起*/
 	//const int step06 = _halfCount+2500;
-	const int step06 = 0;
 	//if (_count - step06 == 0) {
 	//	_list.emplace_back(make_shared<YinyangEnemy>(Define::CENTER_X + 250, 0.f, 0, 500, 27, 20, 1));
 	//	_list.emplace_back(make_shared<YinyangEnemy>(Define::CENTER_X - 250, 0.f, 2, 500, 27, 20, 1));
@@ -661,8 +679,9 @@ void EnemyManager::state02Play() {
 	//	return;
 	//}
 	//if (_count - step06 == 1100) {
+	const int step06 = 0;
 	if (_count - step06 == 10) {
-		_list.emplace_back(make_shared<TataraKogasa>(0.f , 200.f, 4, 5000, 29, 22, 1));
+		_list.emplace_back(make_shared<TataraKogasa>(0.f , 200.f, 7, 5000, 29, 28, 1));
 		return;
 	}
 

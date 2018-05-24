@@ -27,6 +27,7 @@ Image::Image()
 	_backSpell01 = myLoadGraph("E://dat/image/background/stage01a.png");
 	myLoadDivGraph("E://dat/image/enemy/enemy.png", 224, 16, 14, 32, 32, _enemyNormal);
 	myLoadDivGraph("E://dat/image/enemy/enemy.png", 56, 8, 7, 64, 64, _enemyBig);
+	myLoadDivGraph("E://dat/image/enemy/ufo.png", 16, 4, 4, 64, 64, _UFOEnemy);
 	_pl00BoomA = myLoadGraph("E://dat/image/player/pl00BoomA.png");
 	_playerGraze = myLoadGraph("E://dat/image/player/player_graze.png");
 	myLoadDivGraph("E://dat/image/bullet/item.png", 8, 8, 1, 16, 16, _item);

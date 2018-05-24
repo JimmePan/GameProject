@@ -279,6 +279,9 @@
     <ClCompile Include="TataraKogasa.cpp">
       <Filter>Boss</Filter>
     </ClCompile>
+    <ClCompile Include="UFOEnemy.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Looper.h">
@@ -487,6 +490,9 @@
     </ClInclude>
     <ClInclude Include="TataraKogasa.h">
       <Filter>Boss</Filter>
+    </ClInclude>
+    <ClInclude Include="UFOEnemy.h">
+      <Filter>Enemy</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

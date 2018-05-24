@@ -12,9 +12,13 @@ public:
 	bool update() override;
 	void draw() const override;
 
-	std::list<std::shared_ptr<AbstractEnemy>>* getList() { return &_list; }
+	static void addSpell27(float x, float y, int type,int shotID);
+	static void clearNormalEn();
+
+	static int getSize();
+	static std::list<std::shared_ptr<AbstractEnemy>>* getList() { return &_list; }
 private:
-	std::list<std::shared_ptr<AbstractEnemy>> _list;
+	static std::list<std::shared_ptr<AbstractEnemy>> _list;
 	int _count;
 	int _halfCount;
 	void clearEnemy();

@@ -1,4 +1,3 @@
-
 #include "TataraKogasa.h"
 #include <DxLib.h>
 #include "Image.h"
