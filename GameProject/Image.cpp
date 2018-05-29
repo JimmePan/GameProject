@@ -40,6 +40,8 @@ Image::Image()
 	myLoadDivGraph("E://dat/image/ascii/SNumber.png", 15, 15, 1, 16, 18, _smallNumber);
 	myLoadDivGraph("E://dat/image/bullet/05.sparkBig.png", 9, 9, 1, 76, 76, _bulletShotEffect);
 	_st01Logo = myLoadGraph("E://dat/image/front/logo/st01logo.png");
+	_en1Face0 = myLoadGraph("E://dat/image/face/enemy1/face0ct.png");
+	_en2Face0 = myLoadGraph("E://dat/image/face/enemy2/face02n2.png");
 }
 
 void Image::release()

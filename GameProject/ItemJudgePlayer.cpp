@@ -35,6 +35,8 @@ void ItemJudgePlayer::Judge(std::shared_ptr<ItemManger>& im, std::shared_ptr<Pla
 				case 0:case 3:
 				{
 					float before = Global::POWER;
+					if (Global::POWER > Define::POWER_MAX - 0.001f)
+						p->setPowerMax(true);
 					if (before < Define::POWER_MAX) {		//小于满火力，拾取
 						before + Define::ITEM_POWER[kind] >= Define::POWER_MAX ? Global::getIns()->setPower(Define::POWER_MAX) : Global::getIns()->addPower(Define::ITEM_POWER[kind]);
 						if ((int)before < (int)Global::POWER) {
@@ -51,21 +53,36 @@ void ItemJudgePlayer::Judge(std::shared_ptr<ItemManger>& im, std::shared_ptr<Pla
 					(*i)->setFlag(0);
 				}
 				case 1:
+					if ((*i)->getFlag() > 5) {
+						Global::SCORE += 100;
+					}
+					else
+					{
+						Global::SCORE += (10000 + Global::GRAZE * 100);
+					}
 					(*i)->setFlag(0);
 					break;
 				case 2:
+					Global::SCORE += 500;
 					(*i)->setFlag(0);
 					break;
 				case 4:
+					if (Global::PLAYER < 8.99f)
+						Global::PLAYER = Global::PLAYER + 0.2f;
 					(*i)->setFlag(0);
 					break;
 				case 5:
+					Global::POWER = Define::POWER_MAX;
+					p->setPowerMax(true);
 					(*i)->setFlag(0);
 					break;
 				case 6:
+					if (Global::PLAYER < 8.99f)
+						Global::PLAYER = Global::PLAYER + 1.0f;
 					(*i)->setFlag(0);
 					break;
 				case 7:
+					Global::SCORE += 100;
 					(*i)->setFlag(0);
 					break;
 				default:

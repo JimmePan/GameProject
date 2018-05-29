@@ -20,8 +20,11 @@ protected:
 	const int* SHOTER;
 	const int* HP;
 	const int* ITEM;
+	const int* TIME;
 	virtual void reset() = 0;
 	virtual void changeMove() = 0;
+
+	mutable bool _spellEffectFlag;
 
 	void drawTime() const;
 

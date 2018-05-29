@@ -282,6 +282,12 @@
     <ClCompile Include="UFOEnemy.cpp">
       <Filter>Enemy</Filter>
     </ClCompile>
+    <ClCompile Include="BGM.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="SpellCardEffect.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Looper.h">
@@ -493,6 +499,12 @@
     </ClInclude>
     <ClInclude Include="UFOEnemy.h">
       <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="BGM.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SpellCardEffect.h">
+      <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

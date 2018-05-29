@@ -6,11 +6,15 @@
 #include "Keyboard.h"
 #include "Pad.h"
 #include "Image.h"
+#include "Sound.h"
+#include "BGM.h"
 
 using namespace std;
 
 Looper::Looper() {													//栈底为TitleScene时，按下键会出现5帧的掉帧，原因不明
 	Image::getIns()->load();
+	Sound::getIns()->load();
+	BGM::getIns()->load();
 
 	Parameter parameter;
 	_sceneStack.push(std::make_shared<GameScene>(this, parameter));	//make_shared是一个非成员函数，具有给共享对象分配内存，并且只分配一次内存的优点，

@@ -68,5 +68,7 @@ private:
 	float _base_angle;	//自转角度
 
 	float _rem_spd[1];		//瞬间记忆速度
+
+	void bulletChange();
 };
 

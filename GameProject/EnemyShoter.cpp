@@ -309,7 +309,7 @@ void EnemyShoter::shotPattern05(AbstractEnemy * enemy) {
 		PlaySoundMem(Sound::getIns()->getTan00(), DX_PLAYTYPE_BACK);
 		BulletManager::add(enemy->getX(), enemy->getY(), 6, 0, 5, enemy->shotatan2(), 0.0f, 8.0f, 1.0f);
 	}
-	for (auto it = BulletManager::getListBig()->begin(); it != BulletManager::getListBig()->end();) {
+	/*for (auto it = BulletManager::getListBig()->begin(); it != BulletManager::getListBig()->end();) {
 		if ((*it)->getFlag() > 0) {
 			if ((*it)->getState() == 5 && (*it)->getCount() == 10) {
 				(*it)->setSpeed(4.f);
@@ -317,7 +317,7 @@ void EnemyShoter::shotPattern05(AbstractEnemy * enemy) {
 			}
 		}
 		it++;
-	}
+	}*/
 
 }
 /*道中0阶段大妖精子弹*/
@@ -728,7 +728,7 @@ void EnemyShoter::shotPattern20(AbstractEnemy * enemy)
 			}
 		}
 	}
-	for (auto it = BulletManager::getListSmall()->begin(); it != BulletManager::getListSmall()->end();) {
+	/*for (auto it = BulletManager::getListSmall()->begin(); it != BulletManager::getListSmall()->end();) {
 		if ((*it)->getFlag() > 0) {
 			float count = (float)(*it)->getCount();
 			if (count < 16 && (*it)->getState() == 20) {
@@ -743,7 +743,7 @@ void EnemyShoter::shotPattern20(AbstractEnemy * enemy)
 			}
 		}
 		it++;
-	}
+	}*/
 }
 /*道中6阶段阴阳玉子弹02*/
 void EnemyShoter::shotPattern21(AbstractEnemy * enemy) {
@@ -762,7 +762,7 @@ void EnemyShoter::shotPattern21(AbstractEnemy * enemy) {
 			}
 		}
 	}
-	for (auto it = BulletManager::getListSmall()->begin(); it != BulletManager::getListSmall()->end();) {
+	/*for (auto it = BulletManager::getListSmall()->begin(); it != BulletManager::getListSmall()->end();) {
 		if ((*it)->getFlag() > 0) {
 			float count = (float)(*it)->getCount();
 			if (count < 16 && (*it)->getState() == 21) {
@@ -777,7 +777,7 @@ void EnemyShoter::shotPattern21(AbstractEnemy * enemy) {
 			}
 		}
 		it++;
-	}
+	}*/
 }
 /*道中6阶段大妖精子弹01*/
 void EnemyShoter::shotPattern22(AbstractEnemy * enemy) {
@@ -1028,7 +1028,7 @@ void EnemyShoter::shotPattern26(AbstractEnemy * enemy) {
 	}
 	for (auto it = BulletManager::getListNormal()->begin(); it != BulletManager::getListNormal()->end();) {
 		if ((*it)->getFlag() > 0) {
-			if ((*it)->getState() == 25) {
+			if ((*it)->getState() == 25 && (t % 150 > 40 || t % 150 < 120) && t % 2 == 0) {
 				int a = (int)enemy->getX() - Define::CENTER_X;
 				(*it)->setBaseAngle(-Define::PI / 2 + a * Define::PI / 1500);
 				(*it)->setAngle(Define::PI / 2 + a * Define::PI / 1500);
@@ -1248,11 +1248,18 @@ void EnemyShoter::shotPattern32(AbstractEnemy * enemy) {
 /*小伞4符卡*/
 void EnemyShoter::shotPattern33(AbstractEnemy * enemy) {
 	int t = enemy->getBossCount();
-	int k;
-	if (t >= 0 && t % 90 == 0) {
+	int k = 90;
+	int i = enemy->getHp();
+	if (enemy->getHp() <= 30000) {
+		k = 60;
+	}
+	if (enemy->getHp() <= 15000) {
+		k = 40;
+	}
+	if (t >= 0 && t % k == 0) {
 		PlaySoundMem(Sound::getIns()->getTan02(), DX_PLAYTYPE_BACK);
 		for (int j = 0; j < 2; j++) {
-			shotPlayerBullet(enemy->getX(), enemy->getY(), 9, 5, j, (float)(rand() / double(RAND_MAX)*Define::PI / 2), 3.0f, 0.5f, Define::PI / 30, 60);
+			shotPlayerBullet(enemy->getX(), enemy->getY(), 9, 5, j, (float)(rand() / double(RAND_MAX)*Define::PI / 2), 3.2f, 0.5f, Define::PI / 30, 60);
 
 		}
 	}
@@ -1260,11 +1267,16 @@ void EnemyShoter::shotPattern33(AbstractEnemy * enemy) {
 	for (auto it = BulletManager::getListBig()->begin(); it != BulletManager::getListBig()->end();) {//
 		if ((*it)->getFlag() > 0) {
 			int state = (*it)->getState();
-			int cnt = (*it)->getCount();
-			if (30 < cnt && cnt < 120) {
-				(*it)->setSpeed((*it)->getSpeed() - 1.2f / 90.0f);
-				(*it)->setBaseAngle((*it)->getBaseAngle() + Define::PI / 90.f*(state ? -1 : 1));
-				(*it)->setAngle((*it)->getAngle() + Define::PI / 90.f*(state ? -1 : 1));
+			if (state < 10) {
+				int cnt = (*it)->getCount();
+				if (30 < cnt && cnt < 120) {
+					(*it)->setSpeed((*it)->getSpeed() - 1.2f / 90.0f);
+					(*it)->setBaseAngle((*it)->getBaseAngle() + Define::PI / 90.f*(state ? -1 : 1));
+					(*it)->setAngle((*it)->getAngle() + Define::PI / 90.f*(state ? -1 : 1));
+				}
+				if (cnt > 120) {
+					(*it)->setState(10033);
+				}
 			}
 		}
 		it++;

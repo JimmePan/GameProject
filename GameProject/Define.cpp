@@ -22,33 +22,27 @@ const int Define::HP_Y = IN_Y + 12;
 const int Define::PL_POWER[] = { 45,12 };
 const float Define::PL_RANGE[] = { 7.f,2.f };
 
-const float Define::POWER_MAX = 4.00f;
+const float Define::POWER_MAX = 4.0001f;
 const float Define::POWER_MIN = 0.00f;
 
 const float Define::ITEM_POWER[] = { 0.05f,0.f,0.f,1.00f,0.f,4.00f,0.f,0.f };
-const int Define::ITEM_SCORE[] = { 0,10,100,0,0,0,0,100 };
+const int Define::ITEM_SCORE[] = { 0,10,100,0,0,0,0,1000 };
 
-//const int Define::BOSS_IMAGE[] = { BOSS_01_IMG };
-//const int Define::BOSS_MOVER[] = { BOSS_01_MOVER };
-//const int Define::BOSS_SHOTER[] = { BOSS_01_SHOTER };
-//const int Define::BOSS_HP[] = { BOSS_01_HP };
 
-//const int Define::BOSS_01_IMG[] = Image::getIns()->getBoss01();
 const int Define::BOSS_01_MOVER[] = { 2,3,5,6 };
 const int Define::BOSS_01_SHOTER[] = { 2,1,3,4 };
-//const int Define::BOSS_01_HP[] = { 12000,14000,12000,16000 };
-const int Define::BOSS_01_HP[] = { 2000,2000,2000,5000 };
-const int Define::BOSS_01_ITEM[] = { 4,4,4,4 };
-//30,23
-//30,24
-//31,25
-//31,26
-//33,32
-//0,27
+const int Define::BOSS_01_HP[] = { 12000,18000,12000,16000 };
+//const int Define::BOSS_01_HP[] = { 2000,2000,2000,5000 };
+const int Define::BOSS_01_ITEM[] = { 0,4,0,6 };
+const int Define::BOSS_01_TIME[] = { 25,40,25,25 };
 
 
-const int Define::BOSS_02_MOVER[] = { 30,30,31,31,33,0,0};
-const int Define::BOSS_02_SHOTER[] = { 23,24,25,26,32,27,33 };
-const int Define::BOSS_02_HP[] = { 12000,14000,12000,16000,12000,12000,12000 };
-//const int Define::BOSS_02_HP[] = { 2000,2000,2000,5000 };
-const int Define::BOSS_02_ITEM[] = { 4,4,4,4 };
+const int Define::BOSS_02_MOVER[] = { 0,30,31,31,33,0,0 };
+const int Define::BOSS_02_SHOTER[] = { 33,24,25,26,32,27,33 };
+//const int Define::BOSS_02_MOVER[] = { 30,30,31,31,33,0,0};
+//const int Define::BOSS_02_SHOTER[] = { 23,24,25,26,32,27,33 };
+const int Define::BOSS_02_HP[] = { 12000,18000,12000,16000,16000,28000,60000 };
+//const int Define::BOSS_02_HP[] = { 2000,2000,2000,5000,5000,5000,5000 };
+const int Define::BOSS_02_ITEM[] = { 0,7,0,8,7,9,0 };
+//const int Define::BOSS_02_TIME[] = { 30,38,25,40,60,40,1000 };
+const int Define::BOSS_02_TIME[] = { 1000,38,25,40,60,40,1000 };

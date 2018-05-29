@@ -857,14 +857,14 @@ void EnemyMover::movePattern32(AbstractEnemy * enemy)
 /*Ð¡É¡3·Ç*/
 void EnemyMover::movePattern33(AbstractEnemy * enemy) {
 	int cnt = enemy->getBossCount();
-	if (cnt == 0)
+	if (cnt == 10)
 	{
-		enemy->setSpeed(4.f);
+		enemy->setSpeed(4.5f);
 		enemy->setAngle(Define::PI / 2);
 		return;
 	}
 	if (cnt <= 60) {
-		enemy->setSpeed(enemy->getSpeed() + 0.1f);
+		enemy->setSpeed(enemy->getSpeed() - 0.09f);
 	}
 	if (cnt == 60) {
 		enemy->setSpeed(0.f);

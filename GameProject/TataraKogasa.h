@@ -1,5 +1,3 @@
-#pragma once
-
 #include "Boss.h"
 #include "BossHp.h"
 class TataraKogasa :

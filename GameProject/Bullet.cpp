@@ -29,13 +29,7 @@ bool Bullet::update()
 		EffectManager::addBulletBreakEffect(_x, _y, _color);
 		return false;
 	}
-	if (_type == 14) {
-		_base_angle = _base_angle + Define::PI / 15;
-		if (_state == 22 && _count == 30) {
-			_speed = 2.7f;
-			_state = 1022;
-		}
-	}
+	bulletChange();
 	_count++;
 	_x = _x + cos(_angle)*_speed;
 	_y = _y + sin(_angle)*_speed;
@@ -59,4 +53,41 @@ bool Bullet::isInside() const
 		return false;
 	}
 	return true;
+}
+
+void Bullet::bulletChange()
+{
+	if (_state == 22) {
+		_base_angle = _base_angle + Define::PI / 15;
+	}
+	if (_state == 22 && _count == 30) {
+		_speed = 2.7f;
+	}
+
+	if (_state == 5 && _count == 10) {
+		_speed = 4.f;
+		_state = 1005;
+	}
+
+	if (_count < 16 && _state == 20) {
+		_rate = _count / 15.f;
+	}
+	if (_count == 16 && _state == 20) {
+		_state = 1020;
+	}
+	if (_state == 1020 && _count == 60) {
+		_speed = _speed - 3.f;
+		_state = 0;
+	}
+
+	if (_count < 16 && _state == 21) {
+		_rate = _count / 15.f;
+	}
+	if (_count == 16 && _state == 21) {
+		_state = 1021;
+	}
+	if (_state == 1021 && _count == 60) {
+		_speed = _speed - 3.f;
+		_state = 0;
+	}
 }

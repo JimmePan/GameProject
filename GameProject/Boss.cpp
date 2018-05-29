@@ -16,6 +16,7 @@ Boss::Boss(float x, float y, int type, int hp, int movePatternID, int shotPatter
 	_movePatternID = 4;		//น้ฮป
 	_boss = true;
 	_RANGE = -1.f;
+	_spellEffectFlag = false;
 }
 
 bool Boss::update()
@@ -77,6 +78,7 @@ void Boss::drawTime() const
 			PlaySoundMem(Sound::getIns()->getTimeout(), DX_PLAYTYPE_BACK);
 		}
 	}
+	
 	Number((float)_endTime / 60, 400, 100, 2, 2).draw();
 	SetDrawBright(255, 255, 255);
 }

@@ -23,6 +23,11 @@ private:
 	void itemPattern03(AbstractEnemy *enemy);
 	void itemPattern04(AbstractEnemy *enemy);
 	void itemPattern05(AbstractEnemy *enemy);
+	void itemPattern06(AbstractEnemy *enemy);
+	void itemPattern07(AbstractEnemy *enemy);
+	void itemPattern08(AbstractEnemy *enemy);
+	void itemPattern09(AbstractEnemy *enemy);
+
 
 	void addp(float x, float y);
 	void addP(float x, float y);

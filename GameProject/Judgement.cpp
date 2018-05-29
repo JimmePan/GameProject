@@ -12,7 +12,7 @@ bool Judgement::update(std::shared_ptr<PlayerShotManager> &psm, std::shared_ptr<
 	std::shared_ptr<BulletManager> &bm, std::shared_ptr<Player>& p, std::shared_ptr<ItemManger> &im)
 {
 	PlayerShotJudgeEnemy::Judge(psm, em);
-	EnemyShotJudgePlayer::Judge(bm, p);
+	//EnemyShotJudgePlayer::Judge(bm, p);
 	EnemyJudgePlayer::Judge(em, p);
 	ItemJudgePlayer::Judge(im, p);
 	return true;

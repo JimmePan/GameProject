@@ -50,10 +50,12 @@ public:
 	const static int BOSS_01_SHOTER[];
 	const static int BOSS_01_HP[];
 	const static int BOSS_01_ITEM[];
+	const static int BOSS_01_TIME[];
 
 	const static int BOSS_02_MOVER[];
 	const static int BOSS_02_SHOTER[];
 	const static int BOSS_02_HP[];
 	const static int BOSS_02_ITEM[];
+	const static int BOSS_02_TIME[];
 };
 

@@ -10,6 +10,7 @@
 #include "GrazeEffect.h"
 #include "BulletShotEffect.h"
 #include "LogoEffect.h"
+#include "SpellCardEffect.h"
 
 using namespace std;
 
@@ -106,4 +107,9 @@ void EffectManager::addBulletShotEffect(float x, float y, int color)
 void EffectManager::addLogoEffect(float x, float y, int num)
 {
 	_list.emplace_back(make_shared<LogoEffect>(x, y, num));
+}
+
+void EffectManager::addSpellCardEffect(int num)
+{
+	_list.emplace_back(make_shared<SpellCardEffect>(num));
 }

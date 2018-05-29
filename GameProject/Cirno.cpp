@@ -2,6 +2,7 @@
 #include <DxLib.h>
 #include "Image.h"
 #include "Define.h"
+#include "EffectManager.h"
 
 Cirno::Cirno(float x, float y, int type, int hp, int movePatternID, int shotPatternID, int itemPatternID)
 	:Boss(x, y, type, hp, movePatternID, shotPatternID, itemPatternID)
@@ -10,10 +11,15 @@ Cirno::Cirno(float x, float y, int type, int hp, int movePatternID, int shotPatt
 	SHOTER = Define::BOSS_01_SHOTER;
 	ITEM = Define::BOSS_01_ITEM;
 	HP = Define::BOSS_01_HP;
+	TIME = Define::BOSS_01_TIME;
 	reset();
 }
 void Cirno::draw() const
 {
+	if (_state == 1 && _spellEffectFlag && (_flag == 3 || _flag == 1)) {
+		_spellEffectFlag = false;
+		EffectManager::addSpellCardEffect(0);
+	}
 	const static int imgID[6] = { 0,1,2,3,2,1 };
 	const static int DimgID[6] = { 3,2,1,0,1,2 };
 	int add;
@@ -63,7 +69,7 @@ void Cirno::draw() const
 }
 void Cirno::reset()
 {
-	_endTime = 25 * 60;
+	_endTime = Define::BOSS_01_TIME[_type - _flag] * 60;
 	_state = 1;		//×´Ì¬´ý»ú
 	_waitTime = 0;
 	_bossCount = 0;

@@ -2,6 +2,8 @@
 #include <DxLib.h>
 #include "Image.h"
 #include "Define.h"
+#include "BGM.h"
+#include "EffectManager.h"
 
 TataraKogasa::TataraKogasa(float x, float y, int type, int hp, int movePatternID, int shotPatternID, int itemPatternID)
 	:Boss(x, y, type, hp, movePatternID, shotPatternID, itemPatternID)
@@ -10,12 +12,18 @@ TataraKogasa::TataraKogasa(float x, float y, int type, int hp, int movePatternID
 	SHOTER = Define::BOSS_02_SHOTER;
 	ITEM = Define::BOSS_02_ITEM;
 	HP = Define::BOSS_02_HP;
+	TIME = Define::BOSS_02_TIME;
 	_shotCount = 0;
 	_shotFlag = false;
+	BGM::getIns()->play(1);
 	reset();
 }
 void TataraKogasa::draw() const
 {
+	if (_state == 1 && _spellEffectFlag && (_flag == 6 || _flag == 4 || _flag == 2 || _flag == 1)) {
+		_spellEffectFlag = false;
+		EffectManager::addSpellCardEffect(1);
+	}
 	const static int imgID[6] = { 0,1,2,3,2,1 };
 	const static int DimgID[6] = { 3,2,1,0,1,2 };
 	int add;
@@ -72,7 +80,8 @@ void TataraKogasa::draw() const
 }
 void TataraKogasa::reset()
 {
-	_endTime = 25 * 60;
+	_spellEffectFlag = true;
+	_endTime = Define::BOSS_02_TIME[_type - _flag] * 60;
 	_state = 1;		//×´Ì¬´ý»ú
 	_waitTime = 0;
 	_bossCount = 0;
@@ -103,7 +112,7 @@ void TataraKogasa::shotImage() const
 	int handle = Image::getIns()->getBoss02Shot()[_shotImg[(_shotCount / 6) % 6]];
 	_shotCount++;
 	if (_direction < 0) {
-		DrawRotaGraphF(_dx, _dy, 1.5, 0.0, handle, TRUE,TRUE);
+		DrawRotaGraphF(_dx, _dy, 1.5, 0.0, handle, TRUE, TRUE);
 	}
 	else
 	{

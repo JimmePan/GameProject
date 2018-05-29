@@ -29,6 +29,10 @@ void EnemyItem::setFunction()
 	_itemPattern.push_back(&EnemyItem::itemPattern03);
 	_itemPattern.push_back(&EnemyItem::itemPattern04);
 	_itemPattern.push_back(&EnemyItem::itemPattern05);
+	_itemPattern.push_back(&EnemyItem::itemPattern06);
+	_itemPattern.push_back(&EnemyItem::itemPattern07);
+	_itemPattern.push_back(&EnemyItem::itemPattern08);
+	_itemPattern.push_back(&EnemyItem::itemPattern09);
 }
 /*ÎÞµÀ¾ßµôÂä*/
 void EnemyItem::itemPattern00(AbstractEnemy * enemy)
@@ -60,18 +64,17 @@ void EnemyItem::itemPattern03(AbstractEnemy * enemy)
 	const float y = enemy->getY();
 	addP(x, y);
 }
-//5p5P
+//0.3
 void EnemyItem::itemPattern04(AbstractEnemy * enemy)
 {
 	const float x = enemy->getX();
 	const float y = enemy->getY();
-	for (int i = 0; i < 5; i++) {
+	for (int i = 0; i < 6; i++) {
 		addp(x, y);
 	}
-	for (int i = 0; i < 1; i++) {
+	/*for (int i = 0; i < 1; i++) {
 		addP(x, y);
-	}
-	addup(x, y);
+	}*/
 }
 //5b
 void EnemyItem::itemPattern05(AbstractEnemy * enemy) {
@@ -80,6 +83,53 @@ void EnemyItem::itemPattern05(AbstractEnemy * enemy) {
 	for (int i = 0; i < 5; i++) {
 		addb(x, y);
 	}
+}
+//1.3
+void EnemyItem::itemPattern06(AbstractEnemy * enemy) {
+	const float x = enemy->getX();
+	const float y = enemy->getY();
+	for (int i = 0; i < 6; i++) {
+		addp(x, y);
+	}
+	for (int i = 0; i < 1; i++) {
+		addP(x, y);
+	}
+	addup(x, y);
+}
+//0.8 + 8 
+void EnemyItem::itemPattern07(AbstractEnemy * enemy) {
+	const float x = enemy->getX();
+	const float y = enemy->getY();
+	for (int i = 0; i < 16; i++) {
+		addp(x, y);
+	}
+	for (int i = 0; i < 8; i++) {
+		addb(x, y);
+	}
+}
+
+//0.6 + 6
+void EnemyItem::itemPattern08(AbstractEnemy * enemy) {
+	const float x = enemy->getX();
+	const float y = enemy->getY();
+	for (int i = 0; i < 12; i++) {
+		addp(x, y);
+	}
+	for (int i = 0; i < 6; i++) {
+		addb(x, y);
+	}
+}
+//1.0 + 10 + 1UP
+void EnemyItem::itemPattern09(AbstractEnemy * enemy) {
+	const float x = enemy->getX();
+	const float y = enemy->getY();
+	for (int i = 0; i < 10; i++) {
+		addp(x, y);
+	}
+	for (int i = 0; i < 5; i++) {
+		addb(x, y);
+	}
+	addUP(x, y);
 }
 
 void EnemyItem::addp(float x, float y)
