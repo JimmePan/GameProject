@@ -783,6 +783,8 @@ void EnemyShoter::shotPattern21(AbstractEnemy * enemy) {
 void EnemyShoter::shotPattern22(AbstractEnemy * enemy) {
 	const int cnt = enemy->getCount() - 30;
 	if (cnt % 10 == 0) {
+		StopSoundMem(Sound::getIns()->getFocusFix2());
+		PlaySoundMem(Sound::getIns()->getFocusFix2(), DX_PLAYTYPE_BACK);
 		if (cnt / 70 % 2 == 0) {
 			for (int i = 0; i < 30; i++) {
 				BulletManager::add(enemy->getX() + ((float)(rand() / double(RAND_MAX)*100.f - 50.f)), enemy->getY() + ((float)(rand() / double(RAND_MAX)*100.f) - 50.f),
@@ -1250,16 +1252,16 @@ void EnemyShoter::shotPattern33(AbstractEnemy * enemy) {
 	int t = enemy->getBossCount();
 	int k = 90;
 	int i = enemy->getHp();
-	if (enemy->getHp() <= 30000) {
+	if (enemy->getHp() <= 60000) {
 		k = 60;
 	}
-	if (enemy->getHp() <= 15000) {
+	if (enemy->getHp() <= 30000) {
 		k = 40;
 	}
 	if (t >= 0 && t % k == 0) {
 		PlaySoundMem(Sound::getIns()->getTan02(), DX_PLAYTYPE_BACK);
 		for (int j = 0; j < 2; j++) {
-			shotPlayerBullet(enemy->getX(), enemy->getY(), 9, 5, j, (float)(rand() / double(RAND_MAX)*Define::PI / 2), 3.2f, 0.5f, Define::PI / 30, 60);
+			shotPlayerBullet(enemy->getX(), enemy->getY(), 9, 6, j, (float)(rand() / double(RAND_MAX)*Define::PI / 2), 3.2f, 0.5f, Define::PI / 30, 60);
 
 		}
 	}

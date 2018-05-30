@@ -40,7 +40,8 @@ public:
 	int getRain00() const { return _rain00; }
 	int getRain01() const { return _rain01; }
 	int getUFO() const { return _ufo; }
-
+	int getExtend() const { return _extend; }
+	 
 private:
 	int myLoadSound(const char *, int type);
 
@@ -74,4 +75,5 @@ private:
 	int _rain00;
 	int _rain01;
 	int _ufo;
+	int _extend;
 };

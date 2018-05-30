@@ -21,11 +21,11 @@ public:
 	void setScore(int score) { SCORE += score; if (SCORE > HIGH_SCORE) HIGH_SCORE = SCORE; }
 
 	float getPlayer() const { return PLAYER; }
-	void setPlayer() { PLAYER = 7.6f; }
+	void setPlayer() { PLAYER = 4.0f; }
 	void setPlayer(float pl) { PLAYER += pl; }
 
 	float getPower() const { return POWER; }
-	void setPower() { POWER = 4.0f; }
+	void setPower() { POWER = 0.0f; }
 	void setPower(float power) { POWER = power; }
 	void addPower(float power) { POWER += power; }
 

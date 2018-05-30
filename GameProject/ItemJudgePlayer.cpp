@@ -67,18 +67,29 @@ void ItemJudgePlayer::Judge(std::shared_ptr<ItemManger>& im, std::shared_ptr<Pla
 					(*i)->setFlag(0);
 					break;
 				case 4:
-					if (Global::PLAYER < 8.99f)
-						Global::PLAYER = Global::PLAYER + 0.2f;
-					(*i)->setFlag(0);
+				{int a = (int)Global::PLAYER;
+				if (Global::PLAYER < 8.99f)
+					Global::PLAYER = Global::PLAYER + 0.2f;
+				int b = (int)Global::PLAYER;
+				if (b > a) {
+					PlaySoundMem(Sound::getIns()->getPowerMax(), DX_PLAYTYPE_BACK);
+				}
+				(*i)->setFlag(0); }
 					break;
 				case 5:
 					Global::POWER = Define::POWER_MAX;
 					p->setPowerMax(true);
+					if (!CheckSoundMem(Sound::getIns()->getPowerMax())) {
+						PlaySoundMem(Sound::getIns()->getPowerMax(), DX_PLAYTYPE_BACK);
+					}
 					(*i)->setFlag(0);
 					break;
 				case 6:
 					if (Global::PLAYER < 8.99f)
 						Global::PLAYER = Global::PLAYER + 1.0f;
+					if (!CheckSoundMem(Sound::getIns()->getExtend())) {
+						PlaySoundMem(Sound::getIns()->getExtend(), DX_PLAYTYPE_BACK);
+					}
 					(*i)->setFlag(0);
 					break;
 				case 7:

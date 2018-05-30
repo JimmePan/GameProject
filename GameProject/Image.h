@@ -49,6 +49,7 @@ public:
 	int getSt01Logo() const { return _st01Logo; }
 	int getEn1Face0() const { return _en1Face0; }
 	int getEn2Face0() const { return _en2Face0; }
+	int getBossBackEffect() const { return _bossBackEffect; }
 
 private:
 	int myLoadGraph(const char *);		//原例中传入并非常量，注意，今后会修改
@@ -92,4 +93,5 @@ private:
 	int _st01Logo;
 	int _en1Face0;
 	int _en2Face0;
+	int _bossBackEffect;
 };

@@ -33,16 +33,16 @@ const int Define::BOSS_01_MOVER[] = { 2,3,5,6 };
 const int Define::BOSS_01_SHOTER[] = { 2,1,3,4 };
 const int Define::BOSS_01_HP[] = { 12000,18000,12000,16000 };
 //const int Define::BOSS_01_HP[] = { 2000,2000,2000,5000 };
-const int Define::BOSS_01_ITEM[] = { 0,4,0,6 };
+const int Define::BOSS_01_ITEM[] = { 0,4,0,9 };
 const int Define::BOSS_01_TIME[] = { 25,40,25,25 };
 
 
-const int Define::BOSS_02_MOVER[] = { 0,30,31,31,33,0,0 };
-const int Define::BOSS_02_SHOTER[] = { 33,24,25,26,32,27,33 };
-//const int Define::BOSS_02_MOVER[] = { 30,30,31,31,33,0,0};
-//const int Define::BOSS_02_SHOTER[] = { 23,24,25,26,32,27,33 };
-const int Define::BOSS_02_HP[] = { 12000,18000,12000,16000,16000,28000,60000 };
+//const int Define::BOSS_02_MOVER[] = { 0,30,31,31,33,0,0 };
+//const int Define::BOSS_02_SHOTER[] = { 33,24,25,26,32,27,33 };
+const int Define::BOSS_02_MOVER[] = { 30,30,31,31,33,0,0};
+const int Define::BOSS_02_SHOTER[] = { 23,24,25,26,32,27,33 };
+const int Define::BOSS_02_HP[] = { 12000,18000,12000,16000,16000,32000,99999 };
 //const int Define::BOSS_02_HP[] = { 2000,2000,2000,5000,5000,5000,5000 };
 const int Define::BOSS_02_ITEM[] = { 0,7,0,8,7,9,0 };
-//const int Define::BOSS_02_TIME[] = { 30,38,25,40,60,40,1000 };
-const int Define::BOSS_02_TIME[] = { 1000,38,25,40,60,40,1000 };
+const int Define::BOSS_02_TIME[] = { 30,38,25,40,60,40,1000 };
+//const int Define::BOSS_02_TIME[] = { 1000,38,25,40,60,40,1000 };

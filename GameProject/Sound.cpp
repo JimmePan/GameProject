@@ -32,6 +32,7 @@ Sound::Sound()
 	_rain00 = myLoadSound("E://dat/se/se_rain00.wav", 1);
 	_rain01 = myLoadSound("E://dat/se/se_rain01.wav", 1);
 	_ufo = myLoadSound("E://dat/se/se_ufoalert.wav", 2);
+	_extend = myLoadSound("E://dat/se/se_extend.wav", 1);
 } 
 
 void Sound::release()

@@ -11,7 +11,7 @@ const static int wtime = 140;
 Boss::Boss(float x, float y, int type, int hp, int movePatternID, int shotPatternID, int itemPatternID)
 	:AbstractEnemy(x, y, type, hp, movePatternID, shotPatternID, itemPatternID)
 {
-
+	PlaySoundMem(Sound::getIns()->getCh02(), DX_PLAYTYPE_BACK);
 	_flag = type;
 	_movePatternID = 4;		//น้ฮป
 	_boss = true;

@@ -35,14 +35,14 @@ bool EnemyManager::update()
 			it++;
 		}
 	}
-	/*if (_halfCount == 0) {
+	if (_halfCount == 0) {
 		state01Play();
 	}
 	else
 	{
 		state02Play();
-	}*/
-	state02Play();
+	}
+	//state02Play();
 	_count++;
 	return true;
 }
@@ -88,6 +88,9 @@ void EnemyManager::state01Play()
 {
 	///*第一阶段*/
 	const int step00 = 0;
+	if (_count == 0) {
+		BGM::getIns()->play(0);
+	}
 	if (_count == 10) {
 		_list.emplace_back(make_shared<NormalEnemy>(Define::CENTER_X + 50, 0.f, 9, 50, 7, 0, 1));
 		return;
@@ -182,8 +185,8 @@ void EnemyManager::state01Play()
 	}
 	if (_count == 240) {
 		_list.emplace_back(make_shared<NormalEnemy>(Define::CENTER_X - 160, 0.f, 9, 50, 7, 0, 1));
-		_list.emplace_back(make_shared<BigEnemy>(Define::CENTER_X + 220, 0.f, 0, 800, 9, 6, 5));
-		_list.emplace_back(make_shared<BigEnemy>(Define::CENTER_X - 220, 0.f, 0, 800, 9, 6, 5));
+		_list.emplace_back(make_shared<BigEnemy>(Define::CENTER_X + 220, 0.f, 0, 800, 9, 6, 10));
+		_list.emplace_back(make_shared<BigEnemy>(Define::CENTER_X - 220, 0.f, 0, 800, 9, 6, 3));
 		return;
 	}
 	if (_count == 250) {
@@ -372,10 +375,10 @@ void EnemyManager::state01Play()
 		return;
 	}
 	if (_count - step02 == 600) {
-		_list.emplace_back(make_shared<BigEnemy>(Define::CENTER_X + 180, 0.f, 0, 1200, 14, 8, 5));
+		_list.emplace_back(make_shared<BigEnemy>(Define::CENTER_X + 180, 0.f, 0, 1200, 14, 8, 10));
 		return;
 	}
-	/*第三阶段共840帧，后跟标题显示，下一阶段从2020帧起*/
+	/*第三阶段共840帧，下一阶段从2020帧起*/
 	const int step03 = 2020;
 	if (_count - step03 == 0) {
 		for (int i = 0; i < 7; i++) {
@@ -401,8 +404,8 @@ void EnemyManager::state01Play()
 		return;
 	}
 	if (_count - step03 == 310) {
-		_list.emplace_back(make_shared<NormalEnemy>(0.f, Define::CENTER_Y + 100, 8, 100, 17, 12, 2));
-		_list.emplace_back(make_shared<NormalEnemy>(Define::OUT_W, Define::CENTER_Y + 100, 8, 100, 17, 12, 2));
+		_list.emplace_back(make_shared<NormalEnemy>(0.f, Define::CENTER_Y + 100, 8, 100, 17, 12, 1));
+		_list.emplace_back(make_shared<NormalEnemy>(Define::OUT_W, Define::CENTER_Y + 100, 8, 100, 17, 12, 1));
 		return;
 	}
 	if (_count - step03 == 330) {
@@ -411,8 +414,8 @@ void EnemyManager::state01Play()
 		return;
 	}
 	if (_count - step03 == 350) {
-		_list.emplace_back(make_shared<NormalEnemy>(0.f, Define::CENTER_Y + 100, 8, 100, 17, 12, 2));
-		_list.emplace_back(make_shared<NormalEnemy>(Define::OUT_W, Define::CENTER_Y + 100, 8, 100, 17, 12, 2));
+		_list.emplace_back(make_shared<NormalEnemy>(0.f, Define::CENTER_Y + 100, 8, 100, 17, 12, 1));
+		_list.emplace_back(make_shared<NormalEnemy>(Define::OUT_W, Define::CENTER_Y + 100, 8, 100, 17, 12, 1));
 		return;
 	}
 	if (_count - step03 == 370) {
@@ -421,8 +424,8 @@ void EnemyManager::state01Play()
 		return;
 	}
 	if (_count - step03 == 390) {
-		_list.emplace_back(make_shared<NormalEnemy>(0.f, Define::CENTER_Y + 100, 8, 100, 17, 12, 2));
-		_list.emplace_back(make_shared<NormalEnemy>(Define::OUT_W, Define::CENTER_Y + 100, 8, 100, 17, 12, 2));
+		_list.emplace_back(make_shared<NormalEnemy>(0.f, Define::CENTER_Y + 100, 8, 100, 17, 12, 1));
+		_list.emplace_back(make_shared<NormalEnemy>(Define::OUT_W, Define::CENTER_Y + 100, 8, 100, 17, 12, 1));
 		return;
 	}
 	if (_count - step03 == 410) {
@@ -432,8 +435,8 @@ void EnemyManager::state01Play()
 
 	}
 	if (_count - step03 == 430) {
-		_list.emplace_back(make_shared<NormalEnemy>(0.f, Define::CENTER_Y + 100, 8, 100, 17, 12, 2));
-		_list.emplace_back(make_shared<NormalEnemy>(Define::OUT_W, Define::CENTER_Y + 100, 8, 100, 17, 12, 2));
+		_list.emplace_back(make_shared<NormalEnemy>(0.f, Define::CENTER_Y + 100, 8, 100, 17, 12, 1));
+		_list.emplace_back(make_shared<NormalEnemy>(Define::OUT_W, Define::CENTER_Y + 100, 8, 100, 17, 12, 1));
 		return;
 	}
 	if (_count - step03 == 450) {
@@ -446,17 +449,17 @@ void EnemyManager::state01Play()
 		return;
 	}
 	if (_count - step03 == 540) {
-		_list.emplace_back(make_shared<BigEnemy>(Define::CENTER_X + 130, 0.f, 0, 2400, 18, 13, 5));
+		_list.emplace_back(make_shared<BigEnemy>(Define::CENTER_X + 130, 0.f, 0, 2400, 18, 13, 10));
 		return;
 	}
 	if (_count - step03 >= 660 && _count - step03 <= 990 && (_count - step03) % 15 == 0) {	//660 930
 		int t = _count - step03;
 		if (t % 6 < 3) {
-			_list.emplace_back(make_shared<NormalEnemy>(Define::CENTER_X - 200 - (t % 3) * 100, 0.f, 0 + rand() % (4), 300, 19, 14 + rand() % 2, 2));
+			_list.emplace_back(make_shared<NormalEnemy>(Define::CENTER_X - 200 - (t % 3) * 100, 0.f, 0 + rand() % (4), 300, 19, 14 + rand() % 2, 1));
 		}
 		else
 		{
-			_list.emplace_back(make_shared<NormalEnemy>(Define::CENTER_X + 200 + (t % 3) * 100, 0.f, 0 + rand() % (4), 300, 20, 14 + rand() % 2, 2));
+			_list.emplace_back(make_shared<NormalEnemy>(Define::CENTER_X + 200 + (t % 3) * 100, 0.f, 0 + rand() % (4), 300, 20, 14 + rand() % 2, 5));
 		}
 
 	}
@@ -465,11 +468,11 @@ void EnemyManager::state01Play()
 		return;
 	}
 	if (_count - step03 == 720) {
-		_list.emplace_back(make_shared<BigEnemy>(Define::CENTER_X + 170, 0.f, 0, 2400, 18, 13, 5));
+		_list.emplace_back(make_shared<BigEnemy>(Define::CENTER_X + 170, 0.f, 0, 2400, 18, 13, 1));
 		return;
 	}
 	if (_count - step03 == 840) {
-		_list.emplace_back(make_shared<BigEnemy>(Define::CENTER_X - 140, 0.f, 0, 2400, 18, 13, 5));
+		_list.emplace_back(make_shared<BigEnemy>(Define::CENTER_X - 140, 0.f, 0, 2400, 18, 13, 9));
 		return;
 	}
 	if (_count - step03 == 900) {
@@ -480,6 +483,7 @@ void EnemyManager::state01Play()
 	const int step04 = 3130;
 	if (_count - step04 == 0) {
 		clearEnemy();
+		PlaySoundMem(Sound::getIns()->getEnBreak00(), DX_PLAYTYPE_BACK);
 		CalcUtils::ClearBullet();
 		return;
 	}
@@ -496,15 +500,15 @@ void EnemyManager::state01Play()
 
 void EnemyManager::state02Play() {
 	/*第五阶段跟道中boss后*/
-	//const int step04 = _halfCount;
-	/*const int step04 = 0;
+	const int step04 = _halfCount;
+	//const int step04 = 0;
 	if ((_count - step04) % 10 == 0 && _count - step04 >= 20 && _count - step04 <= 270) {
 		const float a = 430.f;
 		const float b = 360.f;
 		const float r = 300.f;
 		PlaySoundMem(Sound::getIns()->getKira00(), DX_PLAYTYPE_BACK);
 		_list.emplace_back(make_shared<KedamaEnemy>(a + r * cos(Define::PI + (2 * Define::PI / 25)*((_count - step04) / 10 - 2)),
-			b + r * sin(Define::PI + (2 * Define::PI / 25)*((_count - step04) / 10 - 2)), (_count - step04) / 10 % 2, 2400, 21, 0, 5));
+			b + r * sin(Define::PI + (2 * Define::PI / 25)*((_count - step04) / 10 - 2)), (_count - step04) / 10 % 2, 1200, 21, 0, 11));
 		return;
 	}
 	if ((_count - step04) % 10 == 0 && _count - step04 >= 470 && _count - step04 <= 720) {
@@ -513,7 +517,7 @@ void EnemyManager::state02Play() {
 		const float r = 300.f;
 		PlaySoundMem(Sound::getIns()->getKira00(), DX_PLAYTYPE_BACK);
 		_list.emplace_back(make_shared<KedamaEnemy>(a + r * cos(0 - (2 * Define::PI / 25)*((_count - step04 - 470) / 10)),
-			b + r * sin(0 - (2 * Define::PI / 25)*((_count - step04 - 470) / 10)), (_count - step04) / 10 % 2 + 1, 2400, 22, 0, 5));
+			b + r * sin(0 - (2 * Define::PI / 25)*((_count - step04 - 470) / 10)), (_count - step04) / 10 % 2 + 1, 1200, 22, 0, 11));
 		return;
 	}
 	if ((_count - step04) % 10 == 0 && _count - step04 >= 920 && _count - step04 <= 1170) {		//980 1230
@@ -522,7 +526,7 @@ void EnemyManager::state02Play() {
 		const float r = 330.f;
 		PlaySoundMem(Sound::getIns()->getKira00(), DX_PLAYTYPE_BACK);
 		_list.emplace_back(make_shared<KedamaEnemy>(a + r * cos(Define::PI + (2 * Define::PI / 25)*((_count - step04 - 920) / 10)),
-			b + r * sin(Define::PI + (2 * Define::PI / 25)*((_count - step04 - 920) / 10)), (_count - step04) / 10 % 2 + 2, 2400, 21, 0, 5));
+			b + r * sin(Define::PI + (2 * Define::PI / 25)*((_count - step04 - 920) / 10)), (_count - step04) / 10 % 2 + 2, 1200, 21, 0, 11));
 		return;
 	}
 	if ((_count - step04) % 10 == 0 && _count - step04 >= 1370 && _count - step04 <= 1620) {//1370 1620
@@ -531,12 +535,12 @@ void EnemyManager::state02Play() {
 		const float r = 340.f;
 		PlaySoundMem(Sound::getIns()->getKira00(), DX_PLAYTYPE_BACK);
 		_list.emplace_back(make_shared<KedamaEnemy>(a + r * cos(0 - (2 * Define::PI / 25)*((_count - step04 - 1370) / 10)),
-			b + r * sin(0 - (2 * Define::PI / 25)*((_count - step04 - 1370) / 10)), (_count - step04) / 10 % 2 + 1, 2400, 22, 16, 5));
+			b + r * sin(0 - (2 * Define::PI / 25)*((_count - step04 - 1370) / 10)), (_count - step04) / 10 % 2 + 1, 2400, 22, 16, 1));
 		return;
-	}*/
+	}
 	/*第五阶段共1900帧，下一阶段从1900帧起*/
 	//const int step05 = 0;
-	/*const int step05 = _halfCount+1900;
+	const int step05 = _halfCount+1900;
 	if (_count - step05 == 0) {
 		_list.emplace_back(make_shared<NormalEnemy>(Define::CENTER_X - 260, 0.f, 0, 500, 23, 17, 1));
 		return;
@@ -606,13 +610,13 @@ void EnemyManager::state02Play() {
 		_list.emplace_back(make_shared<NormalEnemy>(Define::IN_X + rand() / double(RAND_MAX)*Define::IN_W, 0.f, 3, 500, 26, 19, 1));
 		return;
 	}
-	*/
+	
 	/*第五阶段共600帧，下一阶段从2500帧起*/
-	//const int step06 = _halfCount+2500;
+	const int step06 = _halfCount+2500;
 	//const int step06 = 0;
-	/*if (_count - step06 == 0) {
-		BGM::getIns()->play(0);
-		_list.emplace_back(make_shared<YinyangEnemy>(Define::CENTER_X + 250, 0.f, 0, 500, 27, 20, 1));
+	if (_count - step06 == 0) {
+		//BGM::getIns()->play(0);
+		_list.emplace_back(make_shared<YinyangEnemy>(Define::CENTER_X + 250, 0.f, 0, 500, 27, 20, 10));
 		_list.emplace_back(make_shared<YinyangEnemy>(Define::CENTER_X - 250, 0.f, 2, 500, 27, 20, 1));
 		return;
 	}
@@ -628,7 +632,7 @@ void EnemyManager::state02Play() {
 	}
 	if (_count - step06 == 60) {
 		_list.emplace_back(make_shared<YinyangEnemy>(Define::CENTER_X + 250, 0.f, 0, 500, 27, 20, 1));
-		_list.emplace_back(make_shared<YinyangEnemy>(Define::CENTER_X - 250, 0.f, 2, 500, 27, 20, 1));
+		_list.emplace_back(make_shared<YinyangEnemy>(Define::CENTER_X - 250, 0.f, 2, 500, 27, 20, 3));
 		return;
 	}
 	if (_count - step06 == 80) {
@@ -644,12 +648,12 @@ void EnemyManager::state02Play() {
 	}
 	if (_count - step06 == 270) {
 		_list.emplace_back(make_shared<YinyangEnemy>(Define::CENTER_X + 100, 0.f, 0, 500, 28, 21, 1));
-		_list.emplace_back(make_shared<YinyangEnemy>(Define::CENTER_X - 100, 0.f, 2, 500, 28, 21, 1));
+		_list.emplace_back(make_shared<YinyangEnemy>(Define::CENTER_X - 100, 0.f, 2, 500, 28, 21, 3));
 		return;
 	}
 	if (_count - step06 == 290) {
 		_list.emplace_back(make_shared<YinyangEnemy>(Define::CENTER_X + 100, 0.f, 0, 500, 28, 21, 1));
-		_list.emplace_back(make_shared<YinyangEnemy>(Define::CENTER_X - 100, 0.f, 2, 500, 28, 21, 1));
+		_list.emplace_back(make_shared<YinyangEnemy>(Define::CENTER_X - 100, 0.f, 2, 500, 28, 21, 10));
 		return;
 	}
 	if (_count - step06 == 310) {
@@ -668,27 +672,28 @@ void EnemyManager::state02Play() {
 		return;
 	}
 	if (_count - step06 == 480) {
-		_list.emplace_back(make_shared<YinyangEnemy>(Define::CENTER_X + 300, 0.f, 0, 500, 27, 20, 1));
+		_list.emplace_back(make_shared<YinyangEnemy>(Define::CENTER_X + 300, 0.f, 0, 500, 27, 20, 3));
 		_list.emplace_back(make_shared<YinyangEnemy>(Define::CENTER_X - 300, 0.f, 2, 500, 27, 20, 1));
 		return;
 	}
 	if (_count - step06 == 500) {
 		_list.emplace_back(make_shared<YinyangEnemy>(Define::CENTER_X + 300, 0.f, 0, 500, 27, 20, 1));
-		_list.emplace_back(make_shared<YinyangEnemy>(Define::CENTER_X - 300, 0.f, 2, 500, 27, 20, 1));
+		_list.emplace_back(make_shared<YinyangEnemy>(Define::CENTER_X - 300, 0.f, 2, 500, 27, 20, 10));
 		return;
 	}
 	if (_count - step06 == 680) {
-		_list.emplace_back(make_shared<BigEnemy>(Define::CENTER_X , 0.f, 1, 5000, 29, 22, 1));
+		_list.emplace_back(make_shared<BigEnemy>(Define::CENTER_X , 0.f, 1, 8000, 29, 22, 9));
 		return;
 	}
 	if (_count - step06 == 1100) {
 		clearEnemy();
+		PlaySoundMem(Sound::getIns()->getEnBreak00(), DX_PLAYTYPE_BACK);
 		CalcUtils::ClearBullet();
 		return;
-	}*/
-	//if (_count - step06 == 1120) {
-	const int step06 = 0;
-	if (_count - step06 == 10) {
+	}
+	//const int step06 = 0;
+	if (_count - step06 == 1120) {
+	//if (_count - step06 == 10) {
 		_list.emplace_back(make_shared<TataraKogasa>(0.f , 200.f, 7, 5000, 29, 28, 1));
 		return;
 	}

@@ -24,6 +24,8 @@ void TataraKogasa::draw() const
 		_spellEffectFlag = false;
 		EffectManager::addSpellCardEffect(1);
 	}
+
+	DrawRotaGraphF(_x, _y, 2.5f + 0.8f*cos(_counter*Define::PI / 60), _counter % 60 * Define::PI / 30, Image::getIns()->getBossBackEffect(), TRUE);
 	const static int imgID[6] = { 0,1,2,3,2,1 };
 	const static int DimgID[6] = { 3,2,1,0,1,2 };
 	int add;

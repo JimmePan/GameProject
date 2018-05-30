@@ -20,6 +20,7 @@ void Cirno::draw() const
 		_spellEffectFlag = false;
 		EffectManager::addSpellCardEffect(0);
 	}
+	DrawRotaGraphF(_x, _y, 2.5f + 0.8f*cos(_counter*Define::PI / 60), _counter % 60 * Define::PI / 30, Image::getIns()->getBossBackEffect(), TRUE);
 	const static int imgID[6] = { 0,1,2,3,2,1 };
 	const static int DimgID[6] = { 3,2,1,0,1,2 };
 	int add;
@@ -69,6 +70,7 @@ void Cirno::draw() const
 }
 void Cirno::reset()
 {
+	_spellEffectFlag = true;
 	_endTime = Define::BOSS_01_TIME[_type - _flag] * 60;
 	_state = 1;		//×´Ì¬´ý»ú
 	_waitTime = 0;

@@ -42,6 +42,7 @@ Image::Image()
 	_st01Logo = myLoadGraph("E://dat/image/front/logo/st01logo.png");
 	_en1Face0 = myLoadGraph("E://dat/image/face/enemy1/face0ct.png");
 	_en2Face0 = myLoadGraph("E://dat/image/face/enemy2/face02n2.png");
+	_bossBackEffect = myLoadGraph("E://dat/image/effect/boss_back.png");
 }
 
 void Image::release()

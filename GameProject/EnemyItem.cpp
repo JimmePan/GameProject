@@ -33,6 +33,9 @@ void EnemyItem::setFunction()
 	_itemPattern.push_back(&EnemyItem::itemPattern07);
 	_itemPattern.push_back(&EnemyItem::itemPattern08);
 	_itemPattern.push_back(&EnemyItem::itemPattern09);
+	_itemPattern.push_back(&EnemyItem::itemPattern10);
+	_itemPattern.push_back(&EnemyItem::itemPattern11);
+
 }
 /*ÎÞµÀ¾ßµôÂä*/
 void EnemyItem::itemPattern00(AbstractEnemy * enemy)
@@ -130,6 +133,22 @@ void EnemyItem::itemPattern09(AbstractEnemy * enemy) {
 		addb(x, y);
 	}
 	addUP(x, y);
+}
+
+//0.2 + 1up
+void EnemyItem::itemPattern10(AbstractEnemy * enemy) {
+	const float x = enemy->getX();
+	const float y = enemy->getY();
+	addp(x, y);
+	addup(x, y);
+}
+// 3 À¶
+void EnemyItem::itemPattern11(AbstractEnemy * enemy) {
+	const float x = enemy->getX();
+	const float y = enemy->getY();
+	for (int i = 0; i < 5; i++) {
+		addb(x, y);
+	}
 }
 
 void EnemyItem::addp(float x, float y)
